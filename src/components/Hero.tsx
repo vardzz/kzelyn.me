@@ -35,51 +35,6 @@ export function Hero() {
           </a>
         </div>
         
-        {/* Skills Container (Hidden on Mobile) */}
-        <div className="hidden lg:flex gap-5 bg-surface/70 backdrop-blur-md rounded-[20px] py-[30px] px-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/60 max-w-[650px]">
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="text-[#B9664B] flex">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <circle cx="12" cy="12" r="6"/>
-                  <circle cx="12" cy="12" r="2"/>
-                  <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
-                </svg>
-              </div>
-              <span className="font-montserrat font-bold text-[13px] text-primary-dark tracking-[0.5px]">STRATEGIC</span>
-            </div>
-            <p className="text-[12px] leading-[1.5] text-[#666]">I turn ideas into strategies that drive real results.</p>
-          </div>
-          
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="text-[#B9664B] flex">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M11 11.5v-1a4.5 4.5 0 0 1 4.5-4.5h.5A2.5 2.5 0 0 1 18.5 8.5v3A2.5 2.5 0 0 1 16 14h-.5a4.5 4.5 0 0 1-4.5-4.5v-1z"/>
-                  <path d="M16 14v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4"/>
-                  <path d="M6 14h2"/>
-                  <path d="M4 11h3"/>
-                  <path d="M5 8h2"/>
-                </svg>
-              </div>
-              <span className="font-montserrat font-bold text-[13px] text-primary-dark tracking-[0.5px]">CREATIVE</span>
-            </div>
-            <p className="text-[12px] leading-[1.5] text-[#666]">I craft campaigns that capture attention and value.</p>
-          </div>
-          
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="text-[#B9664B] flex">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 20V10M12 20V4M6 20v-6"/>
-                </svg>
-              </div>
-              <span className="font-montserrat font-bold text-[13px] text-primary-dark tracking-[0.5px]">ANALYTICAL</span>
-            </div>
-            <p className="text-[12px] leading-[1.5] text-[#666]">I use data to understand, adapt, and grow.</p>
-          </div>
-        </div>
       </div>
 
       {/* Right Column (Visuals & Floating Cards) */}
