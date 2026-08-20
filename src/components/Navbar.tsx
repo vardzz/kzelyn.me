@@ -14,28 +14,37 @@ export function Navbar() {
   const [active, setActive] = useState(sections[0]);
 
   useEffect(() => {
-    // Only run intersection observer on mobile (where we scroll vertically)
     if (window.innerWidth >= 1024) return;
 
-    const scroller = document.getElementById('horizontal-scroller');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const section = sections.find(s => s.id === entry.target.id);
-            if (section) setActive(section);
-          }
-        });
-      },
-      { root: scroller, threshold: 0.5 } // Trigger when 50% of the section is visible inside the scroller
-    );
+    let observer: IntersectionObserver;
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const initObserver = () => {
+      const scroller = document.getElementById('horizontal-scroller');
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const section = sections.find(s => s.id === entry.target.id);
+              if (section) setActive(section);
+            }
+          });
+        },
+        { root: scroller, threshold: 0.5 } // Trigger when 50% of the section is visible inside the scroller
+      );
 
-    return () => observer.disconnect();
+      sections.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    };
+
+    // Delay initialization slightly to ensure all child components in page.tsx are mounted
+    const timeoutId = setTimeout(initObserver, 200);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   const currentIndex = sections.findIndex(s => s.id === active.id);
