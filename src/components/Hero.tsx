@@ -84,18 +84,7 @@ export function Hero() {
         </div>
       </div>
       
-      {/* Mobile Footer Marker */}
-      <div className="lg:hidden flex items-center justify-between mt-10 w-full text-primary-dark pb-6">
-        <div className="flex items-center gap-4">
-          <div className="border-2 border-[#C99886]/40 text-[#C99886] rounded-md px-3 py-1 font-bebas text-3xl leading-none">01</div>
-          <span className="font-montserrat font-bold text-[11px] tracking-[2px] text-[#444]">INTRODUCTION</span>
-        </div>
-        <button className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </div>
+
 
     </section>
   );
