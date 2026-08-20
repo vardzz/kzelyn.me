@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
+import { Tool } from '@/components/Tool';
 import { HorizontalScroller } from '@/components/HorizontalScroller';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <HorizontalScroller>
           <Hero />
           <About />
+          <Tool />
         </HorizontalScroller>
       </main>
     </div>
