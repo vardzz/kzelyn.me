@@ -61,19 +61,19 @@ export function Navbar() {
         {/* Decorative Grid Background */}
         <div className="absolute left-0 top-0 w-[50%] h-full opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#B9664B 2.5px, transparent 2.5px)', backgroundSize: '16px 16px' }}></div>
         
-        <div className="flex items-center gap-3 relative z-10">
-          {currentIndex > 0 && (
-            <button onClick={handlePrev} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity bg-background/50">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-            </button>
-          )}
+        <div className="flex items-center gap-4 relative z-10">
           <div className="border-2 border-[#C99886]/40 text-[#C99886] rounded-md px-3 py-1 font-bebas text-3xl leading-none bg-background/50 transition-all">{active.num}</div>
           <span className="font-montserrat font-bold text-[11px] tracking-[2px] text-[#444] pt-1 transition-all uppercase">{active.title}</span>
         </div>
         
-        <div className="relative z-10 w-10 h-10">
+        <div className="flex items-center gap-2 relative z-10">
+          {currentIndex > 0 && (
+            <button onClick={handlePrev} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity bg-background/50">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+            </button>
+          )}
           {currentIndex < sections.length - 1 && (
             <button onClick={handleNext} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity bg-background/50">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
