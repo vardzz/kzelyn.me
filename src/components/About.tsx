@@ -1,9 +1,9 @@
 export function About() {
   return (
-    <section id="about" className="flex flex-col lg:flex-row w-full lg:w-screen shrink-0 lg:h-screen pt-20 lg:pt-0 px-6 lg:px-40 items-center justify-between z-10 relative overflow-hidden lg:overflow-visible">
+    <section id="about" className="flex flex-col lg:flex-row w-full lg:w-screen shrink-0 lg:h-screen pt-20 pb-32 lg:py-0 px-6 lg:px-40 items-center justify-between z-10 relative overflow-hidden lg:overflow-visible bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none my-10 lg:my-0 mx-2 lg:mx-0">
       
       {/* Left Column (Text & Stats) */}
-      <div className="flex-1 flex flex-col justify-center items-start max-w-full lg:max-w-[600px] text-left z-20 mt-10 lg:mt-0">
+      <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-full lg:max-w-[600px] text-center lg:text-left z-20 mt-10 lg:mt-0">
         <div className="font-montserrat text-[#B9664B] font-bold text-[12px] lg:text-[14px] tracking-[2px] mb-4 lg:mb-6 uppercase">
           About Me
         </div>
@@ -17,26 +17,26 @@ export function About() {
         </p>
         
         {/* Stats */}
-        <div className="flex items-start gap-8 lg:gap-16">
+        <div className="flex items-start justify-center lg:justify-start gap-4 sm:gap-8 lg:gap-16 w-full lg:w-auto">
           <div>
-            <div className="font-inter font-bold text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">1+</div>
-            <div className="font-inter text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Projects<br/>Completed</div>
+            <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">1+</div>
+            <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Projects<br/>Completed</div>
           </div>
           <div>
-            <div className="font-inter font-bold text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">10+</div>
-            <div className="font-inter text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Campaigns<br/>Supported</div>
+            <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">10+</div>
+            <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Campaigns<br/>Supported</div>
           </div>
           <div>
-            <div className="font-inter font-bold text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">100%</div>
-            <div className="font-inter text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Passion for<br/>Marketing</div>
+            <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">100%</div>
+            <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Passion for<br/>Marketing</div>
           </div>
         </div>
       </div>
 
       {/* Right Column (Image & Badge) */}
-      <div className="w-full lg:flex-1 relative mt-20 lg:mt-0 flex justify-center lg:justify-end items-center h-full pb-24 lg:pb-0">
+      <div className="w-full lg:flex-1 relative mt-16 lg:mt-0 flex justify-center lg:justify-end items-center h-full pb-10 lg:pb-0">
         
-        <div className="relative w-[300px] h-[450px] lg:w-[420px] lg:h-[600px]">
+        <div className="relative w-[280px] h-[380px] lg:w-[420px] lg:h-[600px] order-first lg:order-last mx-auto lg:mx-0">
           {/* Pill Image Container */}
           <div className="w-full h-full rounded-[200px] overflow-hidden bg-white/50 border border-white/40 shadow-xl relative z-10">
             {/* Using a placeholder unsplash image that matches the notebook/laptop vibe */}
@@ -48,11 +48,11 @@ export function About() {
           </div>
 
           {/* Floating Badge */}
-          <div className="absolute top-[40%] -left-[40px] lg:-left-[60px] w-[110px] h-[110px] lg:w-[140px] lg:h-[140px] bg-[#E0BAA9] rounded-full flex items-center justify-center shadow-lg z-20">
+          <div className="absolute top-[35%] lg:top-[40%] -left-[30px] lg:-left-[60px] w-[100px] h-[100px] lg:w-[140px] lg:h-[140px] bg-[#E0BAA9] rounded-full flex items-center justify-center shadow-lg z-20">
             {/* Rotating Text */}
-            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full p-2" style={{ animation: 'spin 15s linear infinite' }}>
+            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full p-1.5 lg:p-2" style={{ animation: 'spin 15s linear infinite' }}>
               <path id="curve" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
-              <text className="text-[12px] font-montserrat font-bold tracking-[2px] uppercase fill-primary-dark">
+              <text className="text-[12.5px] lg:text-[12px] font-montserrat font-bold tracking-[2px] uppercase fill-primary-dark">
                 <textPath href="#curve" startOffset="0%">
                   CREATE • GROW • THRIVE • 
                 </textPath>
