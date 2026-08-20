@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
 
-@theme {
+@theme inline {
   --color-background: #F6EDE5;
   --color-surface: #F5ECE4;
   --color-primary-dark: #1B1A19;
