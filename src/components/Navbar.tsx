@@ -17,6 +17,7 @@ export function Navbar() {
     // Only run intersection observer on mobile (where we scroll vertically)
     if (window.innerWidth >= 1024) return;
 
+    const scroller = document.getElementById('horizontal-scroller');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,7 +27,7 @@ export function Navbar() {
           }
         });
       },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
+      { root: scroller, threshold: 0.5 } // Trigger when 50% of the section is visible inside the scroller
     );
 
     sections.forEach(({ id }) => {
@@ -37,11 +38,19 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const currentIndex = sections.findIndex(s => s.id === active.id);
+
   const handleNext = () => {
-    const currentIndex = sections.findIndex(s => s.id === active.id);
     if (currentIndex < sections.length - 1) {
       const nextSection = sections[currentIndex + 1];
       document.getElementById(nextSection.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      const prevSection = sections[currentIndex - 1];
+      document.getElementById(prevSection.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   };
 
@@ -52,16 +61,27 @@ export function Navbar() {
         {/* Decorative Grid Background */}
         <div className="absolute left-0 top-0 w-[50%] h-full opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#B9664B 2.5px, transparent 2.5px)', backgroundSize: '16px 16px' }}></div>
         
-        <div className="flex items-center gap-4 relative z-10">
+        <div className="flex items-center gap-3 relative z-10">
+          {currentIndex > 0 && (
+            <button onClick={handlePrev} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity bg-background/50">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+            </button>
+          )}
           <div className="border-2 border-[#C99886]/40 text-[#C99886] rounded-md px-3 py-1 font-bebas text-3xl leading-none bg-background/50 transition-all">{active.num}</div>
           <span className="font-montserrat font-bold text-[11px] tracking-[2px] text-[#444] pt-1 transition-all uppercase">{active.title}</span>
         </div>
         
-        <button onClick={handleNext} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity relative z-10 bg-background/50">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </button>
+        <div className="relative z-10 w-10 h-10">
+          {currentIndex < sections.length - 1 && (
+            <button onClick={handleNext} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity bg-background/50">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          )}
+        </div>
       </nav>
     </>
   );
