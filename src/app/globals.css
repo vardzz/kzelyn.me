@@ -19,7 +19,14 @@ body {
   background-color: var(--color-background);
   color: var(--color-primary-dark);
   font-family: var(--font-inter);
-  overflow-x: hidden;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 a {
