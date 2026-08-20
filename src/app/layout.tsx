@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="font-inter bg-background text-primary-dark overflow-x-hidden">
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>
