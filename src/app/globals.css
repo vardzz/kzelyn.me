@@ -1,24 +1,24 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
 
-:root {
-  --background: #F6EDE5;
-  --surface: #F5ECE4;
-  --primary-dark: #1B1A19;
-  --accent: #C99886;
-  --secondary-accent: #E0BAA9;
-  --white: #FFFFFF;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@theme {
+  --color-background: #F6EDE5;
+  --color-surface: #F5ECE4;
+  --color-primary-dark: #1B1A19;
+  --color-accent: #C99886;
+  --color-secondary-accent: #E0BAA9;
+  --color-white: #FFFFFF;
+  
+  --font-bebas: 'Bebas Neue', sans-serif;
+  --font-great-vibes: 'Great Vibes', cursive;
+  --font-inter: 'Inter', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--primary-dark);
-  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-primary-dark);
+  font-family: var(--font-inter);
   overflow-x: hidden;
 }
 
