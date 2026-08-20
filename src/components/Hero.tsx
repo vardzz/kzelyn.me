@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section id="hero" className="flex flex-col lg:flex-row w-full lg:w-screen shrink-0 lg:h-screen pt-10 lg:pt-5 px-6 lg:px-40 z-10 relative overflow-hidden lg:overflow-visible">
+    <section id="hero" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] pt-10 lg:pt-5 px-6 lg:px-40 z-10 relative overflow-y-auto lg:overflow-visible snap-center">
       
       <div className="flex flex-col lg:flex-row w-full flex-1">
         {/* Left Column (Text & Skills) */}

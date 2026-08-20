@@ -37,6 +37,14 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const handleNext = () => {
+    const currentIndex = sections.findIndex(s => s.id === active.id);
+    if (currentIndex < sections.length - 1) {
+      const nextSection = sections[currentIndex + 1];
+      document.getElementById(nextSection.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+  };
+
   return (
     <>
       {/* Mobile Navbar */}
@@ -49,7 +57,7 @@ export function Navbar() {
           <span className="font-montserrat font-bold text-[11px] tracking-[2px] text-[#444] pt-1 transition-all uppercase">{active.title}</span>
         </div>
         
-        <button className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity relative z-10 bg-background/50">
+        <button onClick={handleNext} className="border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity relative z-10 bg-background/50">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>

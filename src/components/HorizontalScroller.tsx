@@ -28,7 +28,7 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
   return (
     <div 
       ref={containerRef} 
-      className="flex flex-col lg:flex-row w-full lg:w-screen lg:h-screen lg:overflow-x-auto lg:overflow-y-hidden hide-scrollbar"
+      className="flex flex-row w-screen h-[100dvh] overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar"
     >
       {children}
     </div>
