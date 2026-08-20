@@ -1,4 +1,5 @@
 import { Hero } from '@/components/Hero';
+import { About } from '@/components/About';
 import { HorizontalScroller } from '@/components/HorizontalScroller';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="flex flex-1 flex-col">
         <HorizontalScroller>
           <Hero />
+          <About />
         </HorizontalScroller>
       </main>
     </div>
