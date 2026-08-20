@@ -11,7 +11,7 @@ export function Tool() {
   ];
 
   return (
-    <section id="skills" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-center justify-center lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
+    <section id="tool" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-center justify-center lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
       
       {/* Decorative Background Line */}
       <div className="hidden lg:block absolute bottom-0 right-0 w-[40%] h-full opacity-20 pointer-events-none overflow-hidden">
