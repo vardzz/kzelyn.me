@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Navbar() {
   return (
-    <nav className="flex justify-between items-center py-6 px-20 z-10 relative">
+    <nav className="flex justify-between items-center py-6 px-20 z-50 sticky top-0 w-full backdrop-blur-md bg-background/80 border-b border-white/20">
       <div className="flex items-center gap-3 font-inter font-bold text-xl text-primary-dark">
         <span className="text-[32px] font-extrabold tracking-[-2px]">K</span>
         <span>Kzelyn Artilo</span>

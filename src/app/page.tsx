@@ -1,5 +1,3 @@
-import { Navbar } from '@/components/Navbar';
-
 export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden flex flex-col font-inter bg-background text-primary-dark">
@@ -8,9 +6,6 @@ export default function Home() {
       <div className="absolute top-[15%] -right-[10%] w-[800px] h-[800px] rounded-full border border-white z-0 opacity-80"></div>
       <div className="absolute bottom-[15%] right-[32%] w-8 h-8 bg-[#B9664B] rounded-full z-10"></div>
       <div className="absolute bottom-0 left-0 w-[150px] h-[150px] opacity-40 z-0 bg-[radial-gradient(#C99886_15%,transparent_15%)]" style={{ backgroundSize: '20px 20px' }}></div>
-
-      {/* Navigation */}
-      <Navbar />
 
       {/* Main Content */}
       <main className="flex flex-1 pt-5 pb-10 px-20 z-10 relative">
