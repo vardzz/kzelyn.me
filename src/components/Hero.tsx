@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="flex flex-col lg:flex-row w-full lg:w-screen shrink-0 lg:h-screen pt-10 lg:pt-5 pb-10 px-6 lg:px-20 z-10 relative overflow-hidden lg:overflow-visible">
+    <section className="flex flex-col lg:flex-row w-full lg:w-screen shrink-0 lg:h-screen pt-10 lg:pt-5 px-6 lg:px-20 z-10 relative overflow-hidden lg:overflow-visible">
       
       <div className="flex flex-col lg:flex-row w-full flex-1">
         {/* Left Column (Text & Skills) */}
@@ -21,7 +21,7 @@ export function Hero() {
             A fresh graduate in Marketing Management with a passion for building brands, connecting with people, and creating impact through strategic ideas.
           </p>
           
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10 mb-16 lg:mb-20 w-full lg:w-auto">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10 w-full lg:w-auto">
             <button className="bg-primary-dark text-white py-4 px-8 rounded-full font-inter font-semibold text-[15px] flex items-center justify-center gap-3 cursor-pointer border-none transition-all hover:-translate-y-0.5 hover:bg-[#333] w-[200px] lg:w-auto">
               View My Work
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
