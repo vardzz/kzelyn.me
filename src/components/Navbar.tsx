@@ -29,7 +29,7 @@ export function Navbar() {
             }
           });
         },
-        { root: scroller, threshold: 0.5 } // Trigger when 50% of the section is visible inside the scroller
+        { root: scroller, threshold: 0.3 } // Lower threshold for better mobile detection
       );
 
       sections.forEach(({ id }) => {
@@ -38,8 +38,8 @@ export function Navbar() {
       });
     };
 
-    // Delay initialization slightly to ensure all child components in page.tsx are mounted
-    const timeoutId = setTimeout(initObserver, 200);
+    // Increase delay to ensure all DOM nodes are fully rendered
+    const timeoutId = setTimeout(initObserver, 500);
 
     return () => {
       clearTimeout(timeoutId);
@@ -52,6 +52,7 @@ export function Navbar() {
   const handleNext = () => {
     if (currentIndex < sections.length - 1) {
       const nextSection = sections[currentIndex + 1];
+      setActive(nextSection); // Optimistic UI update
       document.getElementById(nextSection.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   };
@@ -59,6 +60,7 @@ export function Navbar() {
   const handlePrev = () => {
     if (currentIndex > 0) {
       const prevSection = sections[currentIndex - 1];
+      setActive(prevSection); // Optimistic UI update
       document.getElementById(prevSection.id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   };
