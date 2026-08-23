@@ -9,11 +9,24 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
     const container = containerRef.current;
     if (!container) return;
 
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleWheel = (e: WheelEvent) => {
-      // Apply horizontal scroll hijacking only on desktop screens
       if (window.innerWidth >= 1024) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
+        // If it's primarily a vertical scroll (like a standard mouse wheel)
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          
+          // Temporarily disable snapping so the wheel scroll doesn't snap back immediately
+          container.style.scrollSnapType = 'none';
+          container.scrollLeft += e.deltaY;
+
+          // Re-enable snapping after the user stops scrolling
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            container.style.scrollSnapType = 'x mandatory';
+          }, 150);
+        }
       }
     };
 
@@ -22,6 +35,7 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
 
     return () => {
       container.removeEventListener('wheel', handleWheel);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
