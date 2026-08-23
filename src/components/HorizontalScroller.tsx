@@ -17,11 +17,10 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
     let mm = gsap.matchMedia();
     
     mm.add("(min-width: 1024px)", () => {
-      
+      // Use a more robust calculation pattern for React/Next.js
       const getScrollAmount = () => {
-        if (!wrapperRef.current) return 0;
-        let wrapperWidth = wrapperRef.current.scrollWidth;
-        return -(wrapperWidth - window.innerWidth);
+        let scrollWidth = wrapperRef.current ? wrapperRef.current.scrollWidth : 0;
+        return -(scrollWidth - window.innerWidth);
       };
 
       const tween = gsap.to(wrapperRef.current, {
@@ -32,15 +31,16 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`,
+        // Make the scroll distance equal to the total width of the content for natural scrolling speed
+        end: () => `+=${wrapperRef.current ? wrapperRef.current.scrollWidth : 3000}`,
         pin: true,
         animation: tween,
-        scrub: 1, // Smooth scrubbing, takes 1 second to "catch up"
+        scrub: 1, 
         invalidateOnRefresh: true,
       });
 
       return () => {
-        // matchMedia handles reverting automatically
+        if (tween) tween.kill();
       };
     });
     
