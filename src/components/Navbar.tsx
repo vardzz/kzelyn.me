@@ -6,8 +6,9 @@ const sections = [
   { id: 'hero', num: '01', title: 'INTRODUCTION' },
   { id: 'about', num: '02', title: 'ABOUT ME' },
   { id: 'tool', num: '03', title: 'TOOL' },
-  { id: 'skills', num: '04', title: 'SKILLS' },
-  { id: 'contact', num: '05', title: 'CONTACT' },
+  { id: 'work', num: '04', title: 'WORK' },
+  { id: 'skills', num: '05', title: 'SKILLS' },
+  { id: 'contact', num: '06', title: 'CONTACT' },
 ];
 
 export function Navbar() {
