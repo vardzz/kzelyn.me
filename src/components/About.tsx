@@ -3,7 +3,7 @@ export function About() {
     <section id="about" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-2 lg:px-40 items-center justify-between z-10 relative overflow-y-auto lg:overflow-visible snap-center">
       
       {/* Mobile Pill Wrapper */}
-      <div className="w-full min-h-[90%] lg:min-h-full flex flex-col lg:flex-row items-center justify-between pt-16 pb-32 lg:py-0 px-4 lg:px-0 bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none my-auto">
+      <div className="w-full min-h-[90%] lg:min-h-full flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:py-0 px-4 lg:px-0 bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none mt-10 mb-28 lg:my-auto">
         
         {/* Left Column (Text & Stats) */}
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-full lg:max-w-[600px] text-center lg:text-left z-20 mt-10 lg:mt-0">

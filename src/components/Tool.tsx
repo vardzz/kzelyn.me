@@ -11,14 +11,14 @@ export function Tool() {
   ];
 
   return (
-    <section id="tool" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-center justify-center lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
+    <section id="tool" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-center justify-start lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
       
       {/* Decorative Background Line */}
       <div className="hidden lg:block absolute bottom-0 right-0 w-[40%] h-full opacity-20 pointer-events-none overflow-hidden">
         <div className="absolute top-[30%] left-0 w-[200%] h-[2px] bg-white/20 -rotate-45 transform origin-left"></div>
       </div>
 
-      <div className="flex flex-col lg:flex-row w-full h-full lg:items-center py-20 lg:py-0 max-w-[1400px] mx-auto">
+      <div className="flex flex-col lg:flex-row w-full min-h-full lg:items-center pt-20 pb-32 lg:py-0 max-w-[1400px] mx-auto">
         
         {/* Left Column: Heading and Skills */}
         <div className="flex-1 flex flex-col justify-center max-w-full lg:max-w-[500px] z-20">
