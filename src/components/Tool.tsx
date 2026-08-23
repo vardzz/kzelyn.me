@@ -99,6 +99,9 @@ export function Tool() {
 
             </div>
           </div>
+          
+          {/* Spacer for mobile navbar */}
+          <div className="h-32 lg:h-0 w-full flex-shrink-0"></div>
         </div>
 
       </div>

@@ -71,6 +71,9 @@ export function About() {
           </div>
           
         </div>
+        
+        {/* Spacer for mobile navbar */}
+        <div className="h-24 lg:hidden w-full flex-shrink-0"></div>
       </div>
     </section>
   );
