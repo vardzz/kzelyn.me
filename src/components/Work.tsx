@@ -37,7 +37,7 @@ export function Work() {
   return (
     <section id="work" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-start lg:items-center justify-start lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center">
       
-      <div className="flex flex-col w-full min-h-full lg:items-start pt-16 pb-32 lg:py-0 max-w-[1400px] mx-auto justify-center">
+      <div className="flex flex-col w-full min-h-full lg:items-start pt-16 pb-32 lg:py-0 max-w-[1400px] mx-auto justify-start lg:justify-center">
         
         {/* Header */}
         <div className="mb-6 lg:mb-12">
