@@ -2,6 +2,7 @@ import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Tool } from '@/components/Tool';
 import { Work } from '@/components/Work';
+import { Connect } from '@/components/Connect';
 import { HorizontalScroller } from '@/components/HorizontalScroller';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
           <About />
           <Tool />
           <Work />
+          <Connect />
         </HorizontalScroller>
       </main>
     </div>
