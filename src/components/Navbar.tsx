@@ -118,7 +118,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed bottom-0 lg:bottom-6 left-0 lg:left-1/2 lg:-translate-x-1/2 w-full lg:w-auto flex items-center justify-between lg:gap-8 z-50 bg-background/90 backdrop-blur-md border-t lg:border border-[#DCC3B6]/60 py-3 px-6 lg:px-7 lg:rounded-full overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.05)] lg:shadow-[0_10px_35px_rgba(0,0,0,0.1)] transition-all">
+    <nav className="flex lg:hidden fixed bottom-0 left-0 w-full items-center justify-between z-50 bg-background/90 backdrop-blur-md border-t border-[#DCC3B6]/50 py-4 px-6 overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
       {/* Decorative Grid Pattern */}
       <div
         className="absolute left-0 top-0 w-[50%] h-full opacity-20 pointer-events-none"
