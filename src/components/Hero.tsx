@@ -1,3 +1,5 @@
+'use client';
+
 export function Hero() {
   return (
     <section id="hero" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] pt-10 lg:pt-5 px-6 lg:px-40 z-10 relative overflow-y-auto lg:overflow-visible snap-center">
@@ -22,7 +24,14 @@ export function Hero() {
           </p>
           
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10 w-full lg:w-auto">
-            <button className="bg-primary-dark text-white py-4 px-8 rounded-full font-inter font-semibold text-[15px] flex items-center justify-center gap-3 cursor-pointer border-none transition-all hover:-translate-y-0.5 hover:bg-[#333] w-[200px] lg:w-auto">
+            <button 
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('navigateToSection', { detail: 'work' }));
+                }
+              }}
+              className="bg-primary-dark text-white py-4 px-8 rounded-full font-inter font-semibold text-[15px] flex items-center justify-center gap-3 cursor-pointer border-none transition-all hover:-translate-y-0.5 hover:bg-[#333] w-[200px] lg:w-auto"
+            >
               View My Work
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />

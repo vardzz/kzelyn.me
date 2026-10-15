@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -12,39 +12,80 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // We strictly isolate GSAP to desktop breakpoints (1024px and up)
-    // to preserve the native horizontal scrolling behavior on mobile.
     let mm = gsap.matchMedia();
     
     mm.add("(min-width: 1024px)", () => {
-      // Use a more robust calculation pattern for React/Next.js
       const getScrollAmount = () => {
-        let scrollWidth = wrapperRef.current ? wrapperRef.current.scrollWidth : 0;
-        return -(scrollWidth - window.innerWidth);
+        let sw = wrapperRef.current ? wrapperRef.current.scrollWidth : 0;
+        return -(sw - window.innerWidth);
       };
 
       const tween = gsap.to(wrapperRef.current, {
-        x: getScrollAmount,
+        x: () => -(wrapperRef.current ? wrapperRef.current.scrollWidth - window.innerWidth : 0),
         ease: "none"
       });
 
-      ScrollTrigger.create({
+      const sectionCount = wrapperRef.current ? wrapperRef.current.children.length : 5;
+
+      const st = ScrollTrigger.create({
+        id: 'horizontal-scroll-trigger',
         trigger: containerRef.current,
         start: "top top",
-        // Make the scroll distance equal to the total width of the content for natural scrolling speed
-        end: () => `+=${wrapperRef.current ? wrapperRef.current.scrollWidth : 3000}`,
+        end: () => `+=${wrapperRef.current ? wrapperRef.current.scrollWidth - window.innerWidth : 3000}`,
         pin: true,
         animation: tween,
         scrub: 1, 
         invalidateOnRefresh: true,
+        snap: {
+          snapTo: (progress) => {
+            const step = 1 / (sectionCount - 1);
+            return Math.round(progress / step) * step;
+          },
+          duration: { min: 0.2, max: 0.5 },
+          ease: "power1.inOut"
+        },
+        onUpdate: (self) => {
+          const activeIndex = Math.min(
+            sectionCount - 1,
+            Math.max(0, Math.round(self.progress * (sectionCount - 1)))
+          );
+          window.dispatchEvent(new CustomEvent('activeSectionChange', { detail: activeIndex }));
+        }
       });
 
       return () => {
-        if (tween) tween.kill();
+        st.kill();
+        tween.kill();
       };
     });
     
   }, { scope: containerRef });
+
+  useEffect(() => {
+    // Enable trackpad horizontal swipe & keyboard navigation on desktop
+    const handleWheel = (e: WheelEvent) => {
+      if (window.innerWidth < 1024) return;
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 2) {
+        window.scrollBy({ top: e.deltaX * 1.5, behavior: 'auto' });
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (window.innerWidth < 1024) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        window.scrollBy({ top: window.innerWidth * 0.8, behavior: 'smooth' });
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        window.scrollBy({ top: -window.innerWidth * 0.8, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <div ref={containerRef} className="lg:h-screen lg:w-screen lg:overflow-hidden relative z-0">
