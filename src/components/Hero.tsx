@@ -66,7 +66,7 @@ export function Hero() {
           
           <div className="hidden lg:block absolute top-[36%] left-[22%] w-[140px] h-[220px] border-l border-b border-white rounded-bl-[80px] opacity-60 z-0 pointer-events-none"></div>
           
-          <div className="relative lg:absolute lg:bottom-[22%] lg:left-[16%] bg-primary-dark text-white py-8 lg:py-8 px-[24px] lg:px-[28px] rounded-[24px] w-[240px] lg:w-[260px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10 -translate-x-[40px] lg:translate-x-0 mb-12 lg:mb-0 text-left transition-transform hover:scale-105">
+          <div className="relative lg:absolute lg:bottom-[20%] lg:left-[28%] xl:left-[32%] bg-primary-dark text-white py-8 lg:py-8 px-[24px] lg:px-[28px] rounded-[24px] w-[240px] lg:w-[260px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10 -translate-x-[40px] lg:translate-x-0 mb-12 lg:mb-0 text-left transition-transform hover:scale-105">
             <div className="bg-white w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] rounded-xl flex items-center justify-center mb-4 text-primary-dark">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
