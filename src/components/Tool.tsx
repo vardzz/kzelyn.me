@@ -11,22 +11,22 @@ export function Tool() {
   ];
 
   return (
-    <section id="tool" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-40 items-center justify-start lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
+    <section id="tool" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-6 lg:px-28 xl:px-36 lg:pb-14 items-center justify-start lg:justify-between z-10 relative overflow-y-auto lg:overflow-hidden snap-center bg-[#151515] text-white">
       
       {/* Decorative Background Line */}
       <div className="hidden lg:block absolute bottom-0 right-0 w-[40%] h-full opacity-20 pointer-events-none overflow-hidden">
         <div className="absolute top-[30%] left-0 w-[200%] h-[2px] bg-white/20 -rotate-45 transform origin-left"></div>
       </div>
 
-      <div className="flex flex-col lg:flex-row w-full min-h-full lg:items-center pt-20 pb-32 lg:py-0 max-w-[1400px] mx-auto">
+      <div className="flex flex-col lg:flex-row w-full min-h-full lg:items-center pt-20 pb-32 lg:py-0 max-w-[1400px] mx-auto justify-start lg:justify-between">
         
         {/* Left Column: Heading and Skills */}
-        <div className="flex-1 flex flex-col justify-center max-w-full lg:max-w-[500px] z-20">
-          <div className="font-montserrat text-[#B9664B] font-bold text-[12px] lg:text-[14px] tracking-[2px] mb-4 uppercase">
+        <div className="flex-1 flex flex-col justify-center max-w-full lg:max-w-[480px] z-20">
+          <div className="font-montserrat text-[#B9664B] font-bold text-[12px] lg:text-[14px] tracking-[2px] mb-3 lg:mb-4 uppercase">
             Skills & Tools
           </div>
           
-          <h2 className="font-inter font-bold text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.1] mb-12 tracking-[-1px]">
+          <h2 className="font-inter font-bold text-[40px] sm:text-[50px] lg:text-[54px] xl:text-[60px] leading-[1.1] mb-8 lg:mb-8 tracking-[-1px]">
             The toolkit<br />behind the work.
           </h2>
 

@@ -2,9 +2,9 @@
 
 export function Hero() {
   return (
-    <section id="hero" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] pt-10 lg:pt-5 px-6 lg:px-40 z-10 relative overflow-y-auto lg:overflow-visible snap-center">
+    <section id="hero" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] pt-10 lg:pt-0 px-6 lg:px-28 xl:px-36 lg:pb-14 z-10 relative overflow-y-auto lg:overflow-visible snap-center items-center">
       
-      <div className="flex flex-col lg:flex-row w-full flex-1">
+      <div className="flex flex-col lg:flex-row w-full flex-1 h-full items-center justify-between">
         {/* Left Column (Text & Skills) */}
         <div className="flex-1 flex flex-col justify-center items-start max-w-full lg:max-w-[650px] text-left z-20">
           <div className="flex items-center justify-start gap-3 lg:gap-5 font-montserrat text-[#B9664B] font-bold text-[11px] lg:text-[13px] tracking-[2px] mb-4 lg:mb-6">
@@ -48,12 +48,12 @@ export function Hero() {
         </div>
 
         {/* Right Column (Visuals & Floating Cards) */}
-        <div className="w-full lg:flex-1 relative mt-4 lg:mt-0 flex flex-col items-center lg:block min-h-[500px] lg:min-h-0">
+        <div className="w-full lg:flex-1 relative mt-4 lg:mt-0 flex flex-col items-center lg:block min-h-[500px] lg:min-h-0 lg:h-full">
           
           {/* Mobile Background Gradient Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#E1C1B1_0%,rgba(246,237,229,0)_60%)] -z-10 lg:hidden opacity-80 rounded-full scale-150 top-[10%]"></div>
 
-          <div className="relative lg:absolute lg:top-[15%] lg:left-[15%] bg-surface p-[24px] lg:p-[30px] rounded-[24px] w-[220px] lg:w-[250px] shadow-[0_15px_30px_rgba(0,0,0,0.06)] z-10 translate-x-[40px] lg:translate-x-0 mb-10 lg:mb-0 text-left">
+          <div className="relative lg:absolute lg:top-[18%] lg:left-[10%] bg-surface p-[24px] lg:p-[28px] rounded-[24px] w-[220px] lg:w-[240px] shadow-[0_15px_30px_rgba(0,0,0,0.06)] z-10 translate-x-[40px] lg:translate-x-0 mb-10 lg:mb-0 text-left transition-transform hover:scale-105">
             <div className="bg-[#EDDFD5] w-[44px] h-[44px] rounded-xl flex items-center justify-center mb-4 text-[#B9664B]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -64,10 +64,10 @@ export function Hero() {
             <p className="font-inter text-[12px] lg:text-[13px] leading-[1.6] text-[#666]">Turning insights into impactful marketing strategies.</p>
           </div>
           
-          <div className="hidden lg:block absolute top-[38%] left-[27%] w-[150px] h-[250px] border-l border-b border-white rounded-bl-[80px] opacity-60 z-0"></div>
+          <div className="hidden lg:block absolute top-[36%] left-[22%] w-[140px] h-[220px] border-l border-b border-white rounded-bl-[80px] opacity-60 z-0 pointer-events-none"></div>
           
-          <div className="relative lg:absolute lg:bottom-[10%] lg:right-[15%] bg-primary-dark text-white py-8 lg:py-10 px-[24px] lg:px-[30px] rounded-[24px] w-[240px] lg:w-[280px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10 -translate-x-[40px] lg:translate-x-0 mb-12 lg:mb-0 text-left">
-            <div className="bg-white w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] rounded-xl flex items-center justify-center mb-5 text-primary-dark">
+          <div className="relative lg:absolute lg:bottom-[22%] lg:left-[16%] bg-primary-dark text-white py-8 lg:py-8 px-[24px] lg:px-[28px] rounded-[24px] w-[240px] lg:w-[260px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10 -translate-x-[40px] lg:translate-x-0 mb-12 lg:mb-0 text-left transition-transform hover:scale-105">
+            <div className="bg-white w-[40px] lg:w-[44px] h-[40px] lg:h-[44px] rounded-xl flex items-center justify-center mb-4 text-primary-dark">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
@@ -83,10 +83,10 @@ export function Hero() {
             </p>
           </div>
           
-          <div className="relative lg:absolute lg:top-[45%] lg:right-[5%] -rotate-[8deg] z-10 flex flex-col items-center lg:items-start translate-x-[50px] lg:translate-x-0 mt-4 lg:mt-0">
-            <div className="font-great-vibes text-[48px] lg:text-[65px] text-primary-dark leading-[1.1]">Strategy</div>
-            <div className="font-great-vibes text-[48px] lg:text-[65px] text-primary-dark leading-[1.1] ml-5">Creativity</div>
-            <div className="font-great-vibes text-[48px] lg:text-[65px] text-primary-dark leading-[1.1] ml-10">Connection.</div>
+          <div className="relative lg:absolute lg:top-[32%] lg:right-[6%] -rotate-[8deg] z-10 flex flex-col items-center lg:items-start translate-x-[50px] lg:translate-x-0 mt-4 lg:mt-0 select-none">
+            <div className="font-great-vibes text-[48px] lg:text-[62px] text-primary-dark leading-[1.1]">Strategy</div>
+            <div className="font-great-vibes text-[48px] lg:text-[62px] text-primary-dark leading-[1.1] ml-5">Creativity</div>
+            <div className="font-great-vibes text-[48px] lg:text-[62px] text-primary-dark leading-[1.1] ml-10">Connection.</div>
             <div className="self-end mt-2.5 w-[80px] lg:w-[100px] h-1 bg-[#C06B52] rounded-sm rotate-[5deg]"></div>
           </div>
           

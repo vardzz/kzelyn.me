@@ -1,9 +1,9 @@
 export function About() {
   return (
-    <section id="about" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-2 lg:px-40 items-center justify-between z-10 relative overflow-y-auto lg:overflow-visible snap-center">
+    <section id="about" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-2 lg:px-28 xl:px-36 lg:pb-14 items-center justify-between z-10 relative overflow-y-auto lg:overflow-visible snap-center">
       
       {/* Mobile Pill Wrapper */}
-      <div className="w-full min-h-[90%] lg:min-h-full flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:py-0 px-4 lg:px-0 bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none mt-10 mb-28 lg:my-auto">
+      <div className="w-full min-h-[90%] lg:min-h-full flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:py-0 px-4 lg:px-0 bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none mt-10 mb-28 lg:my-auto max-w-[1400px] mx-auto">
         
         {/* Left Column (Text & Stats) */}
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-full lg:max-w-[600px] text-center lg:text-left z-20 mt-10 lg:mt-0">
@@ -39,7 +39,7 @@ export function About() {
         {/* Right Column (Image & Badge) */}
         <div className="w-full lg:flex-1 relative mt-16 lg:mt-0 flex justify-center lg:justify-end items-center h-full pb-10 lg:pb-0">
           
-          <div className="relative w-[280px] h-[380px] lg:w-[420px] lg:h-[600px] order-first lg:order-last mx-auto lg:mx-0">
+          <div className="relative w-[280px] h-[380px] lg:w-[360px] lg:h-[490px] xl:w-[400px] xl:h-[540px] order-first lg:order-last mx-auto lg:mx-0">
             {/* Pill Image Container */}
             <div className="w-full h-full rounded-[200px] overflow-hidden bg-white/50 border border-white/40 shadow-xl relative z-10">
               {/* Using a placeholder unsplash image that matches the notebook/laptop vibe */}
