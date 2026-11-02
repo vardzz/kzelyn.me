@@ -16,13 +16,13 @@ export function Connect() {
         <div className="flex-1 flex flex-col justify-center max-w-full lg:max-w-[560px] mt-4 lg:mt-0">
           <div className="mb-8 lg:mb-8">
             <p className="font-montserrat text-[#C95F3B] font-bold text-[12px] lg:text-[14px] tracking-[2px] uppercase mb-2 lg:mb-4">
-              Let's Connect
+              Let&apos;s Connect
             </p>
             <h2 className="font-inter font-bold text-[40px] sm:text-[50px] lg:text-[52px] xl:text-[60px] leading-[1.08] text-white tracking-[-1px] mb-4 lg:mb-6">
-              Let's create<br />something<br className="hidden lg:block"/> amazing together.
+              Let&apos;s create<br />something<br className="hidden lg:block"/> amazing together.
             </h2>
             <p className="font-inter text-[15px] lg:text-[17px] text-white/80 leading-[1.6] max-w-[420px] mb-6">
-              I'm always excited to learn, collaborate, and contribute to impactful ideas and marketing strategies.
+              I&apos;m always excited to learn, collaborate, and contribute to impactful ideas and marketing strategies.
             </p>
 
             {/* Desktop Status Pill */}
@@ -72,7 +72,7 @@ export function Connect() {
 
             <div className="absolute right-[0px] bottom-[-60px] rotate-[-5deg] z-30 pointer-events-none mix-blend-screen text-right">
               <span className="font-great-vibes text-[28px] text-white/90 leading-tight block pr-4">
-                I'd love to<br/>hear from you!
+                I&apos;d love to<br/>hear from you!
               </span>
               <svg width="80" height="30" viewBox="0 0 100 40" fill="none" stroke="white" strokeWidth="1" className="absolute -bottom-4 right-0 opacity-80">
                 <path d="M10 20 Q 30 10, 50 25 T 90 15" />
@@ -145,7 +145,7 @@ export function Connect() {
             {/* Cursive Text Tag */}
             <div className="absolute right-[-20px] bottom-[-32px] rotate-[-5deg] z-30 pointer-events-none text-right">
               <span className="font-great-vibes text-[32px] text-white/95 leading-tight block pr-2 drop-shadow-md">
-                I'd love to hear from you!
+                I&apos;d love to hear from you!
               </span>
             </div>
           </div>

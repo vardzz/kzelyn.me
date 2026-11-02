@@ -12,14 +12,9 @@ export function HorizontalScroller({ children }: { children: React.ReactNode }) 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
     
     mm.add("(min-width: 1024px)", () => {
-      const getScrollAmount = () => {
-        let sw = wrapperRef.current ? wrapperRef.current.scrollWidth : 0;
-        return -(sw - window.innerWidth);
-      };
-
       const tween = gsap.to(wrapperRef.current, {
         x: () => -(wrapperRef.current ? wrapperRef.current.scrollWidth - window.innerWidth : 0),
         ease: "none"

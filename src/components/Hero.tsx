@@ -15,7 +15,7 @@ export function Hero() {
           
           {/* Greeting */}
           <div className="flex items-center justify-start gap-3 lg:gap-4 font-montserrat text-[#B9664B] font-bold text-[11px] lg:text-[13px] tracking-[2.5px] mb-3 lg:mb-4">
-            HELLO, I'M <div className="h-[1px] w-[36px] lg:w-[48px] bg-[#B9664B]/40"></div>
+            HELLO, I&apos;M <div className="h-[1px] w-[36px] lg:w-[48px] bg-[#B9664B]/40"></div>
           </div>
           
           {/* Main Title */}

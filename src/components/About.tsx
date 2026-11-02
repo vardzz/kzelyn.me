@@ -16,7 +16,7 @@ export function About() {
           </h2>
           
           <p className="font-inter text-[15px] lg:text-base leading-[1.7] text-[#444] mb-12 lg:mb-16 max-w-[480px]">
-            I'm a marketer who loves turning ideas into meaningful connections. From market research to campaign execution, I enjoy the challenge of solving problems and driving results.
+            I&apos;m a marketer who loves turning ideas into meaningful connections. From market research to campaign execution, I enjoy the challenge of solving problems and driving results.
           </p>
           
           {/* Stats */}

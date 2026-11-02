@@ -45,7 +45,7 @@ export function Work() {
             My Work
           </p>
           <h2 className="font-inter font-bold text-[40px] sm:text-[50px] lg:text-[48px] xl:text-[54px] leading-[1.08] text-primary-dark tracking-[-1px]">
-            Ideas I've<br />brought to life.
+            Ideas I&apos;ve<br />brought to life.
           </h2>
         </div>
 
