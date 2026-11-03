@@ -59,7 +59,7 @@ export function About() {
           <div className="relative rounded-[28px] overflow-hidden bg-bone border border-line p-3 sm:p-4 shadow-[0_8px_30px_rgba(62,31,22,0.06)]">
             <div className="relative aspect-[3/4] rounded-[22px] overflow-hidden bg-rose-soft/30">
               <Image
-                src="/kz-pic.jfif"
+                src="/kz-pic.png"
                 alt="Kzelyn Artillo - Marketer"
                 fill
                 className="object-cover"
