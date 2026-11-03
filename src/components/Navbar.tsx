@@ -1,175 +1,137 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
-export const sections = [
-  { id: 'hero', num: '01', title: 'INTRODUCTION' },
-  { id: 'about', num: '02', title: 'ABOUT ME' },
-  { id: 'tool', num: '03', title: 'TOOL' },
-  { id: 'work', num: '04', title: 'WORK' },
-  { id: 'contact', num: '05', title: 'CONNECT' },
-];
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export function Navbar() {
-  const [active, setActive] = useState(sections[0]);
+  const [activeSection, setActiveSection] = useState('hero');
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const scrollToSectionIndex = useCallback((index: number) => {
-    if (index < 0 || index >= sections.length) return;
-    const targetSection = sections[index];
-    setActive(targetSection);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
 
-    if (window.innerWidth >= 1024) {
-      const st = ScrollTrigger.getById('horizontal-scroll-trigger');
-      if (st) {
-        const totalDistance = st.end - st.start;
-        const targetScroll = st.start + totalDistance * (index / (sections.length - 1));
-        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-      } else {
-        const el = document.getElementById(targetSection.id);
-        el?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+      const sections = ['hero', 'about', 'toolkit', 'work', 'connect'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
       }
-    } else {
-      document.getElementById(targetSection.id)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'start',
-      });
-    }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Listen to desktop GSAP scroll trigger updates
-  useEffect(() => {
-    const handleActiveChange = (e: Event) => {
-      const customEvent = e as CustomEvent<number>;
-      const idx = customEvent.detail;
-      if (sections[idx] && sections[idx].id !== active.id) {
-        setActive(sections[idx]);
-      }
-    };
-
-    const handleNavigate = (e: Event) => {
-      const customEvent = e as CustomEvent<string>;
-      const targetId = customEvent.detail;
-      const idx = sections.findIndex(s => s.id === targetId);
-      if (idx !== -1) {
-        scrollToSectionIndex(idx);
-      }
-    };
-
-    window.addEventListener('activeSectionChange', handleActiveChange);
-    window.addEventListener('navigateToSection', handleNavigate);
-
-    return () => {
-      window.removeEventListener('activeSectionChange', handleActiveChange);
-      window.removeEventListener('navigateToSection', handleNavigate);
-    };
-  }, [active.id, scrollToSectionIndex]);
-
-  // Mobile IntersectionObserver
-  useEffect(() => {
-    if (window.innerWidth >= 1024) return;
-
-    let observer: IntersectionObserver;
-
-    const initObserver = () => {
-      const scroller = document.getElementById('horizontal-scroller');
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const section = sections.find((s) => s.id === entry.target.id);
-              if (section) setActive(section);
-            }
-          });
-        },
-        { root: scroller, threshold: 0.3 }
-      );
-
-      sections.forEach(({ id }) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-      });
-    };
-
-    const timeoutId = setTimeout(initObserver, 300);
-
-    return () => {
-      clearTimeout(timeoutId);
-      if (observer) observer.disconnect();
-    };
-  }, []);
-
-  const currentIndex = sections.findIndex((s) => s.id === active.id);
-
-  const handleNext = () => {
-    if (currentIndex < sections.length - 1) {
-      scrollToSectionIndex(currentIndex + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      scrollToSectionIndex(currentIndex - 1);
-    }
-  };
+  const navLinks = [
+    { label: 'About', href: '#about', id: 'about' },
+    { label: 'Toolkit', href: '#toolkit', id: 'toolkit' },
+    { label: 'Work', href: '#work', id: 'work' },
+    { label: 'Connect', href: '#connect', id: 'connect' },
+  ];
 
   return (
-    <nav className="flex lg:hidden fixed bottom-0 left-0 w-full items-center justify-between z-50 bg-background/90 backdrop-blur-md border-t border-[#DCC3B6]/50 py-4 px-6 overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-      {/* Decorative Grid Pattern */}
-      <div
-        className="absolute left-0 top-0 w-[50%] h-full opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#B9664B 2.5px, transparent 2.5px)',
-          backgroundSize: '16px 16px',
-        }}
-      ></div>
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
+      <nav 
+        className={`pointer-events-auto flex items-center justify-between gap-6 sm:gap-10 px-5 sm:px-7 py-3 rounded-full transition-all duration-300 border border-line ${
+          scrolled 
+            ? 'bg-paper/90 backdrop-blur-md shadow-[0_8px_30px_rgba(62,31,22,0.06)]' 
+            : 'bg-paper/75 backdrop-blur-sm'
+        } max-w-[1120px] w-full`}
+        aria-label="Main Navigation"
+      >
+        {/* Signature Wordmark */}
+        <Link 
+          href="#hero" 
+          className="signature text-[20px] sm:text-[22px] text-espresso hover:text-rust transition-colors duration-300"
+        >
+          Kzelyn
+        </Link>
 
-      {/* Active Section Info */}
-      <div className="flex items-center gap-4 relative z-10">
-        <div className="border-2 border-[#C99886]/40 text-[#C99886] rounded-md px-3 py-1 font-bebas text-3xl leading-none bg-background/50 transition-all select-none">
-          {active.num}
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-7 text-[14px] text-espresso">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className="relative py-1 transition-colors duration-200 hover:text-rust flex items-center gap-1.5"
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span 
+                    className="w-1.5 h-1.5 rounded-full bg-rust absolute -bottom-1 left-1/2 -translate-x-1/2" 
+                    aria-hidden="true"
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
-        <span className="font-montserrat font-bold text-[11px] lg:text-[12px] tracking-[2px] text-[#444] pt-1 transition-all uppercase select-none">
-          {active.title}
-        </span>
-      </div>
 
-      {/* Navigation Arrow Controls */}
-      <div className="flex items-center gap-2 relative z-10">
+        {/* Right CTA / Resume Button (Secondary style: transparent with 1px espresso border, hover fill rose-soft) */}
+        <div className="hidden md:flex items-center">
+          <a
+            href="#connect"
+            className="text-[13px] font-medium text-espresso border border-espresso/30 hover:border-espresso px-4 py-1.5 rounded-full transition-all duration-300 hover:bg-rose-soft"
+          >
+            Get in touch
+          </a>
+        </div>
+
+        {/* Mobile Hamburger Button */}
         <button
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          aria-label="Previous Section"
-          className={`border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center transition-all bg-background/50 ${
-            currentIndex === 0
-              ? 'opacity-30 cursor-not-allowed'
-              : 'hover:opacity-100 hover:bg-[#C99886]/10 cursor-pointer'
-          }`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-espresso p-1.5 focus:outline-none focus-visible:outline-2 focus-visible:outline-rust"
+          aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+          aria-expanded={mobileMenuOpen}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            {mobileMenuOpen ? (
+              <path d="M18 6L6 18M6 6l12 12" />
+            ) : (
+              <path d="M4 8h16M4 16h16" />
+            )}
           </svg>
         </button>
+      </nav>
 
-        <button
-          onClick={handleNext}
-          disabled={currentIndex === sections.length - 1}
-          aria-label="Next Section"
-          className={`border-2 border-[#C99886]/40 text-[#C99886] rounded-full w-10 h-10 flex items-center justify-center transition-all bg-background/50 ${
-            currentIndex === sections.length - 1
-              ? 'opacity-30 cursor-not-allowed'
-              : 'hover:opacity-100 hover:bg-[#C99886]/10 cursor-pointer'
-          }`}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-    </nav>
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="pointer-events-auto absolute top-20 left-4 right-4 bg-paper/95 backdrop-blur-xl border border-line rounded-3xl p-6 shadow-[0_14px_40px_rgba(62,31,22,0.1)] flex flex-col gap-4 md:hidden animate-fade-in">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[16px] text-espresso py-2 border-b border-line/40 flex items-center justify-between"
+            >
+              <span>{link.label}</span>
+              {activeSection === link.id && (
+                <span className="w-2 h-2 rounded-full bg-rust" />
+              )}
+            </a>
+          ))}
+          <a
+            href="#connect"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-center text-[14px] text-espresso bg-rose-soft py-3 rounded-full mt-2 font-medium"
+          >
+            Get in touch
+          </a>
+        </div>
+      )}
+    </header>
   );
 }

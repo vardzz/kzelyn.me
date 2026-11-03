@@ -1,35 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,100,1&display=swap");
 @import "tailwindcss";
 
+:root {
+  --paper: #f2f0ec;
+  --bone: #e5dfd6;
+  --espresso: #3e1f16;
+  --sage: #7a816c;
+  --rose: #d1a9a5;
+  --rust: #ae6965;
+  --oak: #a58b71;
+  --rose-soft: #ebd8d5;
+  --sage-soft: #dde0d6;
+  --line: #d9d1c6;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 8px 30px rgba(62, 31, 22, 0.06);
+  --shadow-lift: 0 14px 40px rgba(62, 31, 22, 0.10);
+}
+
 @theme inline {
-  --color-background: #F6EDE5;
-  --color-surface: #F5ECE4;
-  --color-primary-dark: #1B1A19;
-  --color-accent: #C99886;
-  --color-secondary-accent: #E0BAA9;
-  --color-white: #FFFFFF;
-  
-  --font-bebas: 'Bebas Neue', sans-serif;
-  --font-great-vibes: 'Great Vibes', cursive;
-  --font-inter: 'Inter', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
+  --color-paper: var(--paper);
+  --color-bone: var(--bone);
+  --color-espresso: var(--espresso);
+  --color-sage: var(--sage);
+  --color-rose: var(--rose);
+  --color-rust: var(--rust);
+  --color-oak: var(--oak);
+  --color-rose-soft: var(--rose-soft);
+  --color-sage-soft: var(--sage-soft);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--paper);
+  color: var(--espresso);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-primary-dark);
-  font-family: var(--font-inter);
+  background-color: var(--paper);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Signature Display Font for name & single highlight words */
+.signature {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* Accessibility focus outline */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--rose-soft);
+  color: var(--espresso);
+}
+
+/* Smooth motion respecting reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

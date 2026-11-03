@@ -1,80 +1,104 @@
+'use client';
+
+import Image from 'next/image';
+
 export function About() {
+  const highlights = [
+    { number: '01+', label: 'Major Campaigns Led', detail: 'End-to-end execution & strategic oversight' },
+    { number: '10+', label: 'Initiatives Supported', detail: 'From audience research to content calendars' },
+    { number: '100%', label: 'Commitment to Growth', detail: 'Rooted in empathy, driven by results' },
+  ];
+
   return (
-    <section id="about" className="flex flex-col lg:flex-row w-screen shrink-0 h-[100dvh] px-2 lg:px-28 xl:px-36 lg:pb-14 items-center justify-between z-10 relative overflow-y-auto lg:overflow-visible snap-center">
-      
-      {/* Mobile Pill Wrapper */}
-      <div className="w-full min-h-[90%] lg:min-h-full flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:py-0 px-4 lg:px-0 bg-surface rounded-t-[100px] rounded-b-[100px] lg:bg-transparent lg:rounded-none mt-10 mb-28 lg:my-auto max-w-[1400px] mx-auto">
-        
-        {/* Left Column (Text & Stats) */}
-        <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-full lg:max-w-[600px] text-center lg:text-left z-20 mt-10 lg:mt-0">
-          <div className="font-montserrat text-[#B9664B] font-bold text-[12px] lg:text-[14px] tracking-[2px] mb-4 lg:mb-6 uppercase">
-            About Me
-          </div>
-          
-          <h2 className="font-inter font-bold text-[40px] sm:text-[50px] lg:text-[65px] leading-[1.1] text-primary-dark mb-6 lg:mb-8 tracking-[-1px]">
-            More than ideas,<br />I create impact.
-          </h2>
-          
-          <p className="font-inter text-[15px] lg:text-base leading-[1.7] text-[#444] mb-12 lg:mb-16 max-w-[480px]">
-            I&apos;m a marketer who loves turning ideas into meaningful connections. From market research to campaign execution, I enjoy the challenge of solving problems and driving results.
-          </p>
-          
-          {/* Stats */}
-          <div className="flex items-start justify-center lg:justify-start gap-4 sm:gap-8 lg:gap-16 w-full lg:w-auto">
-            <div>
-              <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">1+</div>
-              <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Projects<br/>Completed</div>
-            </div>
-            <div>
-              <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">10+</div>
-              <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Campaigns<br/>Supported</div>
-            </div>
-            <div>
-              <div className="font-inter font-bold text-[28px] sm:text-[32px] lg:text-[40px] text-primary-dark leading-none mb-2">100%</div>
-              <div className="font-inter text-[12px] sm:text-[13px] lg:text-[14px] text-[#666] leading-[1.4]">Passion for<br/>Marketing</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column (Image & Badge) */}
-        <div className="w-full lg:flex-1 relative mt-16 lg:mt-0 flex justify-center lg:justify-end items-center h-full pb-10 lg:pb-0">
-          
-          <div className="relative w-[280px] h-[380px] lg:w-[360px] lg:h-[490px] xl:w-[400px] xl:h-[540px] order-first lg:order-last mx-auto lg:mx-0">
-            {/* Pill Image Container */}
-            <div className="w-full h-full rounded-[200px] overflow-hidden bg-white/50 border border-white/40 shadow-xl relative z-10">
-              {/* Using a placeholder unsplash image that matches the notebook/laptop vibe */}
-              <img 
-                src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=1000&auto=format&fit=crop" 
-                alt="Notebook and Laptop" 
-                className="w-full h-full object-cover opacity-90"
-              />
-            </div>
-
-            {/* Floating Badge */}
-            <div className="absolute top-[35%] lg:top-[40%] -left-[30px] lg:-left-[60px] w-[100px] h-[100px] lg:w-[140px] lg:h-[140px] bg-[#E0BAA9] rounded-full flex items-center justify-center shadow-lg z-20">
-              {/* Rotating Text */}
-              <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full p-1.5 lg:p-2" style={{ animation: 'spin 15s linear infinite' }}>
-                <path id="curve" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
-                <text className="text-[12.5px] lg:text-[12px] font-montserrat font-bold tracking-[2px] uppercase fill-primary-dark">
-                  <textPath href="#curve" startOffset="0%">
-                    CREATE • GROW • THRIVE • 
-                  </textPath>
-                </text>
-              </svg>
-              {/* Center Icon */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-dark">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2v20M17 5l-10 14M22 12H2M19 17L5 7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
-        {/* Spacer for mobile navbar */}
-        <div className="h-24 lg:hidden w-full flex-shrink-0"></div>
+    <section 
+      id="about" 
+      className="py-20 sm:py-28 lg:py-36 px-6 sm:px-12 max-w-[1120px] mx-auto border-t border-line/60"
+      aria-label="About Me"
+    >
+      {/* Section Eyebrow */}
+      <div className="flex items-center gap-3 mb-4">
+        <span className="w-6 h-[1px] bg-oak/60" aria-hidden="true" />
+        <p className="text-[12px] font-medium tracking-[0.18em] uppercase text-oak">
+          About Me
+        </p>
       </div>
+
+      {/* Section Heading: 44px / 30px, DM Sans 300, line-height 1.15. Max 1 signature word */}
+      <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-light leading-[1.15] tracking-[-0.01em] text-espresso mb-12 lg:mb-16 max-w-[760px]">
+        More than creative concepts, I build work that creates lasting <span className="signature">connection</span>.
+      </h2>
+
+      {/* Editorial 2-column layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
+        
+        {/* Left Column: Narrative (7 cols) */}
+        <div className="lg:col-span-7 space-y-6 text-[16px] sm:text-[17px] font-normal leading-[1.75] text-espresso/90 max-w-[640px]">
+          <p>
+            I believe strong marketing doesn&apos;t come from shouting louder—it comes from understanding people deeper. When a brand genuinely listens to its audience, loyalty and conversion happen naturally.
+          </p>
+          <p>
+            As a fresh graduate in Marketing Management, I bring a curious mind and an analytical rigor to creative storytelling. Whether conducting qualitative audience surveys, crafting cross-platform content strategies, or refining brand positioning, I focus on the intersection of human empathy and practical metrics.
+          </p>
+          <p className="text-oak">
+            Outside of marketing decks and analytics, you&apos;ll often find me curating visual inspirations, exploring typography, or exploring how small boutique brands build fierce customer affinity.
+          </p>
+
+          {/* Core Philosophy Quote Card */}
+          <div className="mt-8 p-6 sm:p-8 rounded-[24px] bg-bone/60 border border-line">
+            <p className="text-[15px] sm:text-[16px] italic leading-[1.6] text-espresso/90 mb-3">
+              &ldquo;Good marketing feels like a thoughtful recommendation from a trusted friend—never intrusive, always relevant.&rdquo;
+            </p>
+            <span className="text-[12px] uppercase tracking-[0.18em] font-medium text-oak">
+              Personal Guiding Principle
+            </span>
+          </div>
+        </div>
+
+        {/* Right Column: Visual Portrait Card (5 cols) */}
+        <div className="lg:col-span-5 relative">
+          <div className="relative rounded-[28px] overflow-hidden bg-bone border border-line p-3 sm:p-4 shadow-[0_8px_30px_rgba(62,31,22,0.06)]">
+            <div className="relative aspect-[3/4] rounded-[22px] overflow-hidden bg-rose-soft/30">
+              <Image
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop"
+                alt="Portrait with soft natural light"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+              <div className="absolute inset-0 bg-[#3E1F16]/[0.05] pointer-events-none" />
+            </div>
+
+            <div className="pt-4 pb-1 px-3 flex items-center justify-between text-[13px] text-oak">
+              <span>Kzelyn Artillo</span>
+              <span className="text-[12px] uppercase tracking-[0.14em] text-rust font-medium">
+                Marketer
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Stats / Milestones Grid: 3 cards on --bone with 24px radius */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {highlights.map((item, idx) => (
+          <div 
+            key={idx}
+            className="p-8 rounded-[24px] bg-bone/70 border border-line transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(62,31,22,0.08)]"
+          >
+            <div className="text-[36px] sm:text-[44px] font-light text-espresso leading-none mb-3">
+              {item.number}
+            </div>
+            <div className="text-[14px] font-medium text-espresso mb-1">
+              {item.label}
+            </div>
+            <div className="text-[13px] text-oak leading-relaxed">
+              {item.detail}
+            </div>
+          </div>
+        ))}
+      </div>
+
     </section>
   );
 }
