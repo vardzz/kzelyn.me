@@ -59,11 +59,12 @@ export function About() {
           <div className="relative rounded-[28px] overflow-hidden bg-bone border border-line p-3 sm:p-4 shadow-[0_8px_30px_rgba(62,31,22,0.06)]">
             <div className="relative aspect-[3/4] rounded-[22px] overflow-hidden bg-rose-soft/30">
               <Image
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop"
-                alt="Portrait with soft natural light"
+                src="/kz-pic.jfif"
+                alt="Kzelyn Artillo - Marketer"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 400px"
+                priority
               />
               <div className="absolute inset-0 bg-[#3E1F16]/[0.05] pointer-events-none" />
             </div>
