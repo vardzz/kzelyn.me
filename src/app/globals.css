@@ -60,6 +60,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
 /* Signature Display Font for name & single highlight words */
 .signature {
   font-family: var(--font-display);
