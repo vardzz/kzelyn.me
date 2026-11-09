@@ -1,22 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,100,1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --paper: #f4f0ea;
+  --color-background: #f3efe9;
+  --color-primary: #171513;
+  --color-secondary: #77716a;
+  --color-muted: #88827a;
+  --color-border: #a9a39b;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --paper: #f3efe9;
   --bone: #e5dfd6;
-  --espresso: #1a1817;
+  --espresso: #171513;
   --sage: #7a816c;
   --rose: #d1a9a5;
   --rust: #ae6965;
-  --oak: #7a7571;
+  --oak: #77716a;
   --rose-soft: #ebd8d5;
   --sage-soft: #dde0d6;
-  --line: #d3cdc5;
+  --line: #a9a39b;
 
-  --font-display: "Playfair Display", "Fraunces", Georgia, serif;
-  --font-serif: "Playfair Display", "Bodoni Moda", Georgia, serif;
-  --font-giant: "Playfair Display", "Bodoni Moda", Didot, serif;
-  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Bodoni Moda", Didot, Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Bodoni Moda", Didot, Georgia, serif;
 
   --radius-sm: 12px;
   --radius-md: 24px;
@@ -46,30 +53,26 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--paper);
-  color: var(--espresso);
+  background-color: var(--color-background);
+  color: var(--color-primary);
 }
 
 body {
-  background-color: var(--paper);
-  color: var(--espresso);
+  background-color: var(--color-background);
+  color: var(--color-primary);
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .font-serif {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
 }
 
-/* Signature Display Font for name & single highlight words */
-.signature {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
+.font-sans {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 /* Accessibility focus outline */
@@ -86,7 +89,6 @@ textarea:focus-visible {
   color: var(--espresso);
 }
 
-/* Smooth motion respecting reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

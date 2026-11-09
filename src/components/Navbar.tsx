@@ -44,29 +44,29 @@ export function Navbar() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-3 sm:py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
-          : 'bg-transparent pt-6 sm:pt-7 pb-4'
-      } px-6 sm:px-10 md:px-12 lg:px-14 xl:px-16`}
+          ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
+          : 'bg-transparent py-6'
+      } px-[4.5vw]`}
     >
       <div className="w-full flex items-center justify-between">
         
-        {/* Left Section: 52px 'K' Circle Badge + Thin Horizontal Divider + Nav Links */}
-        <div className="flex items-center gap-6 lg:gap-10">
+        {/* Left Section: 52px Logo + Divider + Nav Links */}
+        <div className="flex items-center gap-8 lg:gap-11">
           
-          {/* Logo Badge (approx 52px diameter on desktop) + Divider */}
+          {/* Logo Badge (52px x 52px, #000000, Bodoni Moda 38px 'K') */}
           <Link 
             href="#hero" 
-            className="flex items-center gap-4 sm:gap-6 group"
+            className="flex items-center gap-6 group"
             aria-label="Kzelyn Home"
           >
-            <div className="w-10 h-10 sm:w-[48px] sm:h-[48px] lg:w-[52px] lg:h-[52px] rounded-full bg-[#171513] text-[#F3EFE9] flex items-center justify-center font-serif text-[20px] sm:text-[23px] lg:text-[25px] font-semibold transition-transform duration-300 group-hover:scale-105 shadow-xs">
-              K
+            <div className="w-[52px] h-[52px] rounded-full bg-[#000000] text-[#FFFFFF] flex items-center justify-center font-serif text-[38px] font-normal leading-none select-none transition-transform duration-300 group-hover:scale-105 shadow-xs">
+              <span className="translate-y-[-1px]">K</span>
             </div>
-            <span className="hidden sm:block w-16 lg:w-24 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
+            <span className="hidden sm:block w-20 lg:w-28 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[11px] lg:text-[11.5px] tracking-[0.16em] font-medium text-[#171513]" aria-label="Main navigation">
+          {/* Desktop Nav Links (Inter 13px, gap 40-44px) */}
+          <nav className="hidden md:flex items-center gap-10 lg:gap-11 text-[13px] tracking-[0.01em] font-medium text-[#171513]" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -88,14 +88,14 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Right CTA Button: LET'S TALK ↗ */}
+        {/* Right CTA Button: LET'S TALK ↗ (Inter 13px, border 1px solid #77716A, padding 12px 22px) */}
         <div className="flex items-center gap-4">
           <a
             href="#connect"
-            className="hidden sm:inline-flex items-center gap-2 text-[11px] lg:text-[11.5px] font-medium tracking-[0.08em] text-[#171513] border border-[#171513] px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-[#171513] hover:text-[#FFFFFF]"
+            className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.04em] text-[#171513] border border-[#77716A] px-[22px] py-[10px] rounded-full transition-all duration-300 hover:bg-[#171513] hover:text-[#FFFFFF]"
           >
             <span>LET&apos;S TALK</span>
-            <span className="text-[13px] leading-none">↗</span>
+            <span className="text-[14px] leading-none">↗</span>
           </a>
 
           {/* Mobile Hamburger Button */}
@@ -105,7 +105,7 @@ export function Navbar() {
             aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={mobileMenuOpen}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
               {mobileMenuOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
               ) : (
@@ -125,7 +125,7 @@ export function Navbar() {
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[13px] tracking-[0.14em] font-medium text-[#171513] py-2 border-b border-[#A9A39B]/40 flex items-center justify-between"
+              className="text-[14px] tracking-[0.08em] font-medium text-[#171513] py-2 border-b border-[#A9A39B]/40 flex items-center justify-between"
             >
               <span>{link.label}</span>
               {activeSection === link.id && (
@@ -136,7 +136,7 @@ export function Navbar() {
           <a
             href="#connect"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-center text-[12px] tracking-[0.1em] font-medium text-[#FFFFFF] bg-[#171513] py-3 rounded-full mt-2"
+            className="text-center text-[13px] tracking-[0.04em] font-medium text-[#FFFFFF] bg-[#171513] py-3 rounded-full mt-2"
           >
             LET&apos;S TALK ↗
           </a>
