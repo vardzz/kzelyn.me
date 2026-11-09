@@ -29,7 +29,7 @@ export function Footer() {
 
   return (
     <footer 
-      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 lg:pb-16 relative overflow-hidden select-none border-t border-white/[0.08]"
+      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 pb-0 relative overflow-hidden select-none border-t border-white/[0.08]"
       aria-label="Site Footer"
     >
       {/* ======================================================== */}
@@ -187,7 +187,7 @@ export function Footer() {
         aria-hidden="true"
       >
         {/* Central Conical Ambient Glow rising behind the wordmark */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[900px] h-[65%] bg-gradient-to-t from-[#EAE5DD]/20 via-[#D1A9A5]/10 to-transparent blur-3xl rounded-t-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-[950px] h-[65%] bg-gradient-to-t from-[#EAE5DD]/20 via-[#D1A9A5]/10 to-transparent blur-3xl rounded-t-full" />
         
         {/* Subtle Stippled Particle Horizon SVG */}
         <svg 
@@ -216,13 +216,30 @@ export function Footer() {
 
       {/* ======================================================== */}
       {/* 4. OVERSIZED WORDMARK: @ursweetiekz                     */}
-      {/* Modern geometric sans font matching reference image     */}
-      {/* All letters 100% visible, zero bottom clipping          */}
+      {/* Pressed against the left, bottom, and right side        */}
+      {/* Exact match to Reference Image 1                       */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full pt-10 sm:pt-16 pb-4 sm:pb-6 flex justify-center items-center overflow-visible px-4">
-        <span className="font-sans text-[11.5vw] xl:text-[160px] 2xl:text-[180px] font-normal tracking-[-0.04em] leading-[1.1] text-[#FFFFFF] select-none text-center whitespace-nowrap block drop-shadow-sm transition-transform duration-500 hover:scale-[1.01]">
-          @ursweetiekz
-        </span>
+      <div className="relative z-10 w-full overflow-hidden leading-none pt-8 sm:pt-14 pb-0 mb-0">
+        <svg 
+          viewBox="0 0 1000 135" 
+          className="w-full h-auto block select-none pointer-events-none"
+          preserveAspectRatio="none"
+          aria-label="@ursweetiekz"
+        >
+          <text 
+            x="0" 
+            y="120" 
+            textLength="1000" 
+            lengthAdjust="spacingAndGlyphs" 
+            fontFamily="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" 
+            fontWeight="600" 
+            fontSize="142" 
+            letterSpacing="-0.03em" 
+            fill="#FFFFFF"
+          >
+            @ursweetiekz
+          </text>
+        </svg>
       </div>
     </footer>
   );
