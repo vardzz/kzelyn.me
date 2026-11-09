@@ -11,7 +11,7 @@ export function Hero() {
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-normal leading-none tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-[300] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
@@ -48,9 +48,9 @@ export function Hero() {
           <span className="h-[1px] w-24 sm:w-32 lg:w-36 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
-        {/* Main Headline: Exactly 3 lines, Bodoni Moda, bold on Kzelyn */}
-        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-normal leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
-          Hello, I&apos;m <strong className="font-bold text-[#171513]">Kzelyn.</strong><br />
+        {/* Main Headline: Exactly 3 lines, Boska Light (300) with Medium (600) on Kzelyn */}
+        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-[300] leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
+          Hello, I&apos;m <strong className="font-[600] text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
