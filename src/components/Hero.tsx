@@ -82,18 +82,7 @@ export function Hero() {
 
       </div>
 
-      {/* 4. Scroll Indicator (Bottom Left of the Hero) */}
-      <div className="absolute bottom-6 sm:bottom-8 lg:bottom-9 left-[4.5vw] z-20 flex items-center gap-3 text-[#77716A] tracking-normal">
-        <a
-          href="#about"
-          className="w-[34px] h-[36px] rounded-[10px] border border-[#A9A39B] flex items-center justify-center text-[#171513] hover:border-[#171513] transition-colors cursor-pointer"
-          aria-label="Scroll to explore"
-        >
-          <span className="text-[16px] leading-none">↓</span>
-        </a>
-        <span className="font-sans text-[13px] text-[#77716A] whitespace-nowrap">Scroll to explore</span>
-        <span className="h-[1px] w-24 sm:w-36 bg-[#A9A39B]" aria-hidden="true" />
-      </div>
+
 
       {/* 5. Right-Side Information Indicator (Middle-Right of the Hero) */}
       <div className="hidden lg:flex absolute top-[52%] -translate-y-1/2 right-[4.5vw] z-20 flex-col items-start text-left">
