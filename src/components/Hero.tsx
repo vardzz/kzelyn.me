@@ -6,12 +6,12 @@ export function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative w-full h-[100svh] min-h-[700px] max-h-[1050px] bg-[#F3EFE9] text-[#171513] overflow-hidden select-none"
+      className="relative w-full h-[100svh] min-h-[580px] max-h-[1100px] bg-[#F3EFE9] text-[#171513] overflow-hidden select-none"
       aria-label="Hero Section"
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[75px] sm:top-[80px] lg:top-[75px] xl:top-[72px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-normal leading-none tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-normal leading-none tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
@@ -37,35 +37,35 @@ export function Hero() {
         />
       </div>
 
-      {/* 3. Left-Side Introduction (Responsive positioning, fully visible within 100% viewport zoom) */}
-      <div className="absolute top-[clamp(210px,42vh,335px)] left-[4.5vw] z-20 w-[540px] max-w-[560px] flex flex-col items-start text-left">
+      {/* 3. Left-Side Introduction (Harmonious UI/UX spacing and visual hierarchy) */}
+      <div className="absolute top-[clamp(215px,44vh,365px)] left-[4.5vw] z-20 w-[540px] max-w-[560px] flex flex-col items-start text-left">
         
         {/* Small Introductory Label with Horizontal Line */}
-        <div className="flex items-center gap-3.5 mb-3">
-          <p className="font-sans text-[11px] sm:text-[11.5px] font-medium tracking-[0.04em] uppercase text-[#171513] whitespace-nowrap">
+        <div className="flex items-center gap-3.5 mb-3.5 lg:mb-4">
+          <p className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-medium tracking-[0.05em] uppercase text-[#171513]/90 whitespace-nowrap">
             BSBA MARKETING MANAGEMENT GRADUATE
           </p>
-          <span className="h-[1px] w-24 sm:w-36 bg-[#A9A39B]" aria-hidden="true" />
+          <span className="h-[1px] w-24 sm:w-32 lg:w-36 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
         {/* Main Headline: Exactly 3 lines, Bodoni Moda, bold on Kzelyn */}
-        <h1 className="font-serif text-[40px] sm:text-[44px] lg:text-[48px] xl:text-[52px] font-normal leading-[1.08] text-[#171513] tracking-[-0.025em] mb-3.5">
+        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-normal leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
           Hello, I&apos;m <strong className="font-bold text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
 
-        {/* Supporting Description: Inter, 15px, line-height 1.6, color #77716A, max-width 390px */}
-        <p className="font-sans text-[14px] sm:text-[15px] font-normal leading-[1.6] text-[#77716A] max-w-[390px] mb-6">
+        {/* Supporting Description: Inter, 15px, line-height 1.65, max-width 390px */}
+        <p className="font-sans text-[14px] lg:text-[15px] font-normal leading-[1.65] text-[#77716A] max-w-[390px] mb-7 lg:mb-9">
           A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
         </p>
 
         {/* Call-to-Action Buttons */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 sm:gap-5">
           {/* Primary CTA */}
           <a
             href="#work"
-            className="inline-flex items-center justify-center gap-2.5 bg-[#000000] hover:bg-[#1a1817] text-[#FFFFFF] rounded-full h-[46px] px-[30px] font-sans text-[13px] font-medium tracking-normal transition-all duration-300 shadow-xs hover:shadow-sm"
+            className="inline-flex items-center justify-center gap-2.5 bg-[#000000] hover:bg-[#1a1817] text-[#FFFFFF] rounded-full h-[46px] lg:h-[48px] px-[28px] lg:px-[32px] font-sans text-[13px] lg:text-[13.5px] font-medium tracking-normal transition-all duration-300 shadow-xs hover:shadow-sm"
           >
             <span>Explore My Work</span>
             <span className="text-[14px] leading-none">↗</span>
@@ -74,7 +74,7 @@ export function Hero() {
           {/* Secondary CTA */}
           <a
             href="#about"
-            className="inline-flex items-center justify-center bg-transparent hover:bg-[#000000] text-[#171513] hover:text-[#FFFFFF] border border-[#77716A] rounded-full h-[46px] px-[32px] font-sans text-[13px] font-normal transition-all duration-300"
+            className="inline-flex items-center justify-center bg-transparent hover:bg-[#000000] text-[#171513] hover:text-[#FFFFFF] border border-[#77716A] rounded-full h-[46px] lg:h-[48px] px-[30px] lg:px-[34px] font-sans text-[13px] lg:text-[13.5px] font-normal transition-all duration-300"
           >
             About Me
           </a>
