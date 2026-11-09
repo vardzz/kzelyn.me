@@ -168,16 +168,16 @@ export function Footer() {
             <span>&copy; {new Date().getFullYear()} Kzelyn Artillo. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>Editorial Portfolio · Issue 2026</span>
-            <button 
-              onClick={scrollToTop}
-              className="text-[#A9A39B] hover:text-[#FFFFFF] transition-colors flex items-center gap-1.5 cursor-pointer uppercase tracking-wider text-[11px] font-medium"
-              aria-label="Back to Top"
+          <div>
+            <span>Made by </span>
+            <a 
+              href="https://www.vardz.dev/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#F3EFE9] hover:text-[#FFFFFF] underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all font-medium"
             >
-              <span>Back to Top</span>
-              <span>↑</span>
-            </button>
+              vardzz
+            </a>
           </div>
         </div>
       </div>
