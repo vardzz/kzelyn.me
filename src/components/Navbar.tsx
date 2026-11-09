@@ -44,41 +44,41 @@ export function Navbar() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled 
-          ? 'bg-paper/95 backdrop-blur-md border-b border-line/60 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
+          ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-3 sm:py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
           : 'bg-transparent pt-6 sm:pt-7 pb-4'
-      } px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20`}
+      } px-6 sm:px-10 md:px-12 lg:px-14 xl:px-16`}
     >
       <div className="w-full flex items-center justify-between">
         
-        {/* Left Section: 'K' Circle Badge + Horizontal Line + Navigation Links */}
-        <div className="flex items-center gap-6 sm:gap-10">
+        {/* Left Section: 52px 'K' Circle Badge + Thin Horizontal Divider + Nav Links */}
+        <div className="flex items-center gap-6 lg:gap-10">
           
-          {/* 'K' Circle Badge + Hairline rule */}
+          {/* Logo Badge (approx 52px diameter on desktop) + Divider */}
           <Link 
             href="#hero" 
-            className="flex items-center gap-3 sm:gap-4 group"
+            className="flex items-center gap-4 sm:gap-6 group"
             aria-label="Kzelyn Home"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-espresso text-paper flex items-center justify-center font-serif text-[17px] sm:text-[18px] font-semibold transition-transform duration-300 group-hover:scale-105 shadow-xs">
+            <div className="w-10 h-10 sm:w-[48px] sm:h-[48px] lg:w-[52px] lg:h-[52px] rounded-full bg-[#171513] text-[#F3EFE9] flex items-center justify-center font-serif text-[20px] sm:text-[23px] lg:text-[25px] font-semibold transition-transform duration-300 group-hover:scale-105 shadow-xs">
               K
             </div>
-            <span className="hidden sm:block w-12 sm:w-16 h-[1px] bg-line/80 group-hover:w-20 transition-all duration-300" />
+            <span className="hidden sm:block w-16 lg:w-24 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[11.5px] tracking-[0.14em] font-medium text-espresso/90" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[11px] lg:text-[11.5px] tracking-[0.16em] font-medium text-[#171513]" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className="relative py-1 transition-colors duration-200 hover:text-espresso/70"
+                  className="relative py-1 transition-colors duration-200 hover:text-[#77716A]"
                 >
                   <span>{link.label}</span>
                   {isActive && (
                     <span 
-                      className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-espresso transition-all duration-300" 
+                      className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#171513] transition-all duration-300" 
                       aria-hidden="true"
                     />
                   )}
@@ -92,7 +92,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="#connect"
-            className="hidden sm:inline-flex items-center gap-1.5 text-[11.5px] font-medium tracking-[0.08em] text-espresso border border-espresso/30 hover:border-espresso px-5 py-2 rounded-full transition-all duration-300 hover:bg-espresso hover:text-paper"
+            className="hidden sm:inline-flex items-center gap-2 text-[11px] lg:text-[11.5px] font-medium tracking-[0.08em] text-[#171513] border border-[#171513] px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-[#171513] hover:text-[#FFFFFF]"
           >
             <span>LET&apos;S TALK</span>
             <span className="text-[13px] leading-none">↗</span>
@@ -101,7 +101,7 @@ export function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-espresso p-1.5 focus:outline-none focus-visible:outline-2 focus-visible:outline-rust"
+            className="md:hidden text-[#171513] p-1.5 focus:outline-none focus-visible:outline-2 focus-visible:outline-rust"
             aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -119,24 +119,24 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-full left-6 right-6 mt-3 bg-paper/98 backdrop-blur-xl border border-line rounded-2xl p-6 shadow-xl flex flex-col gap-4 md:hidden animate-fade-in">
+        <div className="pointer-events-auto absolute top-full left-6 right-6 mt-3 bg-[#F3EFE9]/98 backdrop-blur-xl border border-[#A9A39B] rounded-2xl p-6 shadow-xl flex flex-col gap-4 md:hidden animate-fade-in">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[13px] tracking-[0.14em] font-medium text-espresso py-2 border-b border-line/40 flex items-center justify-between"
+              className="text-[13px] tracking-[0.14em] font-medium text-[#171513] py-2 border-b border-[#A9A39B]/40 flex items-center justify-between"
             >
               <span>{link.label}</span>
               {activeSection === link.id && (
-                <span className="w-1.5 h-1.5 rounded-full bg-espresso" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#171513]" />
               )}
             </a>
           ))}
           <a
             href="#connect"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-center text-[12px] tracking-[0.1em] font-medium text-paper bg-espresso py-3 rounded-full mt-2"
+            className="text-center text-[12px] tracking-[0.1em] font-medium text-[#FFFFFF] bg-[#171513] py-3 rounded-full mt-2"
           >
             LET&apos;S TALK ↗
           </a>
