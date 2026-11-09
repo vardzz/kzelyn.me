@@ -24,7 +24,7 @@ export function Hero() {
 
       {/* 2. Portrait Cutout: /kzelyn-image.png (Layered above typography, aligned to bottom) */}
       <div 
-        className="pointer-events-none z-10 absolute bottom-0 left-[60.5%] -translate-x-1/2 w-[52vw] max-w-[780px] min-w-[460px] h-[82vh] lg:h-[86vh] max-h-[820px] flex items-end justify-center"
+        className="pointer-events-none z-10 absolute bottom-0 left-[60%] -translate-x-1/2 w-[53vw] max-w-[800px] min-w-[480px] h-[82vh] lg:h-[86vh] max-h-[825px] flex items-end justify-center"
       >
         <Image
           src="/kzelyn-image.png"
@@ -33,35 +33,35 @@ export function Hero() {
           height={1313}
           priority
           className="w-full h-full object-contain object-bottom select-none drop-shadow-xs"
-          sizes="(max-width: 1024px) 70vw, 780px"
+          sizes="(max-width: 1024px) 70vw, 800px"
         />
       </div>
 
       {/* 3. Left-Side Introduction (Positioned cleanly below the K & Z baseline) */}
-      <div className="absolute top-[395px] sm:top-[410px] lg:top-[415px] xl:top-[425px] 2xl:top-[435px] left-6 sm:left-10 lg:left-14 xl:left-16 z-20 w-[480px] max-w-[520px] flex flex-col items-start text-left">
+      <div className="absolute top-[370px] sm:top-[380px] lg:top-[385px] xl:top-[395px] left-6 sm:left-10 lg:left-14 xl:left-16 z-20 w-[540px] max-w-[560px] flex flex-col items-start text-left">
         
         {/* Eyebrow Label with Thin Horizontal Line */}
         <div className="flex items-center gap-3.5 mb-3.5">
           <p className="text-[11px] sm:text-[11.5px] font-medium tracking-[0.16em] uppercase text-[#77716A] whitespace-nowrap">
             BSBA MARKETING MANAGEMENT GRADUATE
           </p>
-          <span className="h-[1px] w-20 sm:w-32 bg-[#A9A39B]" aria-hidden="true" />
+          <span className="h-[1px] w-24 sm:w-36 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
-        {/* Main Headline: 3 exact lines, bold Kzelyn, regular serif */}
-        <h1 className="font-serif text-[42px] sm:text-[46px] lg:text-[50px] xl:text-[56px] font-normal leading-[1.1] text-[#171513] tracking-[-0.01em] mb-4">
+        {/* Main Headline: Exactly 3 lines, bold Kzelyn, regular serif */}
+        <h1 className="font-serif text-[40px] sm:text-[44px] lg:text-[48px] xl:text-[53px] font-normal leading-[1.1] text-[#171513] tracking-[-0.01em] mb-4">
           Hello, I&apos;m <strong className="font-bold text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
 
         {/* Description Paragraph: max 390px, muted gray */}
-        <p className="text-[13.5px] sm:text-[14px] font-normal leading-[1.65] text-[#77716A] max-w-[390px] mb-7">
+        <p className="text-[13.5px] sm:text-[14px] font-normal leading-[1.65] text-[#77716A] max-w-[390px] mb-6">
           A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
         </p>
 
         {/* Call-to-Action Buttons */}
-        <div className="flex items-center gap-3.5 mb-8">
+        <div className="flex items-center gap-3.5">
           {/* Primary Button */}
           <a
             href="#work"
@@ -83,7 +83,7 @@ export function Hero() {
       </div>
 
       {/* 4. Bottom Scroll Indicator (Bottom Left of the Hero) */}
-      <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-10 lg:left-14 xl:left-16 z-20 flex items-center gap-3 text-[11.5px] text-[#77716A] tracking-[0.04em]">
+      <div className="absolute bottom-7 sm:bottom-9 lg:bottom-10 left-6 sm:left-10 lg:left-14 xl:left-16 z-20 flex items-center gap-3 text-[11.5px] text-[#77716A] tracking-[0.04em]">
         <a
           href="#about"
           className="w-[26px] h-[26px] rounded-[6px] border border-[#A9A39B] flex items-center justify-center text-[#171513] hover:border-[#171513] transition-colors cursor-pointer"

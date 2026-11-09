@@ -1,270 +1,585 @@
-# DESIGN.md — Portfolio Design System
+# KZELYN Portfolio — Design System
 
-> **Instruction to AI agents:** This file is the single source of truth for all UI/UX on this website. Follow it for every page, section, and component. Do not invent new colors, fonts, radii, or shadows. If something is not covered here, choose the quietest, most minimal option that stays consistent with these rules.
-
----
-
-## 1. Brand Feeling
-
-**Minimalist · Soft · Feminine · Premium**
-
-Think: a quiet boutique, a linen-wrapped lookbook, warm morning light on a dusty-rose wall. Calm, airy, intentional. Never loud, never crowded, never glittery.
-
-- Lots of empty space. Let things breathe.
-- One idea per section.
-- Soft edges, soft shadows, soft color. No harsh contrast, no hard black.
-- Luxury comes from restraint: fewer elements, better spacing.
+> A refined editorial portfolio design combining luxury typography, minimalist layouts, warm neutral colors, and sophisticated personal branding.
 
 ---
 
-## 2. Color System
+# 1. Design Philosophy
 
-Derived from the reference palette and the dark-brown wordmark.
+## Design Direction
 
-### Core tokens
+**Style:** Luxury Editorial / Minimalist / Fashion-Inspired
 
-| Token        | Name       | Hex       | Role                                               |
-| ------------ | ---------- | --------- | -------------------------------------------------- |
-| `--bone`     | Bone       | `#E5DFD6` | Secondary surface, cards, dividers                 |
-| `--paper`    | Paper      | `#F2F0EC` | **Default page background** (lightest)             |
-| `--espresso` | Espresso   | `#3E1F16` | **Primary text**, wordmark, headings               |
-| `--sage`     | Dried Sage | `#7A816C` | Secondary accent, tags, subtle highlights          |
-| `--rose`     | Dusty Rose | `#D1A9A5` | **Primary accent**, buttons, hover washes          |
-| `--rust`     | Faded Rust | `#AE6965` | Strong accent, links, key emphasis (use sparingly) |
-| `--oak`      | Warm Oak   | `#A58B71` | Muted text, borders, icons, captions               |
+The website should feel like a combination of:
 
-### Derived tints (for backgrounds and states)
+- A luxury fashion magazine.
+- A professional creative portfolio.
+- A high-end personal branding website.
 
-| Token         | Hex       | Use                               |
-| ------------- | --------- | --------------------------------- |
-| `--rose-soft` | `#EBD8D5` | Section washes, hover backgrounds |
-| `--sage-soft` | `#DDE0D6` | Alternate section wash            |
-| `--line`      | `#D9D1C6` | Hairline borders and dividers     |
+### Core Principles
 
-### CSS variables
+1. Typography is the primary visual element.
+2. Generous whitespace creates visual balance.
+3. Asymmetrical layouts establish visual interest.
+4. Minimal borders and dividers provide structure.
+5. Large editorial typography contrasts with small sans-serif labels.
+6. Photography should feel natural, professional, and cinematic.
+
+Avoid:
+
+- Excessive gradients.
+- Glassmorphism.
+- Unnecessary shadows.
+- Colorful accent elements.
+- Excessive rounded cards.
+- Generic SaaS-style layouts.
+- Overly decorative animations.
+
+# 2. Typography System
+
+## Primary Font: Bodoni Moda
+
+**Usage:**
+
+- Oversized KZELYN lettering.
+- Main hero headline.
+- Editorial section headings.
+- Large quotation-style statements.
+
+Recommended Google Fonts import:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&display=swap");
+```
+
+Characteristics:
+
+- High contrast between thick and thin strokes.
+- Elegant serif details.
+- Fashion editorial appearance.
+- Sophisticated and timeless.
+
+Alternative fonts:
+
+- Didot
+- Cormorant Garamond
+- Playfair Display
+
+Bodoni Moda is the preferred option for the closest overall direction.
+
+## Secondary Font: Inter
+
+**Usage:**
+
+- Navigation.
+- Descriptions.
+- Buttons.
+- Small labels.
+- Section indicators.
+- Supporting information.
+
+Recommended import:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+```
+
+Characteristics:
+
+- Clean and modern.
+- Excellent readability.
+- Neutral appearance.
+- Works well alongside high-contrast serif typography.
+
+## Font Assignment
+
+| Element               | Font        | Weight  |
+| --------------------- | ----------- | ------- |
+| Oversized name        | Bodoni Moda | 400     |
+| Hero headline         | Bodoni Moda | 400     |
+| Bold name in headline | Bodoni Moda | 700     |
+| Section headings      | Bodoni Moda | 400     |
+| Navigation            | Inter       | 400–500 |
+| Description           | Inter       | 400     |
+| Small labels          | Inter       | 400–500 |
+| Buttons               | Inter       | 500     |
+| Pagination            | Inter       | 400     |
+
+# 3. Typography Scale
+
+All measurements below are desktop reference targets.
+
+| Element          | Font Size | Line Height | Letter Spacing |
+| ---------------- | --------: | ----------: | -------------: |
+| Oversized KZELYN |     310px |        0.95 |       -0.075em |
+| Hero headline    |      64px |        1.04 |       -0.035em |
+| Section heading  |      64px |        1.05 |       -0.025em |
+| Subheading       |      28px |         1.2 |        -0.02em |
+| Body description |      16px |         1.6 |              0 |
+| Navigation       |      13px |         1.4 |         0.01em |
+| Small label      |      12px |         1.4 |         0.04em |
+| Button text      |      13px |         1.4 |              0 |
+| Pagination       |      18px |         1.4 |              0 |
+
+## Oversized Name
+
+The KZELYN text is the dominant typographic element.
+
+Specifications:
+
+- Uppercase.
+- Single horizontal line.
+- Bodoni Moda Regular.
+- Approximately 19vw font size.
+- Tight negative letter spacing.
+- Positioned near the upper section of the viewport.
+- Extends across almost the entire screen width.
+
+The portrait must overlap the typography.
+
+# 4. Color Palette
+
+## Primary Colors
+
+| Token          | Hex     | Usage                      |
+| -------------- | ------- | -------------------------- |
+| Background     | #F3EFE9 | Main page background       |
+| Primary Text   | #171513 | Headlines and primary text |
+| Secondary Text | #77716A | Descriptions               |
+| Muted Text     | #88827A | Supporting information     |
+| Border         | #A9A39B | Dividers and outlines      |
+| Primary Button | #000000 | Main CTA                   |
+| Button Text    | #FFFFFF | Main CTA text              |
+| White          | #FFFFFF | Logo lettering             |
+
+## CSS Variables
 
 ```css
 :root {
-  --paper: #f2f0ec;
-  --bone: #e5dfd6;
-  --espresso: #3e1f16;
-  --sage: #7a816c;
-  --rose: #d1a9a5;
-  --rust: #ae6965;
-  --oak: #a58b71;
-  --rose-soft: #ebd8d5;
-  --sage-soft: #dde0d6;
-  --line: #d9d1c6;
+  --color-background: #f3efe9;
+  --color-primary: #171513;
+  --color-secondary: #77716a;
+  --color-muted: #88827a;
+  --color-border: #a9a39b;
+  --color-black: #000000;
+  --color-white: #ffffff;
 }
 ```
 
-### Usage ratio (per screen)
+The background should remain a consistent warm off-white.
 
-- **70%** Paper / Bone (neutral space)
-- **15%** Espresso (text)
-- **10%** Dusty Rose / Rose-soft (accent)
-- **5%** Sage, Rust, Oak (detail)
+Avoid pure white backgrounds for the main sections.
 
-### Color rules
+# 5. Layout System
 
-- Page background is always `--paper`. Alternate sections may use `--bone`, `--rose-soft`, or `--sage-soft`.
-- **Never use pure black (`#000`) or pure white (`#FFF`).** Text is `--espresso`; lightest surface is `--paper`.
-- Body text: `--espresso`. Secondary text: `--oak`.
-- `--rust` and `--sage` are **not** safe for small body text on light backgrounds (low contrast). Use them for large text, icons, borders, or fills only.
-- Max **two accent colors** visible in any single section.
-- No gradients, except an optional very subtle `--paper` → `--rose-soft` wash on hero backgrounds.
+## Desktop Reference Dimensions
 
----
+Primary reference viewport:
 
-## 3. Typography
+- Width: 1648px
+- Height: 928px
+- Aspect ratio: 16:9
 
-### Font roles
+### Global Layout
 
-| Role                  | Font                                                                                         | Use                                           |
-| --------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| **Signature display** | **Fraunces** (soft, flared, high-contrast serif; closest Google Font to the "mora" wordmark) | **ONLY** for important words (see rule below) |
-| **Everything else**   | **DM Sans**                                                                                  | Headings, body, nav, buttons, captions, UI    |
+| Property                | Value                       |
+| ----------------------- | --------------------------- |
+| Hero height             | 100svh                      |
+| Minimum height          | 928px at reference viewport |
+| Horizontal page padding | 4.5vw                       |
+| Main positioning        | Relative                    |
+| Portrait positioning    | Absolute                    |
+| Overflow                | Hidden                      |
+| Background              | #F3EFE9                     |
+
+### Main Composition
+
+The hero consists of five primary visual layers:
+
+1. Background.
+2. Oversized KZELYN typography.
+3. Portrait image.
+4. Introduction content.
+5. Navigation and supporting information.
+
+Use absolute positioning where necessary to preserve the original overlapping composition.
+
+# 6. Navigation Design
+
+## Structure
+
+The navigation contains:
+
+1. Circular K logo.
+2. Horizontal divider.
+3. Portfolio link.
+4. About link.
+5. Projects link.
+6. Contact link.
+7. Let's Talk button.
+
+### Specifications
+
+| Property         | Value             |
+| ---------------- | ----------------- |
+| Logo size        | 52px × 52px       |
+| Logo background  | #000000           |
+| Logo letter      | Bodoni Moda       |
+| Logo letter size | 38px              |
+| Navigation font  | Inter             |
+| Navigation size  | 13px              |
+| Navigation gap   | 40–44px           |
+| Header padding   | 24px 4.5vw        |
+| Button border    | 1px solid #77716A |
+| Button radius    | 999px             |
+| Button padding   | 12px 22px         |
+
+The active navigation item must have a thin underline.
+
+Navigation should remain visually lightweight.
+
+# 7. Hero Introduction
+
+## Positioning
+
+The introduction is positioned on the left side of the hero.
+
+Recommended desktop placement:
+
+- Left: 4.5vw.
+- Top: approximately 44–46% of viewport height.
+- Maximum content width: 550px.
+
+### Small Label
+
+Text:
+
+BSBA MARKETING MANAGEMENT GRADUATE
+
+Specifications:
+
+- Inter.
+- 12px.
+- Uppercase.
+- Letter spacing: 0.04em.
+- Color: #171513.
+
+A thin horizontal divider extends to the right of the label.
+
+### Main Headline
+
+Exact text:
+
+Hello, I'm Kzelyn.
+
+Crafting brands with
+
+purpose & care.
+
+Specifications:
+
+- Bodoni Moda.
+- 64px.
+- Line height: 1.04.
+- Regular weight.
+- Tight letter spacing.
+- Bold emphasis on Kzelyn.
+
+Maximum width: approximately 550px.
+
+### Supporting Description
+
+Exact text:
+
+A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
+
+Specifications:
+
+- Inter.
+- 16px.
+- Weight: 400.
+- Line height: 1.6.
+- Color: #77716A.
+- Maximum width: 390px.
+- Top margin: 20px.
+
+# 8. Button System
+
+## Primary CTA
+
+Text: Explore My Work
+
+| Property           | Value          |
+| ------------------ | -------------- |
+| Background         | #000000        |
+| Text               | #FFFFFF        |
+| Font               | Inter          |
+| Font size          | 13px           |
+| Font weight        | 500            |
+| Height             | 46px           |
+| Horizontal padding | 30px           |
+| Border radius      | 999px          |
+| Icon               | Arrow up-right |
+
+## Secondary CTA
+
+Text: About Me
+
+| Property           | Value             |
+| ------------------ | ----------------- |
+| Background         | Transparent       |
+| Text               | #171513           |
+| Border             | 1px solid #77716A |
+| Font               | Inter             |
+| Font size          | 13px              |
+| Height             | 46px              |
+| Horizontal padding | 32px              |
+| Border radius      | 999px             |
+
+### Button Spacing
+
+- Horizontal gap: 24–30px.
+- Top margin: 22px.
+- Hover transition: 200–300ms.
+- Primary hover: slightly lighter black.
+- Secondary hover: black background with white text.
+
+# 9. Portrait Image
+
+## Asset
+
+```text
+/public/kzelyn-image.png
+```
+
+Use the existing transparent PNG.
+
+### Positioning
+
+The portrait is the main visual focal point.
+
+Specifications:
+
+| Property             | Value                      |
+| -------------------- | -------------------------- |
+| Position             | Absolute                   |
+| Horizontal alignment | Right-center               |
+| Bottom               | 0                          |
+| Width                | Approximately 57%          |
+| Height               | Approximately 94%          |
+| Object fit           | Contain                    |
+| Object position      | Bottom center              |
+| Z-index              | Above oversized typography |
+
+### Important Rules
+
+- Preserve the original aspect ratio.
+- Do not crop the head or hands.
+- Do not apply image filters.
+- Do not add background shapes.
+- Do not add shadows.
+- Do not alter the clothing or pose.
+- Keep the portrait's transparent background.
+- Maintain the original image proportions.
+
+The image must visually integrate with the background and overlap the oversized KZELYN typography.
+
+# 10. Right-Side Pagination
+
+Content:
+
+01 / 04
+
+Turning ideas into strategies, and strategies into something greater.
+
+### Specifications
+
+- Position: right side.
+- Horizontal offset: 4.5vw.
+- Vertical position: approximately 53% of viewport height.
+- Left vertical divider: 1px.
+- Divider color: #A9A39B.
+- Padding left: 24px.
+- Pagination size: 18px.
+- Description size: 14px.
+- Description line height: 1.6.
+- Maximum description width: 170px.
+
+The pagination must remain subtle and must not compete with the portrait.
+
+# 11. Scroll Indicator
+
+Content:
+
+↓ Scroll to explore
+
+### Specifications
+
+- Position: bottom-left.
+- Horizontal alignment with the main introduction.
+- Arrow container: approximately 36px × 38px.
+- Border radius: 11px.
+- Border: 1px solid #A9A39B.
+- Arrow size: 20px.
+- Label font: Inter.
+- Label size: 13px.
+- Label color: #77716A.
+- Horizontal divider extending to the right.
+
+Keep the element visually understated.
+
+# 12. Spacing System
+
+Use a consistent spacing scale.
+
+| Token    | Value |
+| -------- | ----: |
+| space-1  |   4px |
+| space-2  |   8px |
+| space-3  |  12px |
+| space-4  |  16px |
+| space-5  |  20px |
+| space-6  |  24px |
+| space-8  |  32px |
+| space-10 |  40px |
+| space-12 |  48px |
+| space-16 |  64px |
+| space-20 |  80px |
+| space-24 |  96px |
+
+Prefer generous whitespace instead of tightly packed components.
+
+# 13. Border and Radius System
+
+| Element          | Border Radius |
+| ---------------- | ------------- |
+| Logo             | 50%           |
+| Main CTA         | 999px         |
+| Secondary CTA    | 999px         |
+| Navigation CTA   | 999px         |
+| Scroll container | 11px          |
+| Dividers         | 0px           |
+
+Use 1px borders for most interface outlines.
+
+Avoid excessive rounded corners on decorative elements.
+
+# 14. Responsive Design
+
+## Desktop: 1280px and Above
+
+- Preserve the original editorial layout.
+- Maintain the oversized typography.
+- Keep the portrait on the right.
+- Maintain the left-side introduction.
+- Display the pagination and scroll indicator.
+
+## Tablet: 768px–1279px
+
+- Reduce oversized typography to approximately 18vw.
+- Reduce headline size to 48–56px.
+- Adjust portrait width to 60–65%.
+- Reduce navigation spacing.
+- Keep text readable.
+- Reposition pagination if necessary.
+
+## Mobile: Below 768px
+
+- Use a simplified navigation.
+- Reduce oversized lettering significantly.
+- Position the portrait without obstructing the headline.
+- Stack introduction elements vertically.
+- Use a headline size between 38px and 46px.
+- Hide or reposition pagination.
+- Keep CTAs accessible.
+- Prevent horizontal overflow.
+
+Mobile should preserve the same visual identity without forcing the desktop composition into a narrow viewport.
+
+# 15. Motion and Interaction
+
+Keep animations subtle and purposeful.
+
+Recommended interactions:
+
+- Navigation underline transition.
+- Button background transitions.
+- Smooth scrolling.
+- Subtle image entrance animation.
+- Minimal arrow movement on hover.
+
+Recommended timing:
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,100,1&display=swap");
+transition: all 250ms ease;
+```
 
+Avoid:
+
+- Excessive parallax.
+- Constant floating animations.
+- Aggressive entrance animations.
+- Large movement effects.
+- Distracting background animations.
+
+# 16. Recommended CSS Font Configuration
+
+```css
 :root {
-  --font-display: "Fraunces", serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-editorial: "Bodoni Moda", "Didot", serif;
+  --font-interface: "Inter", sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-interface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.editorial-text {
+  font-family: var(--font-editorial);
 }
 ```
 
-> If the real logo font or a logo SVG is available, use it for the brand name instead of Fraunces. Fraunces is the fallback for matching words elsewhere.
+# 17. Design Implementation Rules
 
-### ⚠️ Signature font rule (strict)
+When implementing this design:
 
-The signature display font is **rare and special**. Use it **only** for:
+1. Treat this document as the primary design specification.
+2. Preserve the original reference composition.
+3. Do not introduce new colors or typography without a strong reason.
+4. Do not replace the provided portrait.
+5. Maintain the distinction between serif editorial typography and sans-serif interface typography.
+6. Prioritize desktop visual accuracy.
+7. Use consistent spacing and alignment.
+8. Avoid unnecessary components.
+9. Keep the code modular and maintainable.
+10. Test the actual rendered result against the original reference.
 
-1. **The owner's name / brand name** (nav logo, hero name, footer sign-off)
-2. **One highlighted word** inside a hero or section headline (max 1–2 words)
-3. **Large numerals or a single pull word** (e.g., "01", "Selected Work") when used as a deliberate accent
+# 18. Final Design Identity
 
-**Never** use it for: paragraphs, buttons, navigation links, form fields, captions, card descriptions, or full headings.
+**Brand:** KZELYN
 
-**Maximum: 1 signature-font moment per section.**
+**Visual Direction:** Luxury Editorial Minimalism
 
-Example: `Hello, I'm <span class="signature">Mora</span>` — only the name is in the display font; the rest is DM Sans.
+**Primary Typeface:** Bodoni Moda
 
-### Type scale
+**Secondary Typeface:** Inter
 
-| Style           | Size (desktop / mobile)              | Weight                     | Line height | Letter spacing |
-| --------------- | ------------------------------------ | -------------------------- | ----------- | -------------- |
-| Hero heading    | 72px / 40px                          | DM Sans 300                | 1.05        | -0.02em        |
-| Section heading | 44px / 30px                          | DM Sans 300                | 1.15        | -0.01em        |
-| Subheading      | 22px / 18px                          | DM Sans 400                | 1.4         | 0              |
-| Body            | 16–17px                              | DM Sans 400                | 1.75        | 0              |
-| Caption / meta  | 13px                                 | DM Sans 400                | 1.5         | 0.02em         |
-| Eyebrow / label | 12px                                 | DM Sans 500, **UPPERCASE** | 1.4         | 0.18em         |
-| Signature word  | matches the surrounding heading size | Fraunces 600               | inherits    | -0.01em        |
+**Primary Background:** Warm Off-White
 
-Light weights (300) for large headings give the premium, airy feel. Never use weights above 500 in DM Sans.
+**Primary Text:** Near Black
 
----
+**Layout:** Asymmetrical Editorial Composition
 
-## 4. Layout & Spacing
+**Visual Focal Point:** Oversized Typography + Portrait Photography
 
-- **Base unit: 8px.** All spacing is a multiple of 8.
-- **Max content width:** 1120px. Reading text max **640px**.
-- **Grid:** 12 columns desktop, 4 mobile. Gutter 24px (desktop) / 16px (mobile).
-- **Section padding:** 128px vertical desktop / 72px mobile. Be generous.
-- **Page side padding:** 48px desktop / 20px mobile.
-- Prefer **asymmetric, editorial layouts**: generous margins, offset images, lots of negative space.
-- One focal element per viewport.
-
-### Spacing scale
-
-`4 · 8 · 16 · 24 · 32 · 48 · 64 · 96 · 128`
+**Overall Feeling:** Elegant, confident, refined, creative, and timeless.
 
 ---
 
-## 5. Shape, Depth & Borders
-
-Soft and pill-shaped, echoing the rounded palette cards.
-
-| Token           | Value | Use                         |
-| --------------- | ----- | --------------------------- |
-| `--radius-sm`   | 12px  | Inputs, tags                |
-| `--radius-md`   | 24px  | Cards, images               |
-| `--radius-lg`   | 32px  | Large cards, feature panels |
-| `--radius-pill` | 999px | Buttons, chips, nav pill    |
-
-```css
---shadow-soft: 0 8px 30px rgba(62, 31, 22, 0.06);
---shadow-lift: 0 14px 40px rgba(62, 31, 22, 0.1);
-```
-
-- Prefer **hairline borders** (`1px solid var(--line)`) or a soft shadow, never both heavy.
-- Shadows are always warm-tinted (espresso at low opacity), never gray or black.
-- No hard drop shadows, no glows, no neon.
-
----
-
-## 6. Components
-
-### Buttons
-
-- **Primary:** `--rose` background, `--espresso` text, pill radius, padding `14px 32px`, DM Sans 500 14px, letter-spacing 0.04em. Hover: background `--rust`, text `--paper`.
-- **Secondary:** transparent, 1px `--espresso` border, `--espresso` text, pill. Hover: fill `--rose-soft`.
-- **Text link:** `--espresso`, underline 1px `--rose`, offset 6px. Hover: underline `--rust`.
-- Never use more than one primary button per viewport.
-
-### Cards
-
-- Background `--bone` or `--paper`, radius 24–32px, padding 32–40px, `--shadow-soft` or hairline border.
-- Images inside cards use the same radius. Hover: lift 4px + `--shadow-lift`.
-
-### Navigation
-
-- Minimal: wordmark/name left (signature font), 3–5 links right (DM Sans 14px, normal case).
-- Optional floating **pill nav** with `--paper` at 80% opacity + backdrop blur, hairline border.
-- Active link: `--rust` dot or thin underline, never bold.
-
-### Tags / Chips
-
-- Pill, `--sage-soft` or `--rose-soft` background, `--espresso` text, 12px uppercase with 0.12em spacing.
-
-### Forms
-
-- Underline-style or soft-rounded (12px) inputs, `--line` border, focus border `--rose` + faint rose ring. Labels are eyebrow style. Error color: `--rust`.
-
-### Dividers
-
-- 1px `--line`, or generous whitespace instead. Prefer whitespace.
-
-### Icons
-
-- Thin line icons (1.25–1.5px stroke), `--oak` or `--espresso`. Rounded caps. No filled or multicolor icons.
-
----
-
-## 7. Imagery
-
-- Warm, natural, soft light. Muted tones that sit inside the palette (blush, sage, oak, cream).
-- Rounded corners (24px). No harsh borders or heavy filters.
-- Use a subtle warm overlay if an image clashes with the palette.
-- Product/portfolio mockups sit on `--bone` or `--rose-soft` backgrounds with generous padding.
-
----
-
-## 8. Motion
-
-Quiet and slow. Motion should feel like a breath, not a performance.
-
-- Duration: **300–600ms**. Easing: `cubic-bezier(0.22, 1, 0.36, 1)`.
-- Allowed: fade-up on scroll (16–24px travel), gentle hover lift, soft color transitions, slow image scale (1 → 1.03).
-- Avoid: bouncing, spinning, parallax overload, flashing, auto-playing carousels.
-- Always respect `prefers-reduced-motion`.
-
----
-
-## 9. Accessibility
-
-- Body text contrast ≥ 4.5:1: `--espresso` on `--paper`/`--bone` passes comfortably.
-- `--rust` text only at ≥ 24px or bold ≥ 18.5px, or as a non-text accent.
-- Visible focus state on all interactive elements: 2px `--rust` outline with 3px offset.
-- Tap targets ≥ 44×44px. Meaningful alt text on all images.
-
----
-
-## 10. Responsive
-
-- Mobile-first. Breakpoints: `640px · 960px · 1280px`.
-- On mobile: single column, section padding 72px, hero heading 40px, keep generous whitespace (do not compress it).
-
----
-
-## 11. Do / Don't
-
-**Do**
-
-- Use whitespace as the main design material.
-- Keep one accent color dominant per section (usually Dusty Rose).
-- Use the signature font only on names and one key word.
-- Keep copy short, warm, and confident.
-
-**Don't**
-
-- Don't use bold, heavy, or all-caps headings (except small eyebrow labels).
-- Don't use pure black, pure white, or saturated colors.
-- Don't use more than two fonts, ever.
-- Don't add emojis, stickers, or decorative clutter.
-- Don't use sharp corners, hard shadows, or dense grids.
-- Don't introduce new colors outside this file.
-
----
-
-## 12. Agent Checklist (before shipping any layout)
-
-- [ ] Background is `--paper` (or an approved wash)
-- [ ] Text is `--espresso` / `--oak`, never black
-- [ ] Signature font used only on name / 1–2 key words (max one per section)
-- [ ] Spacing follows the 8px scale, and sections feel airy
-- [ ] Radii and shadows come from the tokens above
-- [ ] Only one primary button in view
-- [ ] Contrast and focus states pass
-- [ ] Nothing feels loud, crowded, or cold
+END OF DESIGN SYSTEM
