@@ -6,8 +6,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 sm:py-16 px-6 sm:px-12 border-t border-line/60 bg-paper">
-      <div className="max-w-[1120px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] text-oak">
+    <footer className="py-12 sm:py-16 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full border-t border-line/60 bg-paper">
+      <div className="max-w-[1120px] mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] text-oak">
         
         {/* Left: Signature Wordmark & Title */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">

@@ -19,10 +19,10 @@ export function Connect() {
   return (
     <section 
       id="connect" 
-      className="py-20 sm:py-28 lg:py-36 px-6 sm:px-12 bg-rose-soft/30 border-t border-line/60"
+      className="py-20 sm:py-28 lg:py-36 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full bg-rose-soft/30 border-t border-line/60"
       aria-label="Connect and Contact"
     >
-      <div className="max-w-[1120px] mx-auto">
+      <div className="max-w-[1120px] mx-auto w-full">
         
         {/* Eyebrow Label */}
         <div className="flex items-center gap-3 mb-4">

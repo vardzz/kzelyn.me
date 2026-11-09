@@ -12,9 +12,10 @@ export function About() {
   return (
     <section 
       id="about" 
-      className="py-20 sm:py-28 lg:py-36 px-6 sm:px-12 max-w-[1120px] mx-auto border-t border-line/60"
+      className="py-20 sm:py-28 lg:py-36 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full border-t border-line/60"
       aria-label="About Me"
     >
+      <div className="max-w-[1120px] mx-auto w-full">
       {/* Section Eyebrow */}
       <div className="flex items-center gap-3 mb-4">
         <span className="w-6 h-[1px] bg-oak/60" aria-hidden="true" />
@@ -100,6 +101,7 @@ export function About() {
         ))}
       </div>
 
+      </div>
     </section>
   );
 }

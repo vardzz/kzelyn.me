@@ -41,7 +41,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-8 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
       <nav 
         className={`pointer-events-auto flex items-center justify-between gap-6 sm:gap-10 px-5 sm:px-7 py-3 rounded-full transition-all duration-300 border border-line ${
           scrolled 

@@ -6,10 +6,10 @@ export function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 px-6 sm:px-12 max-w-[1120px] mx-auto min-h-[90vh] flex flex-col justify-center"
+      className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full min-h-[90vh] flex flex-col justify-center"
       aria-label="Introduction"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1120px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column (Text & Actions) - 7 cols */}
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">

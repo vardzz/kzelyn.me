@@ -39,9 +39,10 @@ export function Work() {
   return (
     <section 
       id="work" 
-      className="py-20 sm:py-28 lg:py-36 px-6 sm:px-12 max-w-[1120px] mx-auto border-t border-line/60"
+      className="py-20 sm:py-28 lg:py-36 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full border-t border-line/60"
       aria-label="Selected Work"
     >
+      <div className="max-w-[1120px] mx-auto w-full">
       {/* Eyebrow Label */}
       <div className="flex items-center gap-3 mb-4">
         <span className="w-6 h-[1px] bg-oak/60" aria-hidden="true" />
@@ -145,6 +146,7 @@ export function Work() {
         </p>
       </div>
 
+      </div>
     </section>
   );
 }
