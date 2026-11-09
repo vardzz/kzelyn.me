@@ -11,7 +11,7 @@ export function Hero() {
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[72px] sm:top-[76px] lg:top-[80px] xl:top-[82px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-[350] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[72px] sm:top-[76px] lg:top-[80px] xl:top-[84px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[17.5vw] xl:text-[220px] 2xl:text-[235px] font-[350] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
@@ -24,7 +24,7 @@ export function Hero() {
 
       {/* 2. Portrait Cutout: /kzelyn-image.png (Enlarged so it encompasses the whole 'L', resting at bottom: 0) */}
       <div 
-        className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[96vh] sm:h-[97vh] lg:h-[98vh] max-h-[1020px] w-auto flex items-end justify-center select-none"
+        className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[97vh] sm:h-[98vh] max-h-[1050px] w-auto flex items-end justify-center select-none"
       >
         <Image
           src="/kzelyn-image.png"
@@ -33,7 +33,7 @@ export function Hero() {
           height={1313}
           priority
           className="h-full w-auto max-w-none object-contain object-bottom select-none"
-          sizes="(max-height: 1020px) 98vh, 1020px"
+          sizes="(max-height: 1050px) 98vh, 1050px"
         />
       </div>
 
@@ -48,15 +48,15 @@ export function Hero() {
           <span className="h-[1px] w-24 sm:w-32 lg:w-36 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
-        {/* Main Headline: Exactly 3 lines, Boska Medium Thin (350), bold contrast on Kzelyn */}
-        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-[350] leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
+        {/* Main Headline: Exactly 3 lines, Boska Medium Thin (350), medium editorial size */}
+        <h1 className="font-serif text-[34px] sm:text-[38px] lg:text-[42px] xl:text-[45px] font-[350] leading-[1.14] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
           Hello, I&apos;m <strong className="font-[600] text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
 
-        {/* Supporting Description: Inter, 15px, line-height 1.65, max-width 390px */}
-        <p className="font-sans text-[14px] lg:text-[15px] font-normal leading-[1.65] text-[#77716A] max-w-[390px] mb-7 lg:mb-9">
+        {/* Supporting Description: Inter, comfortable medium size */}
+        <p className="font-sans text-[14px] sm:text-[14.5px] lg:text-[15px] font-normal leading-[1.65] text-[#77716A] max-w-[390px] mb-7 lg:mb-8">
           A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
         </p>
 
