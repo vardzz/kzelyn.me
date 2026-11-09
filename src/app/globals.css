@@ -1,20 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,100,1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,100,1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 @import "tailwindcss";
 
 :root {
-  --paper: #f2f0ec;
+  --paper: #f4f0ea;
   --bone: #e5dfd6;
-  --espresso: #3e1f16;
+  --espresso: #1a1817;
   --sage: #7a816c;
   --rose: #d1a9a5;
   --rust: #ae6965;
-  --oak: #a58b71;
+  --oak: #7a7571;
   --rose-soft: #ebd8d5;
   --sage-soft: #dde0d6;
-  --line: #d9d1c6;
+  --line: #d3cdc5;
 
-  --font-display: "Fraunces", Georgia, serif;
-  --font-serif: "Cormorant Garamond", "Fraunces", Georgia, serif;
+  --font-display: "Playfair Display", "Fraunces", Georgia, serif;
+  --font-serif: "Playfair Display", "Bodoni Moda", Georgia, serif;
+  --font-giant: "Playfair Display", "Bodoni Moda", Didot, serif;
   --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
 
   --radius-sm: 12px;
