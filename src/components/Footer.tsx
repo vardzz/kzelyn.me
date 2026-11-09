@@ -29,7 +29,7 @@ export function Footer() {
 
   return (
     <footer 
-      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 relative overflow-hidden select-none border-t border-white/[0.08]"
+      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 lg:pb-16 relative overflow-hidden select-none border-t border-white/[0.08]"
       aria-label="Site Footer"
     >
       {/* ======================================================== */}
@@ -160,7 +160,7 @@ export function Footer() {
         {/* ======================================================== */}
         {/* 2. MID SECTION METADATA & DIVIDER                       */}
         {/* ======================================================== */}
-        <div className="pt-14 sm:pt-20 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#77716A] font-sans border-t border-white/[0.08] mt-12 sm:mt-16">
+        <div className="pt-12 sm:pt-16 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#77716A] font-sans border-t border-white/[0.08] mt-12 sm:mt-16">
           <div className="flex items-center gap-2">
             <span>&copy; {new Date().getFullYear()} Kzelyn Artillo. All rights reserved.</span>
           </div>
@@ -187,7 +187,7 @@ export function Footer() {
         aria-hidden="true"
       >
         {/* Central Conical Ambient Glow rising behind the wordmark */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[900px] h-[58%] bg-gradient-to-t from-[#EAE5DD]/18 via-[#D1A9A5]/10 to-transparent blur-3xl rounded-t-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[900px] h-[65%] bg-gradient-to-t from-[#EAE5DD]/20 via-[#D1A9A5]/10 to-transparent blur-3xl rounded-t-full" />
         
         {/* Subtle Stippled Particle Horizon SVG */}
         <svg 
@@ -215,10 +215,12 @@ export function Footer() {
       </div>
 
       {/* ======================================================== */}
-      {/* 4. OVERSIZED CROPPED WORDMARK: @ursweetiekz             */}
+      {/* 4. OVERSIZED WORDMARK: @ursweetiekz                     */}
+      {/* Modern geometric sans font matching reference image     */}
+      {/* All letters 100% visible, zero bottom clipping          */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full pt-6 sm:pt-10 flex justify-center items-end overflow-hidden -mb-3 sm:-mb-5 lg:-mb-8">
-        <span className="font-serif text-[15.5vw] xl:text-[215px] 2xl:text-[240px] font-[350] tracking-[-0.04em] leading-[0.82] text-[#FFFFFF] select-none text-center whitespace-nowrap block drop-shadow-sm transition-transform duration-500 hover:scale-[1.01]">
+      <div className="relative z-10 w-full pt-10 sm:pt-16 pb-4 sm:pb-6 flex justify-center items-center overflow-visible px-4">
+        <span className="font-sans text-[11.5vw] xl:text-[160px] 2xl:text-[180px] font-normal tracking-[-0.04em] leading-[1.1] text-[#FFFFFF] select-none text-center whitespace-nowrap block drop-shadow-sm transition-transform duration-500 hover:scale-[1.01]">
           @ursweetiekz
         </span>
       </div>
