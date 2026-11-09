@@ -1,4 +1,3 @@
-@import url("https://api.fontshare.com/v2/css?f[]=boska@300,400,500,600,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
@@ -22,9 +21,9 @@
   --sage-soft: #dde0d6;
   --line: #a9a39b;
 
-  --font-serif: "Boska", "Bodoni Moda", Didot, Georgia, serif;
+  --font-serif: "Bodoni Moda", Didot, Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Boska", "Bodoni Moda", Didot, Georgia, serif;
+  --font-display: "Bodoni Moda", Didot, Georgia, serif;
 
   --radius-sm: 12px;
   --radius-md: 24px;
@@ -69,7 +68,8 @@ body {
 }
 
 .font-serif {
-  font-family: "Boska", "Bodoni Moda", Didot, Georgia, serif;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-optical-sizing: auto;
 }
 
 .font-sans {
