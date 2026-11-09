@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -181,38 +183,27 @@ export function Footer() {
       </div>
 
       {/* ======================================================== */}
-      {/* 3. ETHEREAL SAND & STARLIGHT VISUAL (Reference Artwork) */}
+      {/* 3. ORGANIC UPWARD DRIPPING LIQUID (High-Fashion Fluid)   */}
+      {/* Photorealistic rising viscous drips from reference image */}
       {/* ======================================================== */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" 
         aria-hidden="true"
       >
-        {/* Central Conical Ambient Glow rising behind the wordmark */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-[950px] h-[65%] bg-gradient-to-t from-[#EAE5DD]/20 via-[#D1A9A5]/10 to-transparent blur-3xl rounded-t-full" />
+        {/* Ambient Warm Champagne Liquid Glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[850px] h-[75%] bg-gradient-to-t from-[#EAE5DD]/30 via-[#D1A9A5]/15 to-transparent blur-3xl rounded-t-full" />
         
-        {/* Subtle Stippled Particle Horizon SVG */}
-        <svg 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[340px] sm:h-[420px] opacity-25" 
-          viewBox="0 0 1000 400" 
-          fill="none"
-        >
-          <defs>
-            <radialGradient id="footerSandGlow" cx="50%" cy="100%" r="60%">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
-              <stop offset="40%" stopColor="#EAE5DD" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#121110" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <path 
-            d="M 120 400 Q 320 230 500 110 Q 680 230 880 400 Z" 
-            fill="url(#footerSandGlow)" 
+        {/* Photorealistic Natural Upward Dripping Liquid Container */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[980px] h-[380px] sm:h-[460px] lg:h-[520px] flex items-end justify-center">
+          <Image
+            src="/drips-upward-pearl.png"
+            alt=""
+            width={740}
+            height={740}
+            priority
+            className="w-full h-full object-contain object-bottom opacity-90 drop-shadow-[0_0_35px_rgba(243,239,233,0.3)] transition-opacity duration-700"
           />
-          <path 
-            d="M 460 400 Q 600 270 700 210 Q 820 300 940 400 Z" 
-            fill="url(#footerSandGlow)" 
-            opacity="0.6"
-          />
-        </svg>
+        </div>
       </div>
 
       {/* ======================================================== */}
