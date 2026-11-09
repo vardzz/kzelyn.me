@@ -10,26 +10,8 @@ export function About() {
       aria-label="About Kzelyn"
     >
       <div className="max-w-[1240px] mx-auto w-full">
-        
-        {/* Section Header: Vogue Editorial Masthead Style */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[#A9A39B]/30">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-[#171513]" aria-hidden="true" />
-              <p className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.2em] uppercase text-[#77716A]">
-                02 / 04 — BIOGRAPHY &amp; ETHOS
-              </p>
-            </div>
-            <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[46px] font-[350] leading-[1.12] tracking-[-0.02em] text-[#171513] max-w-[680px]">
-              More than creative concepts, building work that creates lasting <span className="italic font-normal">connection</span>.
-            </h2>
-          </div>
-
-          <div className="hidden md:flex flex-col items-end text-right font-sans text-[12px] tracking-[0.14em] text-[#77716A] uppercase">
-            <span>EDITORIAL PROFILE</span>
-            <span className="text-[#171513] font-medium">ISSUE 2026 / VOL. 01</span>
-          </div>
-        </div>
+        {/* Visually hidden heading for screen readers & SEO */}
+        <h2 className="sr-only">About Kzelyn Artillo — Biography &amp; Ethos</h2>
 
         {/* Vogue Magazine Bento Grid (Based on the Reference Design) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
