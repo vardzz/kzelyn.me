@@ -11,7 +11,7 @@ export function Hero() {
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-[300] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-normal leading-none tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
