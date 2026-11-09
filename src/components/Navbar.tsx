@@ -34,44 +34,48 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'About', href: '#about', id: 'about' },
-    { label: 'Toolkit', href: '#toolkit', id: 'toolkit' },
-    { label: 'Work', href: '#work', id: 'work' },
-    { label: 'Connect', href: '#connect', id: 'connect' },
+    { label: 'PORTFOLIO', href: '#hero', id: 'hero' },
+    { label: 'ABOUT', href: '#about', id: 'about' },
+    { label: 'PROJECTS', href: '#work', id: 'work' },
+    { label: 'CONTACT', href: '#connect', id: 'connect' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
       <nav 
-        className={`pointer-events-auto flex items-center justify-between gap-6 sm:gap-10 px-5 sm:px-7 py-3 rounded-full transition-all duration-300 border border-line ${
+        className={`pointer-events-auto flex items-center justify-between gap-6 px-5 sm:px-8 py-3 rounded-full transition-all duration-300 border border-line ${
           scrolled 
             ? 'bg-paper/90 backdrop-blur-md shadow-[0_8px_30px_rgba(62,31,22,0.06)]' 
-            : 'bg-paper/75 backdrop-blur-sm'
-        } max-w-[1120px] w-full`}
+            : 'bg-paper/80 backdrop-blur-sm'
+        } max-w-[1240px] w-full`}
         aria-label="Main Navigation"
       >
-        {/* Signature Wordmark */}
+        {/* Left: 'K' Circle Badge + Hairline rule */}
         <Link 
           href="#hero" 
-          className="signature text-[20px] sm:text-[22px] text-espresso hover:text-rust transition-colors duration-300"
+          className="flex items-center gap-3 group"
+          aria-label="Kzelyn Home"
         >
-          Kzelyn
+          <div className="w-8 h-8 rounded-full bg-espresso text-paper flex items-center justify-center font-serif text-[15px] font-semibold transition-transform duration-300 group-hover:scale-105">
+            K
+          </div>
+          <span className="hidden sm:block w-8 h-[1px] bg-line group-hover:w-12 transition-all duration-300" />
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-7 text-[14px] text-espresso">
+        {/* Center: Desktop Links (PORTFOLIO, ABOUT, PROJECTS, CONTACT) */}
+        <div className="hidden md:flex items-center gap-8 text-[12px] tracking-[0.14em] font-medium text-espresso/90">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className="relative py-1 transition-colors duration-200 hover:text-rust flex items-center gap-1.5"
+                className="relative py-1 transition-colors duration-200 hover:text-rust"
               >
                 <span>{link.label}</span>
                 {isActive && (
                   <span 
-                    className="w-1.5 h-1.5 rounded-full bg-rust absolute -bottom-1 left-1/2 -translate-x-1/2" 
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-espresso transition-all duration-300" 
                     aria-hidden="true"
                   />
                 )}
@@ -80,13 +84,14 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Right CTA / Resume Button (Secondary style: transparent with 1px espresso border, hover fill rose-soft) */}
+        {/* Right CTA Button: LET'S TALK ↗ */}
         <div className="hidden md:flex items-center">
           <a
             href="#connect"
-            className="text-[13px] font-medium text-espresso border border-espresso/30 hover:border-espresso px-4 py-1.5 rounded-full transition-all duration-300 hover:bg-rose-soft"
+            className="text-[12px] font-medium tracking-[0.08em] text-espresso border border-espresso/30 hover:border-espresso px-4 py-2 rounded-full transition-all duration-300 hover:bg-rose-soft/40 flex items-center gap-1.5"
           >
-            Get in touch
+            <span>LET&apos;S TALK</span>
+            <span className="text-[13px]">↗</span>
           </a>
         </div>
 
@@ -109,26 +114,26 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-20 left-4 right-4 bg-paper/95 backdrop-blur-xl border border-line rounded-3xl p-6 shadow-[0_14px_40px_rgba(62,31,22,0.1)] flex flex-col gap-4 md:hidden animate-fade-in">
+        <div className="pointer-events-auto absolute top-20 left-6 right-6 bg-paper/95 backdrop-blur-xl border border-line rounded-3xl p-6 shadow-[0_14px_40px_rgba(62,31,22,0.1)] flex flex-col gap-4 md:hidden animate-fade-in">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[16px] text-espresso py-2 border-b border-line/40 flex items-center justify-between"
+              className="text-[14px] tracking-[0.14em] font-medium text-espresso py-2 border-b border-line/40 flex items-center justify-between"
             >
               <span>{link.label}</span>
               {activeSection === link.id && (
-                <span className="w-2 h-2 rounded-full bg-rust" />
+                <span className="w-1.5 h-1.5 rounded-full bg-rust" />
               )}
             </a>
           ))}
           <a
             href="#connect"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-center text-[14px] text-espresso bg-rose-soft py-3 rounded-full mt-2 font-medium"
+            className="text-center text-[12px] tracking-[0.1em] font-medium text-espresso bg-rose-soft py-3 rounded-full mt-2"
           >
-            Get in touch
+            LET&apos;S TALK ↗
           </a>
         </div>
       )}

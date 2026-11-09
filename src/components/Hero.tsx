@@ -6,105 +6,132 @@ export function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 px-8 sm:px-16 md:px-20 lg:px-28 xl:px-36 w-full min-h-[90vh] flex flex-col justify-center"
-      aria-label="Introduction"
+      className="relative min-h-[100dvh] w-full bg-paper text-espresso overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-28"
+      aria-label="Hero Introduction"
     >
-      <div className="max-w-[1120px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      {/* 1. Giant Backdrop Typography: K Z E L Y N */}
+      <div 
+        className="absolute top-[8%] sm:top-[6%] lg:top-[3%] left-0 right-0 w-full flex justify-between items-baseline px-4 sm:px-8 lg:px-14 xl:px-20 font-serif text-[18vw] sm:text-[19vw] lg:text-[18vw] xl:text-[230px] font-normal leading-none tracking-tight text-espresso pointer-events-none select-none z-0 opacity-[0.98]"
+        aria-hidden="true"
+      >
+        <span>K</span>
+        <span>Z</span>
+        <span>E</span>
+        <span>L</span>
+        <span>Y</span>
+        <span>N</span>
+      </div>
+
+      {/* Main Grid / Layout Container */}
+      <div className="relative z-20 w-full max-w-[1400px] mx-auto flex-1 flex flex-col justify-between pt-4 lg:pt-8">
         
-        {/* Left Column (Text & Actions) - 7 cols */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+        {/* Top/Middle Section with 3 Elements: Left text, Center Model, Right Widget */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end flex-1 min-h-[580px] lg:min-h-[660px]">
           
-          {/* Eyebrow Label */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-6 h-[1px] bg-oak/60" aria-hidden="true" />
-            <p className="text-[12px] font-medium tracking-[0.18em] uppercase text-oak">
-              Marketing Management · Brand Strategy
-            </p>
-          </div>
-
-          {/* Hero Heading: 72px/40px, DM Sans 300, line-height 1.05, tracking -0.02em */}
-          {/* Signature font rule: Max 1 signature moment (name) */}
-          <h1 className="text-[40px] sm:text-[54px] lg:text-[72px] font-light leading-[1.05] tracking-[-0.02em] text-espresso mb-8">
-            Hello, I&apos;m <span className="signature">Kzelyn</span>.<br />
-            Crafting brands with purpose &amp; care.
-          </h1>
-
-          {/* Body description: 16-17px, line height 1.75, max width 640px */}
-          <p className="text-[16px] sm:text-[17px] font-normal leading-[1.75] text-espresso/85 max-w-[540px] mb-10">
-            A marketing graduate passionate about turning audience insights into quiet, meaningful connections. From strategic research to campaign execution, I build work that endures.
-          </p>
-
-          {/* Buttons: EXACTLY 1 Primary button per viewport + 1 Secondary button */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-            {/* Primary: bg-rose, text-espresso, pill, padding 14px 32px, DM Sans 500 14px. Hover: bg-rust, text-paper */}
-            <a
-              href="#work"
-              className="inline-flex items-center justify-center bg-rose hover:bg-rust text-espresso hover:text-paper rounded-full px-8 py-3.5 text-[14px] font-medium tracking-[0.04em] transition-all duration-300 shadow-[0_8px_30px_rgba(62,31,22,0.06)] hover:shadow-[0_14px_40px_rgba(62,31,22,0.1)] active:scale-[0.99]"
-            >
-              Explore Selected Work
-            </a>
-
-            {/* Secondary: transparent, 1px espresso border, espresso text, pill. Hover: fill rose-soft */}
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center bg-transparent hover:bg-rose-soft text-espresso border border-espresso/30 hover:border-espresso/60 rounded-full px-7 py-3.5 text-[14px] font-normal transition-all duration-300"
-            >
-              Read Background
-            </a>
-          </div>
-
-          {/* Minimal Quick Meta */}
-          <div className="flex items-center gap-6 mt-12 pt-8 border-t border-line/60 text-[13px] text-oak">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-sage" />
-              <span>Available for full-time &amp; freelance</span>
-            </div>
-            <div className="hidden sm:block text-line">·</div>
-            <div className="hidden sm:block">Based in the Philippines</div>
-          </div>
-
-        </div>
-
-        {/* Right Column (Editorial Visual) - 5 cols */}
-        <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-          
-          {/* Subtle warm wash backdrop */}
-          <div className="relative w-full max-w-[380px] lg:max-w-[420px]">
+          {/* Left Column (Editorial Intro & Actions) - 6 cols */}
+          <div className="lg:col-span-6 flex flex-col items-start justify-center z-20 pt-8 sm:pt-12 lg:pt-14 pb-4">
             
-            {/* Card Container with 24-32px radius, hairline border, soft shadow */}
-            <div className="relative rounded-[28px] overflow-hidden bg-bone/70 border border-line p-3 sm:p-4 shadow-[0_8px_30px_rgba(62,31,22,0.06)] transition-all duration-500 hover:shadow-[0_14px_40px_rgba(62,31,22,0.1)] group">
-              <div className="relative aspect-[4/5] rounded-[22px] overflow-hidden bg-rose-soft/40">
-                <Image
-                  src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=1000&auto=format&fit=crop"
-                  alt="Minimal workspace with notebook and coffee in warm natural lighting"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  priority
-                />
-                {/* Very subtle warm overlay to sit inside the palette */}
-                <div className="absolute inset-0 bg-[#3E1F16]/[0.04] pointer-events-none" />
-              </div>
-
-              {/* Editorial bottom caption */}
-              <div className="pt-4 pb-2 px-3 flex items-center justify-between text-[13px] text-oak">
-                <span>Lookbook &amp; Strategy</span>
-                <span className="text-[12px] uppercase tracking-[0.12em] px-2.5 py-0.5 rounded-full bg-sage-soft text-espresso font-medium">
-                  Edition 2026
-                </span>
-              </div>
+            {/* Eyebrow Label with Horizontal Hairline */}
+            <div className="flex items-center gap-4 mb-6">
+              <p className="text-[11px] sm:text-[12px] font-medium tracking-[0.16em] uppercase text-espresso/70">
+                BSBA Marketing Management Graduate
+              </p>
+              <span className="h-[1px] w-16 sm:w-24 bg-line" aria-hidden="true" />
             </div>
 
-            {/* Quiet accent badge behind */}
-            <div 
-              className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-rose-soft/50 -z-10 blur-xl pointer-events-none"
-              aria-hidden="true" 
-            />
+            {/* Headline */}
+            <h1 className="font-serif text-[38px] sm:text-[48px] lg:text-[54px] xl:text-[62px] font-light leading-[1.08] text-espresso tracking-[-0.01em] mb-6">
+              Hello, I&apos;m <strong className="font-semibold text-espresso">Kzelyn.</strong><br />
+              Crafting brands with<br />
+              purpose &amp; care.
+            </h1>
+
+            {/* Description */}
+            <p className="text-[14px] sm:text-[15px] font-normal leading-[1.7] text-espresso/75 max-w-[420px] mb-8">
+              A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
+            </p>
+
+            {/* Buttons Row */}
+            <div className="flex flex-wrap items-center gap-3.5 mb-10">
+              <a
+                href="#work"
+                className="inline-flex items-center justify-center gap-2 bg-espresso hover:bg-rust text-paper rounded-full px-7 py-3.5 text-[13px] font-medium tracking-[0.03em] transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.99]"
+              >
+                <span>Explore My Work</span>
+                <span className="text-[14px]">↗</span>
+              </a>
+
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center bg-transparent hover:bg-rose-soft/40 text-espresso border border-espresso/25 hover:border-espresso rounded-full px-7 py-3.5 text-[13px] font-medium transition-all duration-300"
+              >
+                About Me
+              </a>
+            </div>
+
+            {/* Bottom Left "Scroll to explore" */}
+            <div className="hidden sm:flex items-center gap-3 text-[12px] text-espresso/70 tracking-[0.04em]">
+              <a
+                href="#about"
+                className="w-7 h-7 rounded-full border border-line flex items-center justify-center text-espresso hover:border-espresso transition-colors"
+                aria-label="Scroll down to explore"
+              >
+                <span className="text-[11px] leading-none">↓</span>
+              </a>
+              <span>Scroll to explore</span>
+              <span className="h-[1px] w-24 sm:w-32 bg-line/80" aria-hidden="true" />
+            </div>
+
+          </div>
+
+          {/* Center Column Spacer on Desktop */}
+          <div className="hidden lg:block lg:col-span-3" />
+
+          {/* Right Column: "01 / 04" Widget - 3 cols */}
+          <div className="hidden lg:flex lg:col-span-3 flex-col justify-center items-end pb-16 z-20">
+            <div className="border-l border-line pl-5 space-y-3 max-w-[190px] text-left">
+              <div className="flex items-center gap-2 text-[13px] tracking-[0.12em] font-medium text-espresso">
+                <span>01</span>
+                <span className="text-line">/</span>
+                <span className="text-oak">04</span>
+              </div>
+              <p className="text-[12.5px] text-espresso/70 leading-[1.65]">
+                Turning ideas into strategies, and strategies into something greater.
+              </p>
+            </div>
           </div>
 
         </div>
 
       </div>
+
+      {/* 2. Foreground Portrait Cutout: kzelyn-image.png */}
+      <div 
+        className="pointer-events-none z-10 lg:absolute lg:bottom-0 lg:left-[54%] lg:-translate-x-1/2 w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[560px] xl:max-w-[640px] mx-auto mt-6 lg:mt-0 flex justify-center items-end"
+      >
+        <Image
+          src="/kzelyn-image.png"
+          alt="Kzelyn Artillo"
+          width={1198}
+          height={1313}
+          priority
+          className="w-full h-auto object-contain object-bottom select-none drop-shadow-sm"
+          sizes="(max-width: 768px) 90vw, (max-width: 1280px) 560px, 640px"
+        />
+      </div>
+
+      {/* Mobile scroll-to-explore at the bottom */}
+      <div className="sm:hidden flex items-center justify-center gap-3 text-[12px] text-espresso/70 tracking-[0.04em] pt-4 z-20">
+        <a
+          href="#about"
+          className="w-7 h-7 rounded-full border border-line flex items-center justify-center text-espresso"
+          aria-label="Scroll down to explore"
+        >
+          <span className="text-[11px] leading-none">↓</span>
+        </a>
+        <span>Scroll to explore</span>
+      </div>
+
     </section>
   );
 }
