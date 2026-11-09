@@ -24,7 +24,7 @@ export function Hero() {
 
       {/* 2. Portrait Cutout: /kzelyn-image.png (Enlarged and positioned to completely block the letter 'L') */}
       <div 
-        className="pointer-events-none z-10 absolute top-[60px] sm:top-[55px] lg:top-[50px] bottom-0 left-[60%] -translate-x-1/2 w-[58vw] max-w-[960px] min-w-[560px] flex items-end justify-center overflow-visible"
+        className="pointer-events-none z-10 absolute top-[60px] sm:top-[55px] lg:top-[50px] bottom-0 left-[56.5%] sm:left-[57%] lg:left-[57.5%] -translate-x-1/2 w-[58vw] max-w-[960px] min-w-[560px] flex items-end justify-center overflow-visible"
       >
         <Image
           src="/kzelyn-image.png"
