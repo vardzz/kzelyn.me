@@ -11,7 +11,7 @@ export function Hero() {
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[68px] sm:top-[74px] lg:top-[72px] xl:top-[70px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-normal leading-none tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[72px] sm:top-[76px] lg:top-[80px] xl:top-[82px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[18.5vw] xl:text-[235px] 2xl:text-[255px] font-[350] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
@@ -22,9 +22,9 @@ export function Hero() {
         <span>N</span>
       </div>
 
-      {/* 2. Portrait Cutout: /kzelyn-image.png (Lowered so only the head blocks the letter 'L', resting at bottom: 0) */}
+      {/* 2. Portrait Cutout: /kzelyn-image.png (Enlarged so it encompasses the whole 'L', resting at bottom: 0) */}
       <div 
-        className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[86vh] max-h-[870px] w-auto flex items-end justify-center select-none"
+        className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[96vh] sm:h-[97vh] lg:h-[98vh] max-h-[1020px] w-auto flex items-end justify-center select-none"
       >
         <Image
           src="/kzelyn-image.png"
@@ -33,7 +33,7 @@ export function Hero() {
           height={1313}
           priority
           className="h-full w-auto max-w-none object-contain object-bottom select-none"
-          sizes="(max-height: 900px) 86vh, 870px"
+          sizes="(max-height: 1020px) 98vh, 1020px"
         />
       </div>
 
@@ -48,9 +48,9 @@ export function Hero() {
           <span className="h-[1px] w-24 sm:w-32 lg:w-36 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
-        {/* Main Headline: Exactly 3 lines, Bodoni Moda, bold on Kzelyn */}
-        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-normal leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
-          Hello, I&apos;m <strong className="font-bold text-[#171513]">Kzelyn.</strong><br />
+        {/* Main Headline: Exactly 3 lines, Boska Medium Thin (350), bold contrast on Kzelyn */}
+        <h1 className="font-serif text-[38px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-[350] leading-[1.12] text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
+          Hello, I&apos;m <strong className="font-[600] text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>

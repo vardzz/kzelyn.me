@@ -1,5 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
+
+/* Boska Variable Font (continuous weights 200 to 900) */
+@font-face {
+  font-family: 'Boska';
+  src: url('https://cdn.fontshare.com/wf/F6DH4EYJFNRTNWGLTO2BPSKARPMHLGXH/SM2YVNODZS7TYVQMIAVSBXOAJTTMGFKH/4PUMKPO7UMWCY6AUSYUVMCIQCUHPZGR6.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/F6DH4EYJFNRTNWGLTO2BPSKARPMHLGXH/SM2YVNODZS7TYVQMIAVSBXOAJTTMGFKH/4PUMKPO7UMWCY6AUSYUVMCIQCUHPZGR6.woff') format('woff');
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+}
 
 :root {
   --color-background: #f3efe9;
@@ -21,9 +31,9 @@
   --sage-soft: #dde0d6;
   --line: #a9a39b;
 
-  --font-serif: "Bodoni Moda", Didot, Georgia, serif;
+  --font-serif: "Boska", Didot, Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Bodoni Moda", Didot, Georgia, serif;
+  --font-display: "Boska", Didot, Georgia, serif;
 
   --radius-sm: 12px;
   --radius-md: 24px;
@@ -68,8 +78,7 @@ body {
 }
 
 .font-serif {
-  font-family: "Bodoni Moda", Didot, Georgia, serif;
-  font-optical-sizing: auto;
+  font-family: "Boska", serif;
 }
 
 .font-sans {
