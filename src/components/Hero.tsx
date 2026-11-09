@@ -22,9 +22,9 @@ export function Hero() {
         <span>N</span>
       </div>
 
-      {/* 2. Portrait Cutout: /kzelyn-image.png (Enlarged and positioned to completely block the letter 'L') */}
+      {/* 2. Portrait Cutout: /kzelyn-image.png (Lowered so only the head blocks the letter 'L', resting at bottom: 0) */}
       <div 
-        className="pointer-events-none z-10 absolute top-[60px] sm:top-[55px] lg:top-[50px] bottom-0 left-[56.5%] sm:left-[57%] lg:left-[57.5%] -translate-x-1/2 w-[58vw] max-w-[960px] min-w-[560px] flex items-end justify-center overflow-visible"
+        className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[86vh] max-h-[870px] w-auto flex items-end justify-center select-none"
       >
         <Image
           src="/kzelyn-image.png"
@@ -32,13 +32,13 @@ export function Hero() {
           width={1198}
           height={1313}
           priority
-          className="w-full h-auto min-h-[780px] sm:min-h-[860px] lg:min-h-[920px] xl:min-h-[980px] object-contain object-top select-none"
-          sizes="(max-width: 1024px) 85vw, 960px"
+          className="h-full w-auto max-w-none object-contain object-bottom select-none"
+          sizes="(max-height: 900px) 86vh, 870px"
         />
       </div>
 
-      {/* 3. Left-Side Introduction (Positioned right below the Z baseline, fully visible within 100% viewport zoom) */}
-      <div className="absolute top-[320px] sm:top-[330px] lg:top-[335px] xl:top-[345px] left-[4.5vw] z-20 w-[540px] max-w-[560px] flex flex-col items-start text-left">
+      {/* 3. Left-Side Introduction (Responsive positioning, fully visible within 100% viewport zoom) */}
+      <div className="absolute top-[clamp(210px,42vh,335px)] left-[4.5vw] z-20 w-[540px] max-w-[560px] flex flex-col items-start text-left">
         
         {/* Small Introductory Label with Horizontal Line */}
         <div className="flex items-center gap-3.5 mb-3">
