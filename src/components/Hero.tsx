@@ -11,7 +11,7 @@ export function Hero() {
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
-        className="absolute top-[11vh] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[19vw] 2xl:text-[310px] font-normal leading-[0.95] tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
+        className="absolute top-[10.5vh] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[19vw] 2xl:text-[310px] font-normal leading-[0.95] tracking-[-0.075em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <span>K</span>
@@ -37,31 +37,31 @@ export function Hero() {
         />
       </div>
 
-      {/* 3. Left-Side Introduction (Positioned at 44-46% viewport height, left: 4.5vw) */}
-      <div className="absolute top-[45vh] left-[4.5vw] z-20 w-[550px] max-w-[550px] flex flex-col items-start text-left">
+      {/* 3. Left-Side Introduction (Positioned at 42-44% viewport height, left: 4.5vw) */}
+      <div className="absolute top-[42vh] left-[4.5vw] z-20 w-[560px] max-w-[580px] flex flex-col items-start text-left">
         
         {/* Small Introductory Label with Horizontal Line */}
-        <div className="flex items-center gap-4 mb-3.5">
+        <div className="flex items-center gap-4 mb-3">
           <p className="font-sans text-[12px] font-medium tracking-[0.04em] uppercase text-[#171513] whitespace-nowrap">
             BSBA MARKETING MANAGEMENT GRADUATE
           </p>
           <span className="h-[1px] w-24 sm:w-32 bg-[#A9A39B]" aria-hidden="true" />
         </div>
 
-        {/* Main Headline: Bodoni Moda, 64px, line-height 1.04, bold on Kzelyn */}
-        <h1 className="font-serif text-[46px] sm:text-[54px] lg:text-[60px] xl:text-[64px] font-normal leading-[1.04] text-[#171513] tracking-[-0.035em] mb-0">
+        {/* Main Headline: Exactly 3 lines, Bodoni Moda, bold on Kzelyn */}
+        <h1 className="font-serif text-[42px] sm:text-[46px] lg:text-[50px] xl:text-[52px] font-normal leading-[1.08] text-[#171513] tracking-[-0.025em] mb-4">
           Hello, I&apos;m <strong className="font-bold text-[#171513]">Kzelyn.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
 
-        {/* Supporting Description: Inter, 16px, line-height 1.6, color #77716A, max-width 390px, mt-5 */}
-        <p className="font-sans text-[15px] sm:text-[16px] font-normal leading-[1.6] text-[#77716A] max-w-[390px] mt-5 mb-0">
+        {/* Supporting Description: Inter, 15px, line-height 1.6, color #77716A, max-width 390px */}
+        <p className="font-sans text-[14.5px] sm:text-[15px] font-normal leading-[1.6] text-[#77716A] max-w-[390px] mb-6">
           A marketing graduate passionate about turning creative ideas into real impact through strategy, design, and meaningful connections.
         </p>
 
-        {/* Call-to-Action Buttons: mt-[22px], gap-6 */}
-        <div className="flex items-center gap-6 mt-[22px]">
+        {/* Call-to-Action Buttons: h-[46px], gap-6 */}
+        <div className="flex items-center gap-6">
           {/* Primary CTA */}
           <a
             href="#work"
@@ -83,7 +83,7 @@ export function Hero() {
       </div>
 
       {/* 4. Scroll Indicator (Bottom Left of the Hero) */}
-      <div className="absolute bottom-[4.5vh] left-[4.5vw] z-20 flex items-center gap-3.5 text-[#77716A] tracking-normal">
+      <div className="absolute bottom-8 lg:bottom-10 left-[4.5vw] z-20 flex items-center gap-3.5 text-[#77716A] tracking-normal">
         <a
           href="#about"
           className="w-[36px] h-[38px] rounded-[11px] border border-[#A9A39B] flex items-center justify-center text-[#171513] hover:border-[#171513] transition-colors cursor-pointer"
