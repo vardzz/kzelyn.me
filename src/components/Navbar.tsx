@@ -1,19 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 30);
 
       const sections = ['hero', 'about', 'toolkit', 'work', 'connect'];
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = currentScrollY + 200;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -26,6 +29,27 @@ export function Navbar() {
           }
         }
       }
+
+      // Footer scroll hide/reveal behavior:
+      // When in the footer section, disappear; only appear when scrolling upward.
+      const footer = document.getElementById('footer') || document.querySelector('footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const isInFooter = footerRect.top < window.innerHeight;
+
+        if (isInFooter) {
+          const isScrollingUp = currentScrollY < lastScrollY.current;
+          if (isScrollingUp) {
+            setHidden(false);
+          } else {
+            setHidden(true);
+          }
+        } else {
+          setHidden(false);
+        }
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -42,7 +66,9 @@ export function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 transform ${
+        hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+      } ${
         scrolled 
           ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
           : 'bg-transparent py-6'

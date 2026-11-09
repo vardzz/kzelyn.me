@@ -29,6 +29,7 @@ export function Footer() {
 
   return (
     <footer 
+      id="footer"
       className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 pb-0 relative overflow-hidden select-none border-t border-white/[0.08]"
       aria-label="Site Footer"
     >
