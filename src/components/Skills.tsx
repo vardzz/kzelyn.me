@@ -111,19 +111,6 @@ export function Skills() {
               </p>
             </div>
 
-            {/* Bottom: 03 / 04 Counter + Horizontal Line */}
-            <div className="flex items-center pt-10 sm:pt-14 lg:pt-20">
-              <div className="flex items-baseline shrink-0">
-                <span className="font-serif italic text-[34px] sm:text-[38px] font-normal text-[#171513] leading-none">
-                  03
-                </span>
-                <span className="font-serif text-[14px] sm:text-[15px] text-[#77716A] font-normal ml-1.5">
-                  / 04
-                </span>
-              </div>
-              <div className="h-[1px] bg-[#A9A39B]/55 flex-1 ml-5 sm:ml-7" aria-hidden="true" />
-            </div>
-
           </div>
 
           {/* ========== RIGHT COLUMN: 5 SKILL CATEGORIES WITH DIVIDERS ========== */}

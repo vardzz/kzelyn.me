@@ -86,13 +86,7 @@ export function Hero() {
 
       {/* 5. Right-Side Information Indicator (Middle-Right of the Hero) */}
       <div className="hidden lg:flex absolute top-[52%] -translate-y-1/2 right-[4.5vw] z-20 flex-col items-start text-left">
-        <div className="border-l border-[#A9A39B] pl-5 space-y-2 max-w-[180px]">
-          <div className="flex items-center gap-2 font-sans text-[17px] font-normal text-[#171513]">
-            <span className="w-5 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
-            <span>01</span>
-            <span className="text-[#A9A39B]">/</span>
-            <span className="text-[#77716A]">04</span>
-          </div>
+        <div className="border-l border-[#A9A39B] pl-5 max-w-[180px]">
           <p className="font-sans text-[13px] text-[#77716A] leading-[1.6] max-w-[165px]">
             Turning ideas into strategies, and strategies into something greater.
           </p>

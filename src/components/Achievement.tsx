@@ -60,19 +60,6 @@ export function Achievement() {
                 Officially passed the Certified Marketing Management Specialist (CMMS) examination, demonstrating proven expertise in strategic brand planning, consumer analytics, and marketing management.
               </p>
             </div>
-
-            {/* Bottom: 01 / 01 Counter + Horizontal Line */}
-            <div className="flex items-center pt-6 sm:pt-8 lg:pt-10">
-              <div className="flex items-baseline shrink-0">
-                <span className="font-serif italic text-[34px] sm:text-[38px] font-normal text-[#171513] leading-none">
-                  01
-                </span>
-                <span className="font-serif text-[14px] sm:text-[15px] text-[#77716A] font-normal ml-1.5">
-                  / 01
-                </span>
-              </div>
-              <div className="h-[1px] bg-[#A9A39B]/55 flex-1 ml-5 sm:ml-7" aria-hidden="true" />
-            </div>
           </div>
 
           {/* ========== CENTER COLUMN: DOCUMENT SHOWCASE & AURA ========== */}
