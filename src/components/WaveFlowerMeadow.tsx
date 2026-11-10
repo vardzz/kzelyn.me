@@ -1,24 +1,25 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface FlowerPlant {
-  // Relative position (0 to 1 across width & height of the wave)
+  // Relative position (0 to 1 across width & height of the wave container)
   relX: number;
   relY: number;
   depth: number; // 0 (back), 1 (mid), 2 (front)
-  
+
   // Morphology
-  targetSize: number;
-  type: 'cosmos' | 'daisy' | 'poppy' | 'bell';
+  size: number;
+  type: 'cosmos' | 'daisy' | 'poppy' | 'bell' | 'whiteDaisy' | 'peony';
   petals: number;
-  baseColor: string;
-  highlightColor: string;
-  shadowColor: string;
-  centerColor: string;
+  petalColorLight: string;
+  petalColorMid: string;
+  petalColorDark: string;
+  centerColorCore: string;
+  centerColorEdge: string;
   centerHighlight: string;
   stemLength: number;
-  stemAngle: number;
+  stemCurvature: number;
   leafAngle: number;
   leafSize: number;
   rotation: number;
@@ -26,133 +27,143 @@ interface FlowerPlant {
   tiltY: number;
 
   // Animation State
-  visibility: number; // 0 (hidden) to 1 (fully bloomed)
+  visibility: number; // 0 (completely invisible) to 1 (fully bloomed)
   swaySpeed: number;
   swayPhase: number;
+  swayAmp: number;
 }
 
 export function WaveFlowerMeadow() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const mouseRef = useRef<{ x: number; y: number; active: boolean }>({ x: -9999, y: -9999, active: false });
   const plantsRef = useRef<FlowerPlant[]>([]);
   const animFrameRef = useRef<number | null>(null);
-  const isVisibleRef = useRef<boolean>(true);
 
-  // Initialize a fixed, natural meadow distribution planted strictly within the wave terrain
+  // Initialize pre-planted meadow with vibrant 3D floral varieties matching reference
   useEffect(() => {
     const plants: FlowerPlant[] = [];
 
-    // Distinct 3D floral varieties based on DESIGN.md palette and reference image
-    const varieties = [
-      // 1. Dusty Rose Cosmos
+    // Distinct vibrant 3D flower varieties matching the reference image (ShadcnSpace style):
+    // Vivid Pink Cosmos, Sunshine Golden Daisy, Coral Poppy, Periwinkle Bell, Crisp White Daisy, Deep Rose Peony
+    const flowerTypes = [
+      // 1. Vivid Pink Cosmos (Hero flower in reference)
       {
         type: 'cosmos' as const,
         petals: 8,
-        baseColor: '#D37F87',
-        highlightColor: '#F7B7BE',
-        shadowColor: '#96444D',
-        centerColor: '#E6A828',
-        centerHighlight: '#FFE485',
+        petalColorLight: '#FF80AB',
+        petalColorMid: '#FF4081',
+        petalColorDark: '#C2185B',
+        centerColorCore: '#FFD54F',
+        centerColorEdge: '#FF8F00',
+        centerHighlight: '#FFF9C4',
       },
-      // 2. Pure Cream / Ivory Daisy
+      // 2. Sunshine Golden Daisy / Marigold
       {
         type: 'daisy' as const,
         petals: 12,
-        baseColor: '#F7F4EC',
-        highlightColor: '#FFFFFF',
-        shadowColor: '#CDC5B4',
-        centerColor: '#E59F24',
-        centerHighlight: '#FFF09A',
+        petalColorLight: '#FFF59D',
+        petalColorMid: '#FFCA28',
+        petalColorDark: '#FF8F00',
+        centerColorCore: '#8D6E63',
+        centerColorEdge: '#4E342E',
+        centerHighlight: '#FFE082',
       },
-      // 3. Faded Rust / Terracotta Wildflower
-      {
-        type: 'cosmos' as const,
-        petals: 8,
-        baseColor: '#BA655F',
-        highlightColor: '#DF8D87',
-        shadowColor: '#7E3631',
-        centerColor: '#F2B84B',
-        centerHighlight: '#FFF2B0',
-      },
-      // 4. Golden Marigold / Poppy
-      {
-        type: 'poppy' as const,
-        petals: 6,
-        baseColor: '#EAA93E',
-        highlightColor: '#FCD274',
-        shadowColor: '#AB6E14',
-        centerColor: '#78440B',
-        centerHighlight: '#F8C255',
-      },
-      // 5. Soft Lilac Bellflower
-      {
-        type: 'bell' as const,
-        petals: 6,
-        baseColor: '#A892C6',
-        highlightColor: '#CBBCE4',
-        shadowColor: '#6B548B',
-        centerColor: '#E8A524',
-        centerHighlight: '#FFE98E',
-      },
-      // 6. Coral Wild Rose
+      // 3. Tangerine / Coral Wild Poppy
       {
         type: 'poppy' as const,
         petals: 5,
-        baseColor: '#DE7568',
-        highlightColor: '#F99F93',
-        shadowColor: '#9C3E32',
-        centerColor: '#F0BA48',
-        centerHighlight: '#FFE688',
+        petalColorLight: '#FFAB91',
+        petalColorMid: '#FF5722',
+        petalColorDark: '#BF360C',
+        centerColorCore: '#FFD54F',
+        centerColorEdge: '#E65100',
+        centerHighlight: '#FFFDE7',
+      },
+      // 4. Periwinkle / Royal Lavender Bellflower
+      {
+        type: 'bell' as const,
+        petals: 6,
+        petalColorLight: '#D1C4E9',
+        petalColorMid: '#7C4DFF',
+        petalColorDark: '#4527A0',
+        centerColorCore: '#FFE082',
+        centerColorEdge: '#FFB300',
+        centerHighlight: '#FFFFFF',
+      },
+      // 5. Crisp Pure White Daisy with Radiant Golden Eye
+      {
+        type: 'whiteDaisy' as const,
+        petals: 12,
+        petalColorLight: '#FFFFFF',
+        petalColorMid: '#F5F5F5',
+        petalColorDark: '#D7CCC8',
+        centerColorCore: '#FFCA28',
+        centerColorEdge: '#FF8F00',
+        centerHighlight: '#FFFDE7',
+      },
+      // 6. Deep Magenta / Crimson Peony
+      {
+        type: 'peony' as const,
+        petals: 8,
+        petalColorLight: '#F48FB1',
+        petalColorMid: '#E91E63',
+        petalColorDark: '#880E4F',
+        centerColorCore: '#FFE082',
+        centerColorEdge: '#FF8F00',
+        centerHighlight: '#FFF9C4',
       },
     ];
 
-    // Seed ~140 flowers across 3 terrain depths within the wave:
-    // Back wave: 35 flowers, Mid wave: 55 flowers, Front wave: 50 flowers
+    // Seed ~125 flowers planted across the 3 wave rolling contours:
+    // Back ridge: 35 flowers, Mid slope: 45 flowers, Foreground wave: 45 flowers
     const depthConfigs = [
-      { count: 35, depth: 0, yMin: 0.28, yMax: 0.52, sizeMin: 14, sizeMax: 20 },
-      { count: 55, depth: 1, yMin: 0.46, yMax: 0.74, sizeMin: 20, sizeMax: 28 },
-      { count: 50, depth: 2, yMin: 0.65, yMax: 0.88, sizeMin: 28, sizeMax: 40 },
+      { count: 35, depth: 0, yMin: 0.30, yMax: 0.54, sizeMin: 22, sizeMax: 32 },
+      { count: 45, depth: 1, yMin: 0.48, yMax: 0.72, sizeMin: 34, sizeMax: 48 },
+      { count: 45, depth: 2, yMin: 0.62, yMax: 0.88, sizeMin: 48, sizeMax: 68 },
     ];
 
     depthConfigs.forEach(({ count, depth, yMin, yMax, sizeMin, sizeMax }) => {
       for (let i = 0; i < count; i++) {
-        // Natural distribution across width (with slight clustering)
-        const relX = (i + (Math.random() - 0.5) * 0.85) / count;
-        const clampedX = Math.max(0.02, Math.min(0.98, relX));
+        // Natural distribution with organic clustering
+        const relX = (i + (Math.random() - 0.5) * 0.9) / count;
+        const clampedX = Math.max(0.015, Math.min(0.985, relX));
 
-        // Wave crest elevation equation for natural contouring
-        const waveCrest = 0.35 + 0.15 * Math.sin(clampedX * Math.PI * 3.2);
-        const relY = Math.max(waveCrest * 0.85, yMin + Math.random() * (yMax - yMin));
+        // Follow wave crest contour: sinusoidal ridge
+        const crest = 0.32 + 0.16 * Math.sin(clampedX * Math.PI * 3.1);
+        const relY = Math.max(crest * 0.88, yMin + Math.random() * (yMax - yMin));
 
-        const variety = varieties[Math.floor(Math.random() * varieties.length)];
+        const variety = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
 
         plants.push({
           relX: clampedX,
           relY,
           depth,
-          targetSize: sizeMin + Math.random() * (sizeMax - sizeMin),
+          size: sizeMin + Math.random() * (sizeMax - sizeMin),
           type: variety.type,
           petals: variety.petals,
-          baseColor: variety.baseColor,
-          highlightColor: variety.highlightColor,
-          shadowColor: variety.shadowColor,
-          centerColor: variety.centerColor,
+          petalColorLight: variety.petalColorLight,
+          petalColorMid: variety.petalColorMid,
+          petalColorDark: variety.petalColorDark,
+          centerColorCore: variety.centerColorCore,
+          centerColorEdge: variety.centerColorEdge,
           centerHighlight: variety.centerHighlight,
-          stemLength: 16 + Math.random() * 24,
-          stemAngle: (Math.random() - 0.5) * 0.35,
-          leafAngle: (Math.random() > 0.5 ? 1 : -1) * (0.6 + Math.random() * 0.4),
-          leafSize: 6 + Math.random() * 6,
+          stemLength: 18 + Math.random() * 26,
+          stemCurvature: (Math.random() - 0.5) * 24,
+          leafAngle: (Math.random() > 0.5 ? 1 : -1) * (0.5 + Math.random() * 0.5),
+          leafSize: 8 + Math.random() * 8,
           rotation: Math.random() * Math.PI * 2,
-          tiltX: 0.85 + Math.random() * 0.15, // Perspective flattening for 3D tilt
-          tiltY: 0.75 + Math.random() * 0.25,
+          tiltX: 0.88 + Math.random() * 0.14,
+          tiltY: 0.82 + Math.random() * 0.18,
           visibility: 0, // Starts completely invisible
-          swaySpeed: 0.02 + Math.random() * 0.02,
+          swaySpeed: 0.025 + Math.random() * 0.025,
           swayPhase: Math.random() * Math.PI * 2,
+          swayAmp: 2 + Math.random() * 3,
         });
       }
     });
 
-    // Sort by depth and Y so front flowers naturally layer over back flowers
+    // Layering order: back to front, top to bottom
     plants.sort((a, b) => {
       if (a.depth !== b.depth) return a.depth - b.depth;
       return a.relY - b.relY;
@@ -161,43 +172,40 @@ export function WaveFlowerMeadow() {
     plantsRef.current = plants;
   }, []);
 
+  // Main Canvas Rendering & Physics Engine
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let width = 0;
+    let height = 0;
+
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     resize();
     window.addEventListener('resize', resize);
 
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisibleRef.current = entry.isIntersecting;
-    }, { threshold: 0.05 });
-    observer.observe(canvas);
-
     let frame = 0;
 
     const render = () => {
       frame++;
-      const rect = canvas.getBoundingClientRect();
-      const width = rect.width;
-      const height = rect.height;
-
       ctx.clearRect(0, 0, width, height);
 
       const mouse = mouseRef.current;
       const plants = plantsRef.current;
 
-      // Reveal Radius: ~170px radius where flowers bloom around cursor
-      const revealRadius = 175;
+      // Reveal Radius around cursor: ~220px
+      const revealRadius = 220;
       const revealRadiusSq = revealRadius * revealRadius;
 
       for (let i = 0; i < plants.length; i++) {
@@ -205,7 +213,7 @@ export function WaveFlowerMeadow() {
         const px = plant.relX * width;
         const py = plant.relY * height;
 
-        // Proximity calculation: is mouse nearby?
+        // Calculate proximity to mouse cursor
         let targetVis = 0;
         if (mouse.active) {
           const dx = px - mouse.x;
@@ -214,124 +222,156 @@ export function WaveFlowerMeadow() {
 
           if (distSq < revealRadiusSq) {
             const dist = Math.sqrt(distSq);
-            // Smooth bell curve reveal: center = 1.0, edge = 0.0
+            // Smooth bell curve reveal
             const norm = 1 - dist / revealRadius;
             targetVis = norm * norm * (3 - 2 * norm); // Smoothstep curve
           }
         }
 
-        // Smooth spring physics for blooming and hiding
+        // Spring-based blooming and closing physics
         if (targetVis > plant.visibility) {
-          // Blooming up
-          plant.visibility += (targetVis - plant.visibility) * 0.16;
+          // Blooming open when hovered
+          plant.visibility += (targetVis - plant.visibility) * 0.18;
         } else {
-          // Gently folding and hiding when mouse leaves
-          plant.visibility += (targetVis - plant.visibility) * 0.09;
+          // Gracefully closing when mouse moves away
+          plant.visibility += (targetVis - plant.visibility) * 0.08;
         }
 
-        if (plant.visibility < 0.004) {
+        // Zero ghost lines: if visibility is practically zero, strictly clamp and skip rendering
+        if (plant.visibility < 0.008) {
           plant.visibility = 0;
-          continue; // Invisible, skip rendering for high performance
+          continue;
         }
 
-        // Current flower scale: 0 to 1 with an elegant organic blossoming bounce
         const vis = plant.visibility;
-        const bloomScale = Math.sin(vis * Math.PI * 0.5) * (1 + 0.14 * Math.sin(vis * Math.PI));
-        const currentSize = plant.targetSize * bloomScale;
-        const alpha = Math.min(1, vis * 1.35);
+        // Organic blossom scale with subtle petal opening overshoot
+        const bloomScale = Math.sin(vis * Math.PI * 0.5) * (1 + 0.12 * Math.sin(vis * Math.PI));
+        const alpha = Math.min(1, vis * 1.3);
 
-        // Natural swaying breeze
-        const sway = Math.sin(frame * plant.swaySpeed + plant.swayPhase) * (2.2 * vis);
+        // Gentle wind sway
+        const sway = Math.sin(frame * plant.swaySpeed + plant.swayPhase) * (plant.swayAmp * vis);
         const flowerX = px + sway;
         const flowerY = py;
+
+        const currentStemHeight = plant.stemLength * vis;
+        const currentStemWidth = Math.max(1, plant.size * 0.055 * vis);
 
         ctx.save();
         ctx.globalAlpha = alpha;
 
-        // -------------------------------------------------------------
-        // 1. SOFT 3D DROP SHADOW CAST ONTO WAVE SURFACE
-        // -------------------------------------------------------------
+        // =============================================================
+        // 1. SOFT 3D DROP SHADOW ON THE WAVE SURFACE
+        // =============================================================
+        if (vis > 0.1) {
+          ctx.save();
+          ctx.beginPath();
+          const shadowY = flowerY + currentStemHeight + plant.size * 0.1;
+          const shadowRadiusX = plant.size * 0.45 * bloomScale;
+          const shadowRadiusY = plant.size * 0.16 * bloomScale;
+          ctx.ellipse(flowerX, shadowY, Math.max(1, shadowRadiusX), Math.max(0.5, shadowRadiusY), 0, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(23, 21, 19, 0.22)';
+          ctx.filter = 'blur(4px)';
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // =============================================================
+        // 2. VIBRANT GREEN 3D STEM & SAGE LEAFLETS
+        // =============================================================
         ctx.save();
         ctx.beginPath();
-        ctx.ellipse(
-          flowerX + 2,
-          flowerY + currentSize * 0.52 + plant.stemLength * 0.25,
-          currentSize * 0.65,
-          currentSize * 0.24,
-          0.15,
-          0,
-          Math.PI * 2
-        );
-        ctx.fillStyle = 'rgba(23, 21, 19, 0.16)';
-        ctx.filter = 'blur(4px)';
-        ctx.fill();
-        ctx.restore();
-
-        // -------------------------------------------------------------
-        // 2. SLENDER CURVED STEM & SAGE LEAFLET
-        // -------------------------------------------------------------
-        ctx.beginPath();
-        ctx.moveTo(flowerX, flowerY + currentSize * 0.15);
+        ctx.moveTo(flowerX, flowerY);
+        // Curved natural stem bending toward ground
         ctx.quadraticCurveTo(
-          px + plant.stemAngle * 30 + sway * 0.5,
-          flowerY + plant.stemLength * 0.55,
+          px + plant.stemCurvature * vis + sway * 0.5,
+          flowerY + currentStemHeight * 0.55,
           px,
-          flowerY + plant.stemLength
+          flowerY + currentStemHeight
         );
-        ctx.strokeStyle = 'rgba(110, 122, 96, 0.85)';
-        ctx.lineWidth = Math.max(1.2, currentSize * 0.06);
+        ctx.strokeStyle = '#388E3C';
+        ctx.lineWidth = currentStemWidth;
         ctx.lineCap = 'round';
         ctx.stroke();
 
-        // Tiny leaflet along stem
-        const leafBaseX = px + plant.stemAngle * 12;
-        const leafBaseY = flowerY + plant.stemLength * 0.48;
+        // Sunlit rim highlight on stem
         ctx.beginPath();
-        ctx.moveTo(leafBaseX, leafBaseY);
+        ctx.moveTo(flowerX - currentStemWidth * 0.2, flowerY);
         ctx.quadraticCurveTo(
-          leafBaseX + Math.cos(plant.leafAngle) * plant.leafSize * 1.4,
-          leafBaseY - Math.sin(plant.leafAngle) * plant.leafSize * 0.6,
-          leafBaseX + Math.cos(plant.leafAngle) * plant.leafSize,
-          leafBaseY + Math.sin(plant.leafAngle) * plant.leafSize * 0.3
+          px + plant.stemCurvature * vis + sway * 0.5 - currentStemWidth * 0.2,
+          flowerY + currentStemHeight * 0.55,
+          px - currentStemWidth * 0.2,
+          flowerY + currentStemHeight
         );
-        ctx.fillStyle = 'rgba(122, 134, 108, 0.85)';
-        ctx.fill();
+        ctx.strokeStyle = '#81C784';
+        ctx.lineWidth = Math.max(0.8, currentStemWidth * 0.35);
+        ctx.stroke();
 
-        // -------------------------------------------------------------
+        // 3D Teardrop Leaflet branching along stem
+        if (vis > 0.3) {
+          const leafVis = (vis - 0.3) / 0.7;
+          const leafBaseX = px + plant.stemCurvature * 0.4 * vis;
+          const leafBaseY = flowerY + currentStemHeight * 0.5;
+          const lSize = plant.leafSize * leafVis;
+
+          ctx.save();
+          ctx.translate(leafBaseX, leafBaseY);
+          ctx.rotate(plant.leafAngle);
+
+          // Leaf body
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(lSize * 0.6, -lSize * 0.4, lSize * 1.2, -lSize * 0.3, lSize * 1.5, 0);
+          ctx.bezierCurveTo(lSize * 1.2, lSize * 0.3, lSize * 0.6, lSize * 0.4, 0, 0);
+          ctx.fillStyle = '#4CAF50';
+          ctx.fill();
+
+          // Leaf highlight vein
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(lSize * 1.3, 0);
+          ctx.strokeStyle = '#A5D6A7';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          ctx.restore();
+        }
+        ctx.restore();
+
+        // =============================================================
         // 3. ELEGANT 3D LAYERED FLOWER BLOOM
-        // -------------------------------------------------------------
+        // =============================================================
+        ctx.save();
         ctx.translate(flowerX, flowerY);
-        // Rotation unfolds slightly as it blooms
-        ctx.rotate(plant.rotation + (1 - vis) * 0.4 + sway * 0.03);
-        // Perspective tilt for realistic 3D camera angle
+        ctx.rotate(plant.rotation + sway * 0.04);
+        // Perspective scaling for rich 3D depth
         ctx.scale(bloomScale * plant.tiltX, bloomScale * plant.tiltY);
 
+        const radius = plant.size * 0.5;
         const petals = plant.petals;
         const angleStep = (Math.PI * 2) / petals;
 
-        // LAYER A: Under-Petals (Depth Shadow Layer)
+        // LAYER A: Under-Petals (Shadow / Back Layer for 3D depth)
         for (let p = 0; p < petals; p++) {
           ctx.save();
           ctx.rotate(p * angleStep + angleStep * 0.5);
 
           ctx.beginPath();
-          ctx.ellipse(0, -currentSize * 0.42, currentSize * 0.17, currentSize * 0.45, 0, 0, Math.PI * 2);
-          ctx.fillStyle = plant.shadowColor;
-          ctx.globalAlpha = alpha * 0.85;
+          ctx.ellipse(0, -radius * 0.75, radius * 0.28, radius * 0.48, 0, 0, Math.PI * 2);
+          ctx.fillStyle = plant.petalColorDark;
           ctx.fill();
 
           ctx.restore();
         }
 
-        // LAYER B: Primary Front Petals (With 3D Sunlight Gradient & Velvet Luster)
+        // LAYER B: Primary Front Petals (With 3D Gradient & Silky Sheen)
         for (let p = 0; p < petals; p++) {
           ctx.save();
           ctx.rotate(p * angleStep);
 
-          const grad = ctx.createLinearGradient(0, 0, 0, -currentSize * 0.9);
-          grad.addColorStop(0, plant.shadowColor);
-          grad.addColorStop(0.3, plant.baseColor);
-          grad.addColorStop(0.85, plant.highlightColor);
+          const grad = ctx.createLinearGradient(0, 0, 0, -radius * 1.1);
+          grad.addColorStop(0, plant.petalColorDark);
+          grad.addColorStop(0.35, plant.petalColorMid);
+          grad.addColorStop(0.82, plant.petalColorLight);
           grad.addColorStop(1, '#FFFFFF'); // Sunlight rim highlight
 
           ctx.fillStyle = grad;
@@ -340,90 +380,94 @@ export function WaveFlowerMeadow() {
           if (plant.type === 'poppy') {
             // Broad delicate rounded poppy petal
             ctx.moveTo(0, 0);
-            ctx.bezierCurveTo(-currentSize * 0.28, -currentSize * 0.22, -currentSize * 0.34, -currentSize * 0.62, 0, -currentSize * 0.82);
-            ctx.bezierCurveTo(currentSize * 0.34, -currentSize * 0.62, currentSize * 0.28, -currentSize * 0.22, 0, 0);
-          } else if (plant.type === 'daisy') {
-            // Slender elongated daisy petal
-            ctx.moveTo(-currentSize * 0.08, 0);
-            ctx.quadraticCurveTo(-currentSize * 0.15, -currentSize * 0.45, 0, -currentSize * 0.88);
-            ctx.quadraticCurveTo(currentSize * 0.15, -currentSize * 0.45, currentSize * 0.08, 0);
+            ctx.bezierCurveTo(-radius * 0.52, -radius * 0.35, -radius * 0.58, -radius * 0.85, 0, -radius * 1.1);
+            ctx.bezierCurveTo(radius * 0.58, -radius * 0.85, radius * 0.52, -radius * 0.35, 0, 0);
+          } else if (plant.type === 'daisy' || plant.type === 'whiteDaisy') {
+            // Slender layered daisy petal
+            ctx.moveTo(-radius * 0.14, 0);
+            ctx.quadraticCurveTo(-radius * 0.26, -radius * 0.55, 0, -radius * 1.08);
+            ctx.quadraticCurveTo(radius * 0.26, -radius * 0.55, radius * 0.14, 0);
           } else if (plant.type === 'bell') {
-            // Elegant tapered wild petal
-            ctx.moveTo(-currentSize * 0.08, 0);
-            ctx.lineTo(-currentSize * 0.2, -currentSize * 0.4);
-            ctx.lineTo(0, -currentSize * 0.85);
-            ctx.lineTo(currentSize * 0.2, -currentSize * 0.4);
-            ctx.lineTo(currentSize * 0.08, 0);
+            // Flared star bell petal
+            ctx.moveTo(-radius * 0.15, 0);
+            ctx.lineTo(-radius * 0.32, -radius * 0.5);
+            ctx.lineTo(0, -radius * 1.12);
+            ctx.lineTo(radius * 0.32, -radius * 0.5);
+            ctx.lineTo(radius * 0.15, 0);
           } else {
-            // Classic cosmos petal with subtle notched edge
-            ctx.moveTo(-currentSize * 0.08, 0);
-            ctx.bezierCurveTo(-currentSize * 0.22, -currentSize * 0.32, -currentSize * 0.25, -currentSize * 0.72, -currentSize * 0.08, -currentSize * 0.82);
-            ctx.lineTo(0, -currentSize * 0.78);
-            ctx.lineTo(currentSize * 0.08, -currentSize * 0.82);
-            ctx.bezierCurveTo(currentSize * 0.25, -currentSize * 0.72, currentSize * 0.22, -currentSize * 0.32, currentSize * 0.08, 0);
+            // Classic cosmos petal with 3 scalloped notches at tip
+            ctx.moveTo(-radius * 0.16, 0);
+            ctx.bezierCurveTo(-radius * 0.36, -radius * 0.35, -radius * 0.42, -radius * 0.88, -radius * 0.18, -radius * 1.08);
+            ctx.lineTo(0, -radius * 1.02);
+            ctx.lineTo(radius * 0.18, -radius * 1.08);
+            ctx.bezierCurveTo(radius * 0.42, -radius * 0.88, radius * 0.36, -radius * 0.35, radius * 0.16, 0);
           }
 
           ctx.closePath();
           ctx.fill();
 
-          // Delicate specular petal ridge
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-          ctx.lineWidth = Math.max(0.6, currentSize * 0.025);
+          // Subtle 3D central ridge highlight on each petal
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+          ctx.lineWidth = Math.max(0.8, radius * 0.04);
           ctx.beginPath();
-          ctx.moveTo(0, -currentSize * 0.1);
-          ctx.lineTo(0, -currentSize * 0.62);
+          ctx.moveTo(0, -radius * 0.15);
+          ctx.lineTo(0, -radius * 0.85);
           ctx.stroke();
 
           ctx.restore();
         }
 
-        // -------------------------------------------------------------
-        // 4. 3D DOMED STAMEN / GOLDEN PISTIL CUSHION
-        // -------------------------------------------------------------
-        const centerRadius = currentSize * 0.19;
+        // =============================================================
+        // 4. 3D DOMED GOLDEN PISTIL / STAMEN CUSHION
+        // =============================================================
+        const centerRadius = radius * 0.28;
 
-        // Base Stamen Shadow Ring
+        // Base shadow ring behind stamen dome
         ctx.beginPath();
-        ctx.arc(0, 1.2, centerRadius * 1.08, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(40, 20, 10, 0.45)';
+        ctx.arc(0, 1.5, centerRadius * 1.12, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(20, 10, 5, 0.5)';
         ctx.fill();
 
-        // 3D Spherical Radial Gradient Cushion
+        // 3D Spherical Radial Gradient Dome
         const stamenGrad = ctx.createRadialGradient(
-          -centerRadius * 0.28,
+          -centerRadius * 0.3,
           -centerRadius * 0.35,
-          centerRadius * 0.1,
+          centerRadius * 0.08,
           0,
           0,
           centerRadius
         );
         stamenGrad.addColorStop(0, plant.centerHighlight);
-        stamenGrad.addColorStop(0.65, plant.centerColor);
-        stamenGrad.addColorStop(1, '#5C3408');
+        stamenGrad.addColorStop(0.55, plant.centerColorCore);
+        stamenGrad.addColorStop(1, plant.centerColorEdge);
 
         ctx.beginPath();
         ctx.arc(0, 0, centerRadius, 0, Math.PI * 2);
         ctx.fillStyle = stamenGrad;
         ctx.fill();
 
-        // Delicate Golden Pollen Grains / Beads
-        const grainCount = 7;
+        // Ring of delicate 3D golden pollen granules
+        const grainCount = 8;
         for (let g = 0; g < grainCount; g++) {
-          const gAngle = (g * Math.PI * 2) / grainCount + 0.3;
-          const gDist = centerRadius * 0.58;
+          const gAngle = (g * Math.PI * 2) / grainCount + 0.25;
+          const gDist = centerRadius * 0.65;
+          const gx = Math.cos(gAngle) * gDist;
+          const gy = Math.sin(gAngle) * gDist;
+
           ctx.beginPath();
-          ctx.arc(
-            Math.cos(gAngle) * gDist,
-            Math.sin(gAngle) * gDist,
-            Math.max(0.8, currentSize * 0.026),
-            0,
-            Math.PI * 2
-          );
-          ctx.fillStyle = '#FFEAA8';
+          ctx.arc(gx, gy, Math.max(1, centerRadius * 0.16), 0, Math.PI * 2);
+          ctx.fillStyle = '#FFE082';
+          ctx.fill();
+
+          // Tiny specular glint on pollen grain
+          ctx.beginPath();
+          ctx.arc(gx - 0.4, gy - 0.4, Math.max(0.4, centerRadius * 0.06), 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
           ctx.fill();
         }
 
-        ctx.restore();
+        ctx.restore(); // End Flower
+        ctx.restore(); // End Global Alpha
       }
 
       animFrameRef.current = requestAnimationFrame(render);
@@ -433,14 +477,13 @@ export function WaveFlowerMeadow() {
 
     return () => {
       window.removeEventListener('resize', resize);
-      observer.disconnect();
       if (animFrameRef.current) {
         cancelAnimationFrame(animFrameRef.current);
       }
     };
   }, []);
 
-  const handlePointerMove = (clientX: number, clientY: number) => {
+  const updatePointer = (clientX: number, clientY: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
@@ -452,7 +495,7 @@ export function WaveFlowerMeadow() {
   };
 
   const handlePointerLeave = () => {
-    // When the mouse leaves the wave, flowers smoothly close and return to invisible
+    // When mouse leaves the wave, flowers smoothly fold and return to invisible
     mouseRef.current = {
       x: -9999,
       y: -9999,
@@ -461,26 +504,31 @@ export function WaveFlowerMeadow() {
   };
 
   return (
-    <canvas
-      ref={canvasRef}
-      onMouseMove={(e) => handlePointerMove(e.clientX, e.clientY)}
-      onMouseEnter={(e) => handlePointerMove(e.clientX, e.clientY)}
+    <div
+      ref={containerRef}
+      onMouseMove={(e) => updatePointer(e.clientX, e.clientY)}
+      onMouseEnter={(e) => updatePointer(e.clientX, e.clientY)}
       onMouseLeave={handlePointerLeave}
       onTouchMove={(e) => {
         if (e.touches.length > 0) {
-          handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
         }
       }}
       onTouchStart={(e) => {
         if (e.touches.length > 0) {
-          handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
         }
       }}
       onTouchEnd={handlePointerLeave}
       onTouchCancel={handlePointerLeave}
       className="absolute inset-0 w-full h-full z-20 pointer-events-auto cursor-crosshair select-none"
-      aria-hidden="true"
-    />
+    >
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full block"
+        aria-hidden="true"
+      />
+    </div>
   );
 }
 
