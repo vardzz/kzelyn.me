@@ -15,7 +15,7 @@ export function Navbar() {
       const currentScrollY = window.scrollY;
       setScrolled(currentScrollY > 30);
 
-      const sections = ['hero', 'about', 'toolkit', 'achievements', 'connect'];
+      const sections = ['hero', 'about', 'skills', 'achievements', 'connect'];
       const scrollPosition = currentScrollY + 200;
 
       for (const sectionId of sections) {

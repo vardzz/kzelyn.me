@@ -1,6 +1,6 @@
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
-import { Tool } from '@/components/Tool';
+import { Skills } from '@/components/Skills';
 import { Achievement } from '@/components/Achievement';
 import { Connect } from '@/components/Connect';
 import { Footer } from '@/components/Footer';
@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Tool />
+        <Skills />
         <Achievement />
         <Connect />
       </main>

@@ -10,15 +10,15 @@ export function Footer() {
   const navLinks = [
     { label: 'Overview', href: '#hero' },
     { label: 'Biography', href: '#about' },
-    { label: 'Capabilities', href: '#toolkit' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Achievements', href: '#achievements' },
     { label: 'Contact', href: '#connect' },
   ];
 
   const disciplines = [
-    { label: 'Brand Architecture', href: '#toolkit' },
-    { label: 'Consumer Insights', href: '#toolkit' },
-    { label: 'Campaign Strategy', href: '#toolkit' },
+    { label: 'Programming', href: '#skills' },
+    { label: 'Web Development', href: '#skills' },
+    { label: 'Design & Tools', href: '#skills' },
     { label: 'CMMS Certification', href: '#achievements' },
   ];
 
