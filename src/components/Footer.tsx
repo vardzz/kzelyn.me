@@ -10,15 +10,17 @@ export function Footer() {
   const navLinks = [
     { label: 'Overview', href: '#hero' },
     { label: 'Biography', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Achievements', href: '#achievements' },
+    { label: 'Skills & Competencies', href: '#skills' },
+    { label: 'CMMS Certification', href: '#achievements' },
     { label: 'Contact', href: '#connect' },
   ];
 
   const disciplines = [
-    { label: 'Programming', href: '#skills' },
-    { label: 'Web Development', href: '#skills' },
-    { label: 'Design & Tools', href: '#skills' },
+    { label: 'Brand & Digital Strategy', href: '#skills' },
+    { label: 'Social Media Operations', href: '#skills' },
+    { label: 'Content & Copywriting', href: '#skills' },
+    { label: 'Consumer & Market Research', href: '#skills' },
+    { label: 'Executive Coordination', href: '#skills' },
     { label: 'CMMS Certification', href: '#achievements' },
   ];
 
@@ -62,7 +64,7 @@ export function Footer() {
 
               {/* Tagline / Subtitle */}
               <p className="font-sans text-[13px] sm:text-[13.5px] leading-relaxed text-[#A9A39B] max-w-[360px] mb-6">
-                BSBA Marketing Management Graduate. Turning creative intuition into measurable brand affinity through strategic research, artful storytelling, and empathetic communication.
+                BSBA Marketing Management Graduate &amp; Certified Marketing Management Specialist (CMMS). Turning creative intuition into measurable brand affinity through strategic research, artful storytelling, and empathetic communication.
               </p>
 
               {/* Quick Social Badges */}
