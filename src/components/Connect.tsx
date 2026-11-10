@@ -34,287 +34,259 @@ export function Connect() {
   return (
     <section 
       id="connect" 
-      className="pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-[4.5vw] w-full bg-[#F3EFE9] text-[#171513] select-none"
+      className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24 select-none"
       aria-label="Connect and Contact"
     >
-      <div className="max-w-[1240px] mx-auto w-full">
+      <div className="max-w-[1360px] mx-auto w-full relative">
         
-        {/* Section Eyebrow & Editorial Masthead */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[#A9A39B]/30">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-[1px] bg-[#171513]" aria-hidden="true" />
-              <p className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.2em] uppercase text-[#77716A]">
-                04 / 04 — CONTACT &amp; INQUIRIES
-              </p>
-            </div>
-            <h2 className="font-serif text-[32px] sm:text-[42px] lg:text-[48px] font-[350] leading-[1.12] tracking-[-0.02em] text-[#171513] max-w-[700px]">
-              Let&apos;s build something <span className="italic font-normal">thoughtful</span> and resonant together.
-            </h2>
+        {/* ================= TOP BAR ================= */}
+        <div className="flex items-center justify-between mb-10 sm:mb-12 lg:mb-16">
+          {/* Left: CONTACT + Hairline */}
+          <div className="flex items-center gap-5 sm:gap-6 flex-1 pr-6">
+            <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
+              CONTACT
+            </span>
+            <div className="h-[1px] bg-[#A9A39B]/55 w-32 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
           </div>
 
-          <div className="hidden md:flex flex-col items-end text-right font-sans text-[12px] tracking-[0.14em] text-[#77716A] uppercase">
-            <span>DIRECT INQUIRIES</span>
-            <span className="text-[#171513] font-medium">AVAILABLE FOR ROLES</span>
+          {/* Right: ✦ GET IN TOUCH */}
+          <div className="flex items-center gap-3 shrink-0">
+            <svg 
+              className="w-3.5 h-3.5 text-[#171513] fill-current" 
+              viewBox="0 0 24 24" 
+              aria-hidden="true"
+            >
+              <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z" />
+            </svg>
+            <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none">
+              GET IN TOUCH
+            </span>
           </div>
         </div>
 
-        {/* 2-Column Minimalist Editorial Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* ================= MAIN 2-COLUMN EDITORIAL SPREAD ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-stretch relative">
           
-          {/* ======================================================== */}
-          {/* LEFT COLUMN: Dossier, Direct Channels & Status (5 cols) */}
-          {/* ======================================================== */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-8">
+          {/* ========== LEFT COLUMN: GIANT TITLE, WATERMARK & CHANNELS ========== */}
+          <div className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
             
-            {/* Editorial Introduction */}
+            {/* Giant Watermark Serif 'C' in Background */}
+            <span 
+              className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[380px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
+              aria-hidden="true"
+            >
+              C
+            </span>
+
             <div>
-              <p className="font-sans text-[15px] sm:text-[15.5px] text-[#77716A] leading-[1.7] mb-6">
-                Whether you have an open marketing role, an upcoming brand campaign, or simply want to exchange ideas on consumer strategy, my inbox is always open.
+              {/* Oversized Headline */}
+              <h2 className="font-serif text-[68px] sm:text-[88px] lg:text-[104px] xl:text-[118px] font-normal leading-[0.92] tracking-[-0.03em] text-[#171513] select-none uppercase">
+                CONTACT
+              </h2>
+
+              {/* Narrative Summary */}
+              <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-6 sm:mt-8">
+                Available for full-time marketing roles, brand consulting, and creative collaborations. Inquiries receive a prompt response within 24 hours.
               </p>
 
               {/* Status Indicator Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#A9A39B]/30 text-[12px] font-sans font-medium text-[#171513] shadow-xs">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EAE5DD] border border-[#A9A39B]/40 text-[11px] font-sans font-medium text-[#171513] mt-6">
                 <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" aria-hidden="true" />
                 <span>Open for Full-time Roles &amp; Projects</span>
               </div>
             </div>
 
-            {/* Direct Contact Dossier Card */}
-            <div className="p-7 sm:p-8 rounded-[30px] bg-[#FFFFFF] border border-[#A9A39B]/30 space-y-6 shadow-xs">
-              
-              {/* Direct Email */}
-              <div className="flex items-start justify-between gap-4 group">
-                <a 
-                  href="mailto:kzelynartillo@gmail.com"
-                  className="flex items-start gap-3.5 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#F3EFE9] border border-[#A9A39B]/30 flex items-center justify-center text-[#171513] shrink-0 group-hover:bg-[#171513] group-hover:text-[#FFFFFF] transition-all duration-300">
-                    <span className="text-[14px]">✉</span>
-                  </div>
-                  <div>
-                    <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#77716A] block font-medium">
-                      Direct Email
-                    </span>
-                    <span className="font-sans text-[14px] sm:text-[14.5px] text-[#171513] group-hover:underline underline-offset-4 font-medium transition-colors">
-                      kzelynartillo@gmail.com
-                    </span>
-                  </div>
-                </a>
-
-                {/* Quick Copy Button */}
+            {/* Direct Channels Section */}
+            <div className="pt-10 sm:pt-14 space-y-4">
+              {/* Email */}
+              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35 group">
+                <div>
+                  <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] block font-medium">
+                    DIRECT EMAIL
+                  </span>
+                  <a 
+                    href="mailto:kzelynartillo@gmail.com"
+                    className="font-sans text-[13.5px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors"
+                  >
+                    kzelynartillo@gmail.com
+                  </a>
+                </div>
                 <button
+                  type="button"
                   onClick={handleCopyEmail}
-                  className="text-[11px] font-sans text-[#77716A] hover:text-[#171513] uppercase tracking-[0.1em] border border-[#A9A39B]/30 hover:border-[#171513] px-2.5 py-1 rounded-full transition-all cursor-pointer shrink-0 mt-1"
+                  className="text-[10px] font-sans text-[#77716A] hover:text-[#171513] uppercase tracking-[0.14em] border border-[#A9A39B]/40 hover:border-[#171513] px-2.5 py-1 rounded-full transition-all cursor-pointer shrink-0"
                   aria-label="Copy email address"
                 >
                   {copied ? 'Copied' : 'Copy'}
                 </button>
               </div>
 
-              {/* LinkedIn */}
-              <a 
-                href="https://linkedin.com/in/kzelynartillo" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-start gap-3.5 group transition-colors pt-2"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#F3EFE9] border border-[#A9A39B]/30 flex items-center justify-center text-[#171513] shrink-0 group-hover:bg-[#171513] group-hover:text-[#FFFFFF] transition-all duration-300">
-                  <span className="text-[13px] font-serif font-bold">in</span>
-                </div>
+              {/* LinkedIn & Instagram Links */}
+              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35">
                 <div>
-                  <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#77716A] block font-medium">
-                    Professional Network
+                  <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] block font-medium">
+                    NETWORKS
                   </span>
-                  <span className="font-sans text-[14px] sm:text-[14.5px] text-[#171513] group-hover:underline underline-offset-4 font-medium flex items-center gap-1 transition-colors">
-                    <span>linkedin.com/in/kzelynartillo</span>
-                    <span className="text-[12px]">↗</span>
-                  </span>
+                  <div className="flex items-center gap-4 text-[13px] font-sans text-[#171513] font-medium pt-0.5">
+                    <a 
+                      href="https://linkedin.com/in/kzelynartillo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline underline-offset-4 flex items-center gap-1"
+                    >
+                      LinkedIn ↗
+                    </a>
+                    <span className="text-[#A9A39B]">·</span>
+                    <a 
+                      href="https://instagram.com/ursweetiekz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline underline-offset-4 flex items-center gap-1"
+                    >
+                      Instagram ↗
+                    </a>
+                  </div>
                 </div>
-              </a>
-
-              {/* Instagram */}
-              <a 
-                href="https://instagram.com/ursweetiekz" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-start gap-3.5 group transition-colors pt-2"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#F3EFE9] border border-[#A9A39B]/30 flex items-center justify-center text-[#171513] shrink-0 group-hover:bg-[#171513] group-hover:text-[#FFFFFF] transition-all duration-300">
-                  <span className="text-[14px]">◎</span>
-                </div>
-                <div>
-                  <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#77716A] block font-medium">
-                    Social &amp; Editorial
-                  </span>
-                  <span className="font-sans text-[14px] sm:text-[14.5px] text-[#171513] group-hover:underline underline-offset-4 font-medium flex items-center gap-1 transition-colors">
-                    <span>@ursweetiekz</span>
-                    <span className="text-[12px]">↗</span>
-                  </span>
-                </div>
-              </a>
-
-              {/* Location */}
-              <div className="flex items-start gap-3.5 pt-2 border-t border-[#A9A39B]/20">
-                <div className="w-10 h-10 rounded-full bg-[#F3EFE9] border border-[#A9A39B]/30 flex items-center justify-center text-[#171513] shrink-0">
-                  <span className="text-[14px]">✦</span>
-                </div>
-                <div>
-                  <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#77716A] block font-medium">
-                    Location &amp; Work Mode
-                  </span>
-                  <span className="font-sans text-[13.5px] text-[#171513] font-medium block">
-                    Manila, Philippines · Open to Remote &amp; Global Roles
-                  </span>
-                </div>
+                <span className="text-[11px] text-[#77716A] font-sans tracking-wide">
+                  Laguna, PH
+                </span>
               </div>
-
-            </div>
-
-            {/* Reassurance Footer Quote Card */}
-            <div className="p-6 rounded-[24px] bg-[#EAE5DD] border border-[#A9A39B]/30">
-              <p className="font-serif italic text-[14px] text-[#171513]/90 leading-relaxed mb-2">
-                &ldquo;Rooted in consumer empathy, driven by practical metrics. Inquiries receive a prompt response within 24 hours.&rdquo;
-              </p>
-              <span className="font-sans text-[11px] tracking-[0.14em] uppercase text-[#77716A] font-medium block">
-                KZELYN ARTILLO · COMMITMENT TO RIGOR
-              </span>
             </div>
 
           </div>
 
-
-          {/* ======================================================== */}
-          {/* RIGHT COLUMN: Clean Minimalist Inquiry Form (7 cols)    */}
-          {/* ======================================================== */}
-          <div className="lg:col-span-7">
-            <div className="p-8 sm:p-11 lg:p-12 rounded-[32px] sm:rounded-[36px] bg-[#FFFFFF] border border-[#A9A39B]/30 shadow-xs transition-all duration-300">
-              
-              {formSubmitted ? (
-                /* Success State */
-                <div className="py-14 text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-[#171513] text-[#FFFFFF] flex items-center justify-center mx-auto text-[20px] shadow-sm">
-                    ✓
-                  </div>
-                  <h3 className="font-serif text-[26px] font-[350] text-[#171513]">
-                    Message Delivered
-                  </h3>
-                  <p className="font-sans text-[14.5px] text-[#77716A] max-w-[420px] mx-auto leading-relaxed">
-                    Thank you for reaching out. I have received your note and will review your project vision promptly.
-                  </p>
-                  <button
-                    onClick={() => setFormSubmitted(false)}
-                    className="font-sans text-[12.5px] text-[#171513] underline underline-offset-4 hover:text-[#77716A] transition-colors pt-3 cursor-pointer uppercase tracking-wider font-medium"
-                  >
-                    Send another note
-                  </button>
+          {/* ========== RIGHT COLUMN: EDITORIAL FORM SPREAD ========== */}
+          <div className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14">
+            
+            {formSubmitted ? (
+              /* Success State */
+              <div className="py-16 text-center space-y-4 my-auto">
+                <div className="w-12 h-12 rounded-full bg-[#171513] text-[#FFFFFF] flex items-center justify-center mx-auto text-[18px] shadow-sm">
+                  ✓
                 </div>
-              ) : (
-                /* The Minimalist Inquiry Form */
-                <form onSubmit={handleSubmit} className="space-y-7">
-                  
-                  {/* Topic Pill Selector */}
-                  <div>
-                    <label className="block font-sans text-[11px] uppercase tracking-[0.18em] font-medium text-[#77716A] mb-3">
-                      Inquiry Topic / Area of Interest
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {topics.map((t) => {
-                        const isSelected = formData.topic === t;
-                        return (
-                          <button
-                            key={t}
-                            type="button"
-                            onClick={() => setFormData({ ...formData, topic: t })}
-                            className={`px-4 py-2 rounded-full font-sans text-[12.5px] font-medium transition-all duration-200 cursor-pointer ${
-                              isSelected
-                                ? 'bg-[#171513] text-[#FFFFFF] shadow-xs'
-                                : 'bg-[#F3EFE9] hover:bg-[#EAE5DD] text-[#77716A] hover:text-[#171513] border border-[#A9A39B]/30'
-                            }`}
-                          >
-                            {t}
-                          </button>
-                        );
-                      })}
+                <h3 className="font-serif italic text-[26px] text-[#171513]">
+                  Message Delivered
+                </h3>
+                <p className="font-sans text-[14px] text-[#77716A] max-w-[380px] mx-auto leading-relaxed">
+                  Thank you for reaching out. I have received your note and will review your message promptly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormSubmitted(false)}
+                  className="font-sans text-[11px] text-[#171513] uppercase tracking-[0.18em] underline underline-offset-4 hover:text-[#77716A] transition-colors pt-3 cursor-pointer font-medium"
+                >
+                  Send Another Note
+                </button>
+              </div>
+            ) : (
+              /* The Minimalist Editorial Inquiry Form */
+              <form onSubmit={handleSubmit} className="space-y-7 sm:space-y-8">
+                
+                {/* 1. Inquiry Topic Row */}
+                <div>
+                  <div className="flex items-center gap-4 sm:gap-6 mb-3.5">
+                    <h3 className="font-serif italic text-[20px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] shrink-0 leading-tight">
+                      Inquiry Topic
+                    </h3>
+                    <div className="h-[1px] bg-[#A9A39B]/55 flex-1" aria-hidden="true" />
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {topics.map((t) => {
+                      const isSelected = formData.topic === t;
+                      return (
+                        <button
+                          key={t}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, topic: t })}
+                          className={`px-3.5 py-1.5 rounded-full font-sans text-[12px] font-medium transition-all duration-200 cursor-pointer ${
+                            isSelected
+                              ? 'bg-[#171513] text-[#FFFFFF] shadow-xs'
+                              : 'bg-transparent hover:bg-[#EAE5DD] text-[#77716A] hover:text-[#171513] border border-[#A9A39B]/40'
+                          }`}
+                        >
+                          {t}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 2. Your Details Row */}
+                <div>
+                  <div className="flex items-center gap-4 sm:gap-6 mb-4">
+                    <h3 className="font-serif italic text-[20px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] shrink-0 leading-tight">
+                      Your Details
+                    </h3>
+                    <div className="h-[1px] bg-[#A9A39B]/55 flex-1" aria-hidden="true" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
+                    <div>
+                      <label htmlFor="name" className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] mb-1 font-medium">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="e.g. Eleanor Vance"
+                        className="w-full bg-transparent border-b border-[#A9A39B]/55 py-2 text-[14px] font-sans text-[#171513] placeholder-[#A9A39B] focus:border-[#171513] outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] mb-1 font-medium">
+                        Your Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="e.g. eleanor@studio.com"
+                        className="w-full bg-transparent border-b border-[#A9A39B]/55 py-2 text-[14px] font-sans text-[#171513] placeholder-[#A9A39B] focus:border-[#171513] outline-none transition-colors"
+                      />
                     </div>
                   </div>
+                </div>
 
-                  {/* Name Input (Floating Minimal Field) */}
-                  <div className="relative pt-2">
-                    <label 
-                      htmlFor="name" 
-                      className="block font-sans text-[11px] uppercase tracking-[0.18em] font-medium text-[#77716A] mb-1.5"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      placeholder="e.g. Maya Lin"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full pb-3 pt-1 border-b border-[#A9A39B]/40 focus:border-[#171513] text-[15px] font-sans text-[#171513] placeholder:text-[#A9A39B]/60 bg-transparent transition-colors outline-none"
-                    />
+                {/* 3. Your Message Row */}
+                <div>
+                  <div className="flex items-center gap-4 sm:gap-6 mb-4">
+                    <h3 className="font-serif italic text-[20px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] shrink-0 leading-tight">
+                      Your Message
+                    </h3>
+                    <div className="h-[1px] bg-[#A9A39B]/55 flex-1" aria-hidden="true" />
                   </div>
+                  <textarea
+                    id="message"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell me about your brand vision, open opportunity, or project scope..."
+                    className="w-full bg-transparent border-b border-[#A9A39B]/55 py-2 text-[14px] font-sans text-[#171513] placeholder-[#A9A39B] focus:border-[#171513] outline-none transition-colors resize-none leading-relaxed"
+                  />
+                </div>
 
-                  {/* Email Input */}
-                  <div className="relative pt-2">
-                    <label 
-                      htmlFor="email" 
-                      className="block font-sans text-[11px] uppercase tracking-[0.18em] font-medium text-[#77716A] mb-1.5"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      placeholder="e.g. maya@agency.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full pb-3 pt-1 border-b border-[#A9A39B]/40 focus:border-[#171513] text-[15px] font-sans text-[#171513] placeholder:text-[#A9A39B]/60 bg-transparent transition-colors outline-none"
-                    />
-                  </div>
+                {/* 4. Action Row */}
+                <div className="pt-2 flex items-center justify-between">
+                  <span className="font-sans text-[10px] text-[#77716A] tracking-[0.16em] uppercase">
+                    CONFIDENTIAL &amp; DIRECT
+                  </span>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2.5 bg-[#000000] hover:bg-[#1a1817] text-[#FFFFFF] rounded-full h-[46px] px-8 font-sans text-[12.5px] font-medium tracking-[0.06em] uppercase transition-all duration-300 shadow-xs hover:shadow-sm cursor-pointer"
+                  >
+                    <span>Send Message</span>
+                    <span className="text-[13px] leading-none">↗</span>
+                  </button>
+                </div>
 
-                  {/* Message Input */}
-                  <div className="relative pt-2">
-                    <label 
-                      htmlFor="message" 
-                      className="block font-sans text-[11px] uppercase tracking-[0.18em] font-medium text-[#77716A] mb-1.5"
-                    >
-                      Project Vision or Note
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={4}
-                      placeholder="Tell me about your brand, team, or the goals you're looking to achieve..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full pb-3 pt-1 border-b border-[#A9A39B]/40 focus:border-[#171513] text-[15px] font-sans text-[#171513] placeholder:text-[#A9A39B]/60 bg-transparent transition-colors outline-none resize-none leading-relaxed"
-                    />
-                  </div>
+              </form>
+            )}
 
-                  {/* Submit Button (Primary token button matching design.md) */}
-                  <div className="pt-4 flex items-center justify-between">
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center gap-2.5 bg-[#000000] hover:bg-[#1a1817] text-[#FFFFFF] rounded-full h-[48px] px-8 font-sans text-[13.5px] font-medium tracking-normal transition-all duration-300 shadow-xs hover:shadow-sm cursor-pointer"
-                    >
-                      <span>Send Message</span>
-                      <span className="text-[14px] leading-none">↗</span>
-                    </button>
-
-                    <span className="font-sans text-[11.5px] text-[#A9A39B] hidden sm:block">
-                      Usually responds within 24h
-                    </span>
-                  </div>
-
-                </form>
-              )}
-
-            </div>
           </div>
 
         </div>
@@ -323,3 +295,5 @@ export function Connect() {
     </section>
   );
 }
+
+export default Connect;
