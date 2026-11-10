@@ -19,7 +19,7 @@ export function Footer() {
     { label: 'Brand Architecture', href: '#toolkit' },
     { label: 'Consumer Insights', href: '#toolkit' },
     { label: 'Campaign Strategy', href: '#toolkit' },
-    { label: 'Academic Honors', href: '#achievements' },
+    { label: 'CMMS Certification', href: '#achievements' },
   ];
 
   const connectLinks = [
