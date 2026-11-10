@@ -11,7 +11,7 @@ export function Footer() {
     { label: 'Overview', href: '#hero' },
     { label: 'Biography', href: '#about' },
     { label: 'Capabilities', href: '#toolkit' },
-    { label: 'Selected Work', href: '#work' },
+    { label: 'Achievements', href: '#achievements' },
     { label: 'Contact', href: '#connect' },
   ];
 
@@ -19,7 +19,7 @@ export function Footer() {
     { label: 'Brand Architecture', href: '#toolkit' },
     { label: 'Consumer Insights', href: '#toolkit' },
     { label: 'Campaign Strategy', href: '#toolkit' },
-    { label: 'Content Operations', href: '#work' },
+    { label: 'Academic Honors', href: '#achievements' },
   ];
 
   const connectLinks = [

@@ -64,10 +64,10 @@ export function Hero() {
         <div className="flex items-center gap-4 sm:gap-5">
           {/* Primary CTA */}
           <a
-            href="#work"
+            href="#achievements"
             className="inline-flex items-center justify-center gap-2.5 bg-[#000000] hover:bg-[#1a1817] text-[#FFFFFF] rounded-full h-[46px] lg:h-[48px] px-[28px] lg:px-[32px] font-sans text-[13px] lg:text-[13.5px] font-medium tracking-normal transition-all duration-300 shadow-xs hover:shadow-sm"
           >
-            <span>Explore My Work</span>
+            <span>Explore Achievements</span>
             <span className="text-[14px] leading-none">↗</span>
           </a>
 

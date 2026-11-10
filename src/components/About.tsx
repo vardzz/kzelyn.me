@@ -232,9 +232,9 @@ export function About() {
 
                 {/* Arrow up-right circular link */}
                 <a
-                  href="#work"
+                  href="#achievements"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFFFFF] text-[#F3EFE9] hover:text-[#171513] border border-white/10 flex items-center justify-center text-[15px] transition-all duration-300 group shadow-xs shrink-0"
-                  aria-label="View Project Case Studies"
+                  aria-label="View Academic Achievements"
                 >
                   <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
                     ↗
