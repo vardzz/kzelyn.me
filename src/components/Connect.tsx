@@ -102,7 +102,7 @@ export function Connect() {
                     href="mailto:kzelynartillo@gmail.com"
                     className="font-sans text-[13.5px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors"
                   >
-                    kzelynartillo15@gmail.com
+                    kzelynartillo@gmail.com
                   </a>
                 </div>
                 <button
