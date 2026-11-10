@@ -34,7 +34,7 @@ export function Footer() {
   return (
     <footer 
       id="footer"
-      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 pb-0 relative overflow-hidden select-none border-t border-white/[0.08]"
+      className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 relative overflow-hidden select-none border-t border-white/[0.08]"
       aria-label="Site Footer"
     >
       {/* ======================================================== */}
@@ -212,34 +212,6 @@ export function Footer() {
             className="w-full h-full object-contain object-bottom opacity-90 drop-shadow-[0_0_35px_rgba(243,239,233,0.3)] transition-opacity duration-700"
           />
         </div>
-      </div>
-
-      {/* ======================================================== */}
-      {/* 4. OVERSIZED WORDMARK: @ursweetiekz                     */}
-      {/* Pressed against the left, bottom, and right side        */}
-      {/* Exact match to Reference Image 1                       */}
-      {/* ======================================================== */}
-      <div className="relative z-10 w-full overflow-hidden leading-none pt-8 sm:pt-14 pb-0 mb-0">
-        <svg 
-          viewBox="0 0 1000 135" 
-          className="w-full h-auto block select-none pointer-events-none"
-          preserveAspectRatio="none"
-          aria-label="@ursweetiekz"
-        >
-          <text 
-            x="0" 
-            y="120" 
-            textLength="1000" 
-            lengthAdjust="spacingAndGlyphs" 
-            fontFamily="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" 
-            fontWeight="600" 
-            fontSize="142" 
-            letterSpacing="-0.03em" 
-            fill="#FFFFFF"
-          >
-            @ursweetiekz
-          </text>
-        </svg>
       </div>
     </footer>
   );
