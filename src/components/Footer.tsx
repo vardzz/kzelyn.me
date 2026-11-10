@@ -163,9 +163,9 @@ export function Footer() {
         </div>
 
         {/* ======================================================== */}
-        {/* 2. MID SECTION METADATA & DIVIDER                       */}
+        {/* 2. MID SECTION METADATA                                 */}
         {/* ======================================================== */}
-        <div className="pt-12 sm:pt-16 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#77716A] font-sans border-t border-white/[0.08] mt-12 sm:mt-16">
+        <div className="pt-12 sm:pt-16 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#77716A] font-sans mt-12 sm:mt-16">
           <div className="flex items-center gap-2">
             <span>&copy; {new Date().getFullYear()} Kzelyn Artillo. All rights reserved.</span>
           </div>
