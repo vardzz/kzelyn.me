@@ -118,6 +118,7 @@ export function Navbar() {
                 <a
                   key={link.id}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="relative py-1 transition-colors duration-200 hover:text-[#77716A]"
                 >
                   <span>{link.label}</span>
@@ -137,6 +138,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="#connect"
+            onClick={(e) => handleNavClick(e, '#connect')}
             className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.04em] text-[#171513] border border-[#77716A] px-[22px] py-[10px] rounded-full transition-all duration-300 hover:bg-[#171513] hover:text-[#FFFFFF]"
           >
             <span>LET&apos;S TALK</span>
@@ -169,7 +171,10 @@ export function Navbar() {
             <a
               key={link.id}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                handleNavClick(e, link.href);
+              }}
               className="text-[14px] tracking-[0.08em] font-medium text-[#171513] py-2 border-b border-[#A9A39B]/40 flex items-center justify-between"
             >
               <span>{link.label}</span>
@@ -180,7 +185,10 @@ export function Navbar() {
           ))}
           <a
             href="#connect"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              handleNavClick(e, '#connect');
+            }}
             className="text-center text-[13px] tracking-[0.04em] font-medium text-[#FFFFFF] bg-[#171513] py-3 rounded-full mt-2"
           >
             LET&apos;S TALK ↗
