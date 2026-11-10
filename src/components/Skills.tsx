@@ -23,7 +23,7 @@ export function Skills() {
   return (
     <section 
       id="skills" 
-      className="relative w-full py-12 sm:py-16 lg:py-20 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24"
+      className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24"
       aria-label="Skills & Technical Proficiency"
     >
       <div className="max-w-[1360px] mx-auto w-full relative">

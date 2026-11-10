@@ -6,7 +6,7 @@ export function Achievement() {
   return (
     <section 
       id="achievements" 
-      className="relative w-full py-8 sm:py-10 lg:py-12 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-0"
+      className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-0"
       aria-label="Achievements"
     >
       <div className="max-w-[1360px] mx-auto w-full relative">
