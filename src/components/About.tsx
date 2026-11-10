@@ -27,17 +27,17 @@ export function About() {
             <div className="lg:h-[360px] p-8 sm:p-10 rounded-[30px] sm:rounded-[34px] bg-[#171513] text-[#F3EFE9] flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-white/5">
               {/* Top metadata tags */}
               <div className="flex items-center justify-between text-[11px] tracking-[0.2em] uppercase text-[#A9A39B] font-sans">
-                <span>VERSION 1.0 — BIOGRAPHY</span>
-                <span>WORDMARK</span>
+                <span>VERSION 1.0 — ARCHIVE</span>
+                <span>BIOGRAPHY</span>
               </div>
 
               {/* Dominant editorial serif wordmark */}
               <div className="my-auto py-2">
                 <span className="block font-serif text-[72px] sm:text-[96px] lg:text-[108px] font-[300] tracking-[-0.04em] leading-none text-[#F3EFE9]">
-                  kzelyn
+                  biography
                 </span>
                 <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-[#A9A39B] mt-2 font-medium">
-                  BSBA Marketing Management Graduate
+                  Strategic Marketing &amp; Brand Insights
                 </span>
               </div>
 
@@ -175,14 +175,14 @@ export function About() {
               <div className="absolute bottom-5 left-6 right-6 z-10 flex items-center justify-between text-[#F3EFE9]">
                 <div>
                   <span className="font-sans text-[12.5px] tracking-[0.1em] uppercase font-medium block">
-                    Kzelyn Artillo
+                    Creative Strategist
                   </span>
                   <span className="font-sans text-[11px] text-[#A9A39B] block">
-                    Marketing Management
+                    Marketing Management &middot; CMMS
                   </span>
                 </div>
                 <span className="font-serif italic text-[15px]">
-                  strategist.
+                  editorial.
                 </span>
               </div>
             </div>
@@ -206,7 +206,7 @@ export function About() {
 
               {/* Brand stamp footer */}
               <div className="pt-4 border-t border-white/20 flex items-center justify-between text-[11px] tracking-[0.14em] uppercase text-white/80 font-sans">
-                <span>KZELYN ARTILLO</span>
+                <span>CORE ETHOS</span>
                 <span className="font-serif text-[17px] font-light lowercase tracking-wider text-white">
                   artillo ✻
                 </span>
