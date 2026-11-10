@@ -41,7 +41,7 @@ export function Footer() {
       {/* ======================================================== */}
       {/* 1. TOP HEADER & MULTI-COLUMN NAVIGATION                 */}
       {/* ======================================================== */}
-      <div className="max-w-[1240px] mx-auto px-[4.5vw] w-full z-20 relative">
+      <div className="max-w-[1240px] mx-auto px-[4.5vw] w-full z-20 relative pb-10 sm:pb-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           
           {/* Brand Identity & Mission (Left 5 cols) */}
@@ -168,27 +168,6 @@ export function Footer() {
           </div>
 
         </div>
-
-        {/* ======================================================== */}
-        {/* 2. MID SECTION METADATA                                 */}
-        {/* ======================================================== */}
-        <div className="pt-12 sm:pt-16 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#77716A] font-sans mt-12 sm:mt-16">
-          <div className="flex items-center gap-2">
-            <span>&copy; {new Date().getFullYear()} Kzelyn Artillo. All rights reserved.</span>
-          </div>
-
-          <div>
-            <span>Made by </span>
-            <a 
-              href="https://www.vardz.dev/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-[#F3EFE9] hover:text-[#FFFFFF] underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all font-medium"
-            >
-              vardzz
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* ======================================================== */}
@@ -250,10 +229,31 @@ export function Footer() {
             d="M0 200 C 260 250 540 130 820 180 C 1100 230 1300 140 1440 170" 
             stroke="#AE6965" 
             strokeWidth="1.5" 
-            strokeOpacity="0.45"
+            strokeOpacity="0.45" 
             fill="none" 
           />
         </svg>
+
+        {/* Bottom Metadata at Base of Wave */}
+        <div className="absolute bottom-3 sm:bottom-4 left-0 right-0 z-30 px-[4.5vw] pointer-events-auto">
+          <div className="max-w-[1240px] mx-auto pt-2.5 sm:pt-3 border-t border-[#A9A39B]/35 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11.5px] sm:text-[12px] text-[#4A453F] font-sans">
+            <div className="flex items-center gap-2">
+              <span>&copy; {new Date().getFullYear()} Kzelyn Artillo. All rights reserved.</span>
+            </div>
+
+            <div>
+              <span>Made by </span>
+              <a 
+                href="https://www.vardz.dev/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#171513] hover:text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-all font-medium"
+              >
+                vardzz
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
