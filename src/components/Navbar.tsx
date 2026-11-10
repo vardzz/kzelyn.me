@@ -100,18 +100,18 @@ export function Navbar() {
         {/* Left Section: 52px Logo + Divider + Nav Links */}
         <div className="flex items-center gap-8 lg:gap-11">
           
-          {/* Logo Badge (52px x 52px, /kz-logo.png) */}
+          {/* Logo Badge (/kz-logo.png) */}
           <Link 
             href="#hero" 
             className="flex items-center gap-6 group"
             aria-label="Kzelyn Home"
           >
-            <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 shadow-xs relative overflow-hidden bg-white/50 border border-[#A9A39B]/30 p-1">
+            <div className="w-[52px] h-[52px] flex items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 relative">
               <Image
                 src="/kz-logo.png"
                 alt="Kzelyn Artillo Logo"
-                width={48}
-                height={48}
+                width={52}
+                height={52}
                 priority
                 className="w-full h-full object-contain"
               />

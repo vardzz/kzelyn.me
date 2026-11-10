@@ -54,12 +54,12 @@ export function Footer() {
                 tabIndex={0}
                 aria-label="Back to top"
               >
-                <div className="w-9 h-9 rounded-full bg-[#FFFFFF] flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform duration-300 relative overflow-hidden p-1 shrink-0">
+                <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 relative shrink-0">
                   <Image
                     src="/kz-logo.png"
                     alt="Kzelyn Artillo Logo"
-                    width={32}
-                    height={32}
+                    width={36}
+                    height={36}
                     className="w-full h-full object-contain"
                   />
                 </div>
