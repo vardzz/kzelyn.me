@@ -27,7 +27,7 @@ export function Footer() {
   const connectLinks = [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kzelyn-artillo-cmms-170b30443/', external: true },
     { label: 'Instagram', href: 'https://instagram.com/ursweetiekz', external: true },
-    { label: 'Email', href: 'mailto:kzelynartillo@gmail.com', external: false },
+    { label: 'Email', href: 'mailto:kzlynrtll15@gmail.com', external: false },
     { label: "Let's Talk", href: '#connect', external: false },
   ];
 
@@ -78,7 +78,7 @@ export function Footer() {
                   LinkedIn ↗
                 </a>
                 <a 
-                  href="mailto:kzelynartillo@gmail.com"
+                  href="mailto:kzlynrtll15@gmail.com"
                   className="px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#A9A39B] hover:text-[#FFFFFF] border border-white/[0.08] transition-all duration-300"
                 >
                   Email ↗

@@ -26,7 +26,7 @@ export function Connect() {
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigator.clipboard.writeText('kzelynartillo@gmail.com');
+    navigator.clipboard.writeText('kzlynrtll15@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -99,10 +99,10 @@ export function Connect() {
                     DIRECT EMAIL
                   </span>
                   <a 
-                    href="mailto:kzelynartillo@gmail.com"
+                    href="mailto:kzlynrtll15@gmail.com"
                     className="font-sans text-[13.5px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors"
                   >
-                    kzelynartillo@gmail.com
+                    kzlynrtll15@gmail.com
                   </a>
                 </div>
                 <button
