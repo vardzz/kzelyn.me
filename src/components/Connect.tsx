@@ -34,7 +34,7 @@ export function Connect() {
   return (
     <section 
       id="connect" 
-      className="py-24 sm:py-32 lg:py-36 px-[4.5vw] w-full bg-[#F3EFE9] text-[#171513] select-none border-t border-[#A9A39B]/30"
+      className="pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-[4.5vw] w-full bg-[#F3EFE9] text-[#171513] select-none"
       aria-label="Connect and Contact"
     >
       <div className="max-w-[1240px] mx-auto w-full">
