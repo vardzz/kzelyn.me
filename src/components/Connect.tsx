@@ -88,12 +88,6 @@ export function Connect() {
               <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-6 sm:mt-8">
                 Available for full-time marketing roles, brand consulting, and creative collaborations. Inquiries receive a prompt response within 24 hours.
               </p>
-
-              {/* Status Indicator Pill */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EAE5DD] border border-[#A9A39B]/40 text-[11px] font-sans font-medium text-[#171513] mt-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" aria-hidden="true" />
-                <span>Open for Full-time Roles &amp; Projects</span>
-              </div>
             </div>
 
             {/* Direct Channels Section */}
@@ -108,7 +102,7 @@ export function Connect() {
                     href="mailto:kzelynartillo@gmail.com"
                     className="font-sans text-[13.5px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors"
                   >
-                    kzelynartillo@gmail.com
+                    kzelynartillo15@gmail.com
                   </a>
                 </div>
                 <button
@@ -129,7 +123,7 @@ export function Connect() {
                   </span>
                   <div className="flex items-center gap-4 text-[13px] font-sans text-[#171513] font-medium pt-0.5">
                     <a 
-                      href="https://linkedin.com/in/kzelynartillo"
+                      href="https://www.linkedin.com/in/kzelyn-artillo-cmms-170b30443/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:underline underline-offset-4 flex items-center gap-1"
