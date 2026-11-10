@@ -89,17 +89,32 @@ export function Achievement() {
               <div className="w-[530px] h-[530px] sm:w-[590px] sm:h-[590px] lg:w-[630px] lg:h-[630px] rounded-full border border-[#A9A39B]/25 absolute" />
             </div>
 
-            {/* Document Frame */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[370px] xl:max-w-[385px] bg-[#FBF9F4] rounded-[2px] shadow-[0_20px_55px_rgba(23,21,19,0.13),0_6px_18px_rgba(23,21,19,0.06)] border border-[#171513]/15 p-[2px] sm:p-[3px] transition-transform duration-500 hover:scale-[1.015]">
+            {/* Document Frame (Clickable Link to Official Announcement) */}
+            <a
+              href="https://www.facebook.com/share/1CnJRVNJTv/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Official CMMS Examination Passers Announcement on Facebook (opens in new tab)"
+              className="group relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[370px] xl:max-w-[385px] bg-[#FBF9F4] rounded-[2px] shadow-[0_20px_55px_rgba(23,21,19,0.13),0_6px_18px_rgba(23,21,19,0.06)] border border-[#171513]/15 p-[2px] sm:p-[3px] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_26px_65px_rgba(23,21,19,0.18),0_8px_24px_rgba(23,21,19,0.08)] block cursor-pointer"
+            >
               <Image
                 src="/CMMS-pic.png"
                 alt="Official Examination Passers - Certified Marketing Management Specialist (CMMS), CPACE"
                 width={1149}
                 height={1369}
                 priority
-                className="w-full h-auto object-cover rounded-[1px] block"
+                className="w-full h-auto object-cover rounded-[1px] block transition-opacity duration-300 group-hover:opacity-95"
               />
-            </div>
+
+              {/* Discreet hover indicator */}
+              <div 
+                className="absolute top-3 right-3 bg-[#171513]/85 text-[#F3EFE9] text-[10px] font-sans font-medium tracking-widest uppercase px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1 shadow-md pointer-events-none backdrop-blur-xs"
+                aria-hidden="true"
+              >
+                <span>View Post</span>
+                <span className="text-[11px] leading-none">↗</span>
+              </div>
+            </a>
           </div>
 
           {/* ========== RIGHT COLUMN ========== */}
