@@ -41,7 +41,7 @@ export function Footer() {
       {/* ======================================================== */}
       {/* 1. TOP HEADER & MULTI-COLUMN NAVIGATION                 */}
       {/* ======================================================== */}
-      <div className="max-w-[1240px] mx-auto px-[4.5vw] w-full z-20 relative pb-10 sm:pb-14">
+      <div className="max-w-[1240px] mx-auto px-[4.5vw] w-full z-20 relative pb-4 sm:pb-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           
           {/* Brand Identity & Mission (Left 5 cols) */}
@@ -175,7 +175,7 @@ export function Footer() {
       {/* Organic fluid wave using DESIGN.md tokens (#F3EFE9,     */}
       {/* #D1A9A5, #AE6965) with interactive blooming wildflowers */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full overflow-hidden leading-none pt-4 sm:pt-6 pb-0 mb-0 group">
+      <div className="relative z-10 w-full overflow-hidden leading-none pt-0 pb-0 mb-0 group">
         {/* Interactive Wildflowers blooming on mouse hover/drag */}
         <WaveFlowerMeadow />
 
