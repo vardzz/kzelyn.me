@@ -191,31 +191,7 @@ export function Footer() {
       </div>
 
       {/* ======================================================== */}
-      {/* 3. ORGANIC UPWARD DRIPPING LIQUID (High-Fashion Fluid)   */}
-      {/* Photorealistic rising viscous drips from reference image */}
-      {/* ======================================================== */}
-      <div 
-        className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" 
-        aria-hidden="true"
-      >
-        {/* Ambient Warm Champagne Liquid Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] max-w-[850px] h-[75%] bg-gradient-to-t from-[#EAE5DD]/30 via-[#D1A9A5]/15 to-transparent blur-3xl rounded-t-full" />
-        
-        {/* Photorealistic Natural Upward Dripping Liquid Container */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[980px] h-[380px] sm:h-[460px] lg:h-[520px] flex items-end justify-center">
-          <Image
-            src="/drips-upward-pearl.png"
-            alt=""
-            width={740}
-            height={740}
-            priority
-            className="w-full h-full object-contain object-bottom opacity-90 drop-shadow-[0_0_35px_rgba(243,239,233,0.3)] transition-opacity duration-700"
-          />
-        </div>
-      </div>
-
-      {/* ======================================================== */}
-      {/* 4. MINIMALIST CONTRASTING WAVE                           */}
+      {/* 3. MINIMALIST CONTRASTING WAVE                           */}
       {/* Organic fluid wave using DESIGN.md tokens (#F3EFE9,     */}
       {/* #D1A9A5, #AE6965) contrasting against dark canvas        */}
       {/* ======================================================== */}
