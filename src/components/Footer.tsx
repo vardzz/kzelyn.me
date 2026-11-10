@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { WaveFlowerMeadow } from './WaveFlowerMeadow';
 
 export function Footer() {
   const scrollToTop = () => {
@@ -191,29 +192,32 @@ export function Footer() {
       </div>
 
       {/* ======================================================== */}
-      {/* 3. MINIMALIST CONTRASTING WAVE                           */}
+      {/* 3. MINIMALIST CONTRASTING WAVE & BLOOMING MEADOW         */}
       {/* Organic fluid wave using DESIGN.md tokens (#F3EFE9,     */}
-      {/* #D1A9A5, #AE6965) contrasting against dark canvas        */}
+      {/* #D1A9A5, #AE6965) with interactive blooming wildflowers */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full overflow-hidden leading-none pt-8 sm:pt-14 pb-0 mb-0">
+      <div className="relative z-10 w-full overflow-hidden leading-none pt-4 sm:pt-6 pb-0 mb-0 group">
+        {/* Interactive Wildflowers blooming on mouse hover/drag */}
+        <WaveFlowerMeadow />
+
         <svg 
-          viewBox="0 0 1440 140" 
+          viewBox="0 0 1440 280" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-24 sm:h-32 lg:h-36 block select-none pointer-events-none"
+          className="w-full h-48 sm:h-64 md:h-72 lg:h-80 xl:h-[340px] block select-none pointer-events-none"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <defs>
             <linearGradient id="waveGradBack" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#AE6965" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#D1A9A5" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#AE6965" stopOpacity="0.35" />
+              <stop offset="0%" stopColor="#AE6965" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#D1A9A5" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#AE6965" stopOpacity="0.4" />
             </linearGradient>
             <linearGradient id="waveGradMid" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#D1A9A5" stopOpacity="0.65" />
-              <stop offset="50%" stopColor="#EAE5DD" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#D1A9A5" stopOpacity="0.55" />
+              <stop offset="0%" stopColor="#D1A9A5" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#EAE5DD" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#D1A9A5" stopOpacity="0.6" />
             </linearGradient>
             <linearGradient id="waveGradFront" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#F3EFE9" />
@@ -225,28 +229,28 @@ export function Footer() {
 
           {/* Layer 1: Atmospheric Terracotta/Rust Back Wave */}
           <path 
-            d="M0 65 C 240 105 480 25 720 60 C 960 95 1200 35 1440 70 L 1440 140 L 0 140 Z" 
+            d="M0 110 C 260 190 480 30 740 100 C 1000 170 1220 40 1440 120 L 1440 280 L 0 280 Z" 
             fill="url(#waveGradBack)" 
           />
 
           {/* Layer 2: Soft Dusty Rose / Champagne Middle Wave */}
           <path 
-            d="M0 85 C 320 40 640 110 960 65 C 1200 35 1360 85 1440 75 L 1440 140 L 0 140 Z" 
+            d="M0 160 C 320 70 640 210 960 120 C 1200 50 1350 150 1440 130 L 1440 280 L 0 280 Z" 
             fill="url(#waveGradMid)" 
           />
 
           {/* Layer 3: Contrasting Primary Wave in #F3EFE9 (DESIGN.md Paper Background) */}
           <path 
-            d="M0 105 C 280 135 560 72 840 102 C 1120 132 1320 82 1440 96 L 1440 140 L 0 140 Z" 
+            d="M0 200 C 260 250 540 130 820 180 C 1100 230 1300 140 1440 170 L 1440 280 L 0 280 Z" 
             fill="url(#waveGradFront)" 
           />
 
           {/* Minimalist Crest Accent Hairline */}
           <path 
-            d="M0 105 C 280 135 560 72 840 102 C 1120 132 1320 82 1440 96" 
+            d="M0 200 C 260 250 540 130 820 180 C 1100 230 1300 140 1440 170" 
             stroke="#AE6965" 
-            strokeWidth="1.2" 
-            strokeOpacity="0.35"
+            strokeWidth="1.5" 
+            strokeOpacity="0.45"
             fill="none" 
           />
         </svg>
