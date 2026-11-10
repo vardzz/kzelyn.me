@@ -61,17 +61,17 @@ export function Skills() {
       <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
-        <div className="flex items-center justify-between mb-10 sm:mb-12 lg:mb-16">
+        <div className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
           {/* Left: SKILLS + Hairline */}
-          <div className="flex items-center gap-5 sm:gap-6 flex-1 pr-6">
+          <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
               SKILLS
             </span>
-            <div className="h-[1px] bg-[#A9A39B]/55 w-32 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
+            <div className="h-[1px] bg-[#A9A39B]/55 w-16 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
           </div>
 
           {/* Right: ✦ SKILLS & COMPETENCIES */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <svg 
               className="w-3.5 h-3.5 text-[#171513] fill-current" 
               viewBox="0 0 24 24" 
@@ -79,21 +79,21 @@ export function Skills() {
             >
               <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z" />
             </svg>
-            <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none">
-              SKILLS &amp; COMPETENCIES
+            <span className="font-sans font-medium text-[10px] sm:text-[12px] tracking-[0.16em] sm:tracking-[0.24em] text-[#171513] uppercase select-none">
+              <span className="hidden sm:inline">SKILLS &amp; </span>COMPETENCIES
             </span>
           </div>
         </div>
 
         {/* ================= MAIN 2-COLUMN EDITORIAL SPREAD ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-stretch relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-stretch relative">
           
           {/* ========== LEFT COLUMN: GIANT TITLE, WATERMARK & SUMMARY ========== */}
           <div className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
             
             {/* Giant Watermark Serif 'S' in Background */}
             <span 
-              className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[380px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
+              className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[280px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
               aria-hidden="true"
             >
               S
@@ -101,12 +101,12 @@ export function Skills() {
 
             <div>
               {/* Oversized Headline */}
-              <h2 className="font-serif text-[68px] sm:text-[88px] lg:text-[104px] xl:text-[118px] font-normal leading-[0.92] tracking-[-0.03em] text-[#171513] select-none uppercase">
+              <h2 className="font-serif text-[clamp(52px,13vw,118px)] font-normal leading-[0.92] tracking-[-0.03em] text-[#171513] select-none uppercase">
                 SKILLS
               </h2>
 
               {/* Narrative Summary */}
-              <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-6 sm:mt-8">
+              <p className="font-sans text-[13px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-4 sm:mt-8">
                 A strategic blend of executive support, generative AI workflows, digital marketing, and collaborative client relations.
               </p>
             </div>
@@ -118,11 +118,11 @@ export function Skills() {
             {skillCategories.map((group, idx) => (
               <div key={idx} className="group">
                 {/* Category Header + Horizontal Rule */}
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <h3 className="font-serif italic text-[21px] sm:text-[23px] lg:text-[25px] font-normal text-[#171513] shrink-0 leading-tight">
+                <div className="flex items-center gap-3 sm:gap-6">
+                  <h3 className="font-serif italic text-[19px] sm:text-[23px] lg:text-[25px] font-normal text-[#171513] leading-tight min-w-0">
                     {group.category}
                   </h3>
-                  <div className="h-[1px] bg-[#A9A39B]/55 flex-1" aria-hidden="true" />
+                  <div className="h-[1px] bg-[#A9A39B]/55 flex-1 min-w-[20px]" aria-hidden="true" />
                 </div>
 
                 {/* Skills Inline List */}

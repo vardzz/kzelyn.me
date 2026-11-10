@@ -60,6 +60,7 @@ export function Navbar() {
   const navLinks = [
     { label: 'PORTFOLIO', href: '#hero', id: 'hero' },
     { label: 'ABOUT', href: '#about', id: 'about' },
+    { label: 'SKILLS', href: '#skills', id: 'skills' },
     { label: 'ACHIEVEMENTS', href: '#achievements', id: 'achievements' },
     { label: 'CONTACT', href: '#connect', id: 'connect' },
   ];

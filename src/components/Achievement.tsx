@@ -14,15 +14,15 @@ export function Achievement() {
         {/* ================= TOP BAR ================= */}
         <div className="flex items-center justify-between mb-8 sm:mb-10 lg:mb-12">
           {/* Left: ACHIEVEMENTS + Hairline */}
-          <div className="flex items-center gap-5 sm:gap-6 flex-1 pr-6">
+          <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
               ACHIEVEMENTS
             </span>
-            <div className="h-[1px] bg-[#A9A39B]/55 w-32 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
+            <div className="h-[1px] bg-[#A9A39B]/55 w-16 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
           </div>
 
           {/* Right: ✦ CMMS CERTIFICATION */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <svg 
               className="w-3.5 h-3.5 text-[#171513] fill-current" 
               viewBox="0 0 24 24" 
@@ -30,8 +30,8 @@ export function Achievement() {
             >
               <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z" />
             </svg>
-            <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none">
-              CMMS CERTIFICATION
+            <span className="font-sans font-medium text-[10px] sm:text-[12px] tracking-[0.16em] sm:tracking-[0.24em] text-[#171513] uppercase select-none">
+              <span className="hidden sm:inline">CMMS </span>CERTIFICATION
             </span>
           </div>
         </div>
@@ -43,17 +43,17 @@ export function Achievement() {
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch z-10">
             <div>
               {/* Eyebrow */}
-              <p className="font-serif italic text-[20px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] leading-none mb-2.5">
+              <p className="font-serif italic text-[18px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] leading-none mb-2 sm:mb-2.5">
                 A Testament to
               </p>
 
               {/* Main Headline */}
-              <h2 className="font-serif text-[36px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-normal leading-[1.05] tracking-[-0.02em] text-[#171513]">
+              <h2 className="font-serif text-[30px] sm:text-[42px] lg:text-[46px] xl:text-[50px] font-normal leading-[1.08] sm:leading-[1.05] tracking-[-0.02em] text-[#171513]">
                 Certified Marketing<br />Specialist
               </h2>
 
               {/* Divider Hairline */}
-              <div className="w-full max-w-[260px] h-[1px] bg-[#A9A39B]/45 my-5 sm:my-6" aria-hidden="true" />
+              <div className="w-full max-w-[260px] h-[1px] bg-[#A9A39B]/45 my-4 sm:my-6" aria-hidden="true" />
 
               {/* Narrative Copy */}
               <p className="font-sans text-[13px] sm:text-[13.5px] text-[#4A453F] leading-[1.7] max-w-[330px]">
@@ -71,9 +71,9 @@ export function Achievement() {
               aria-hidden="true"
             >
               {/* Inner Circle */}
-              <div className="w-[380px] h-[380px] sm:w-[430px] sm:h-[430px] lg:w-[460px] lg:h-[460px] rounded-full border border-[#A9A39B]/35 absolute" />
+              <div className="w-[280px] h-[280px] sm:w-[430px] sm:h-[430px] lg:w-[460px] lg:h-[460px] rounded-full border border-[#A9A39B]/35 absolute" />
               {/* Outer Circle */}
-              <div className="w-[530px] h-[530px] sm:w-[590px] sm:h-[590px] lg:w-[630px] lg:h-[630px] rounded-full border border-[#A9A39B]/25 absolute" />
+              <div className="w-[390px] h-[390px] sm:w-[590px] sm:h-[590px] lg:w-[630px] lg:h-[630px] rounded-full border border-[#A9A39B]/25 absolute" />
             </div>
 
             {/* Document Frame (Clickable Link to Official Announcement) */}

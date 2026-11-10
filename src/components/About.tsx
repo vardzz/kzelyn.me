@@ -33,10 +33,10 @@ export function About() {
 
               {/* Dominant editorial serif wordmark */}
               <div className="my-auto py-2">
-                <span className="block font-serif text-[72px] sm:text-[96px] lg:text-[108px] font-[300] tracking-[-0.04em] leading-none text-[#F3EFE9]">
+                <span className="block font-serif text-[clamp(44px,11.5vw,108px)] font-[300] tracking-[-0.04em] leading-none text-[#F3EFE9]">
                   biography
                 </span>
-                <span className="block font-sans text-[11px] tracking-[0.16em] uppercase text-[#A9A39B] mt-2 font-medium">
+                <span className="block font-sans text-[10.5px] sm:text-[11px] tracking-[0.16em] uppercase text-[#A9A39B] mt-2 font-medium">
                   Strategic Marketing &amp; Brand Insights
                 </span>
               </div>
@@ -124,22 +124,22 @@ export function About() {
             </div>
 
             {/* CARD 4: Wide Pill Card (80px on desktop) */}
-            <div className="lg:h-[80px] rounded-full bg-[#FFFFFF] border border-[#A9A39B]/30 px-6 sm:px-8 py-3.5 flex items-center justify-between transition-all duration-300 hover:border-[#171513]/40 shadow-xs">
-              <div className="flex items-center gap-3.5">
-                <div className="w-8 h-8 rounded-full bg-[#171513] text-[#F3EFE9] flex items-center justify-center text-[12px]" aria-hidden="true">
+            <div className="min-h-[72px] lg:h-[80px] rounded-[24px] sm:rounded-full bg-[#FFFFFF] border border-[#A9A39B]/30 px-5 sm:px-8 py-3.5 flex items-center justify-between gap-3 transition-all duration-300 hover:border-[#171513]/40 shadow-xs">
+              <div className="flex items-center gap-3.5 min-w-0">
+                <div className="w-8 h-8 rounded-full bg-[#171513] text-[#F3EFE9] flex items-center justify-center text-[12px] shrink-0" aria-hidden="true">
                   ✦
                 </div>
-                <div>
-                  <span className="font-sans text-[12.5px] sm:text-[13px] font-medium text-[#171513] block">
+                <div className="min-w-0">
+                  <span className="font-sans text-[12px] sm:text-[13px] font-medium text-[#171513] block truncate sm:whitespace-normal">
                     Strategic Brand Architecture
                   </span>
-                  <span className="font-sans text-[11px] text-[#77716A] block">
+                  <span className="font-sans text-[10.5px] sm:text-[11px] text-[#77716A] block truncate sm:whitespace-normal">
                     Persona Research · GTM Strategy · Visual Voice
                   </span>
                 </div>
               </div>
 
-              <span className="font-sans text-[11px] font-medium tracking-[0.14em] uppercase text-[#77716A] hidden sm:block">
+              <span className="font-sans text-[11px] font-medium tracking-[0.14em] uppercase text-[#77716A] hidden md:block shrink-0">
                 BSBA &apos;26
               </span>
             </div>

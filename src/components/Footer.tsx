@@ -96,7 +96,7 @@ export function Footer() {
           </div>
 
           {/* Nav Link Columns (Right 7 cols) */}
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-[13px] font-sans">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 text-[12.5px] sm:text-[13px] font-sans">
             
             {/* Column 1: Navigation Links */}
             <div>

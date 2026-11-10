@@ -40,17 +40,17 @@ export function Connect() {
       <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
-        <div className="flex items-center justify-between mb-10 sm:mb-12 lg:mb-16">
+        <div className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
           {/* Left: CONTACT + Hairline */}
-          <div className="flex items-center gap-5 sm:gap-6 flex-1 pr-6">
+          <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
               CONTACT
             </span>
-            <div className="h-[1px] bg-[#A9A39B]/55 w-32 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
+            <div className="h-[1px] bg-[#A9A39B]/55 w-16 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
           </div>
 
           {/* Right: ✦ GET IN TOUCH */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <svg 
               className="w-3.5 h-3.5 text-[#171513] fill-current" 
               viewBox="0 0 24 24" 
@@ -58,21 +58,21 @@ export function Connect() {
             >
               <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z" />
             </svg>
-            <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none">
+            <span className="font-sans font-medium text-[10px] sm:text-[12px] tracking-[0.16em] sm:tracking-[0.24em] text-[#171513] uppercase select-none">
               GET IN TOUCH
             </span>
           </div>
         </div>
 
         {/* ================= MAIN 2-COLUMN EDITORIAL SPREAD ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-stretch relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-stretch relative">
           
           {/* ========== LEFT COLUMN: GIANT TITLE, WATERMARK & CHANNELS ========== */}
           <div className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
             
             {/* Giant Watermark Serif 'C' in Background */}
             <span 
-              className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[380px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
+              className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[280px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
               aria-hidden="true"
             >
               C
@@ -80,27 +80,27 @@ export function Connect() {
 
             <div>
               {/* Oversized Headline */}
-              <h2 className="font-serif text-[68px] sm:text-[88px] lg:text-[104px] xl:text-[118px] font-normal leading-[0.92] tracking-[-0.03em] text-[#171513] select-none uppercase">
+              <h2 className="font-serif text-[clamp(50px,13vw,118px)] font-normal leading-[0.92] tracking-[-0.03em] text-[#171513] select-none uppercase">
                 CONTACT
               </h2>
 
               {/* Narrative Summary */}
-              <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-6 sm:mt-8">
+              <p className="font-sans text-[13px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-4 sm:mt-8">
                 Available for full-time marketing roles, brand consulting, and creative collaborations. Inquiries receive a prompt response within 24 hours.
               </p>
             </div>
 
             {/* Direct Channels Section */}
-            <div className="pt-10 sm:pt-14 space-y-4">
+            <div className="pt-8 sm:pt-14 space-y-4">
               {/* Email */}
-              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35 group">
-                <div>
+              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35 group gap-2">
+                <div className="min-w-0">
                   <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] block font-medium">
                     DIRECT EMAIL
                   </span>
                   <a 
                     href="mailto:kzlynrtll15@gmail.com"
-                    className="font-sans text-[13.5px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors"
+                    className="font-sans text-[13px] sm:text-[14px] text-[#171513] font-medium hover:underline underline-offset-4 transition-colors break-all sm:break-normal"
                   >
                     kzlynrtll15@gmail.com
                   </a>
@@ -116,12 +116,12 @@ export function Connect() {
               </div>
 
               {/* LinkedIn & Instagram Links */}
-              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35">
+              <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35 gap-2">
                 <div>
                   <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#77716A] block font-medium">
                     NETWORKS
                   </span>
-                  <div className="flex items-center gap-4 text-[13px] font-sans text-[#171513] font-medium pt-0.5">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[12.5px] sm:text-[13px] font-sans text-[#171513] font-medium pt-0.5">
                     <a 
                       href="https://www.linkedin.com/in/kzelyn-artillo-cmms-170b30443/"
                       target="_blank"
@@ -141,7 +141,7 @@ export function Connect() {
                     </a>
                   </div>
                 </div>
-                <span className="text-[11px] text-[#77716A] font-sans tracking-wide">
+                <span className="text-[10.5px] sm:text-[11px] text-[#77716A] font-sans tracking-wide shrink-0">
                   Laguna, PH
                 </span>
               </div>
