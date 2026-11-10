@@ -3,20 +3,52 @@
 export function Skills() {
   const skillCategories = [
     {
-      category: 'Programming Languages',
-      skills: ['Java', 'PHP', 'JavaScript', 'TypeScript', 'Python', 'C#'],
+      category: 'Administrative & Executive Support',
+      skills: [
+        'Calendar & Schedule Management',
+        'Email & Inbox Management',
+        'Document Preparation',
+        'Data Entry & Database Management',
+        'Project Coordination',
+      ],
     },
     {
-      category: 'Web Development',
-      skills: ['React', 'Next.js', 'Laravel', 'Tailwind CSS', 'HTML', 'CSS'],
+      category: 'Generative AI & Workflow Automation',
+      skills: [
+        'Prompt Engineering',
+        'AI-Assisted Content Creation & Editing',
+        'Automated Research Synthesis',
+        'Workflow Optimization',
+      ],
     },
     {
-      category: 'Tools & Technologies',
-      skills: ['VS Code', 'Git', 'Docker', 'MySQL', 'phpMyAdmin', 'Postman'],
+      category: 'Digital & Social Media Operations',
+      skills: [
+        'Social Media Content Strategy',
+        'Social Media Management',
+        'Copywriting',
+        'Search Engine Optimization (SEO)',
+        'Market Research',
+      ],
     },
     {
-      category: 'Design & Productivity',
-      skills: ['Figma', 'Canva', 'Notion', 'Microsoft Office', 'Adobe Photoshop'],
+      category: 'Tools & Software',
+      skills: [
+        'Generative AI Tools',
+        'HubSpot (Email Marketing)',
+        'Microsoft Excel',
+        'Google Workspace (Docs, Sheets, Drive)',
+        'Professional Communication Platforms',
+      ],
+    },
+    {
+      category: 'Interpersonal & Client Relations',
+      skills: [
+        'Stakeholder Communication',
+        'Cross-Functional Collaboration',
+        'Time Management',
+        'Independent Problem-Solving',
+      ],
     },
   ];
 
@@ -24,7 +56,7 @@ export function Skills() {
     <section 
       id="skills" 
       className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24"
-      aria-label="Skills & Technical Proficiency"
+      aria-label="Skills & Competencies"
     >
       <div className="max-w-[1360px] mx-auto w-full relative">
         
@@ -38,7 +70,7 @@ export function Skills() {
             <div className="h-[1px] bg-[#A9A39B]/55 w-32 sm:w-52 md:w-72 max-w-full" aria-hidden="true" />
           </div>
 
-          {/* Right: ✦ TECHNICAL PROFICIENCY */}
+          {/* Right: ✦ SKILLS & COMPETENCIES */}
           <div className="flex items-center gap-3 shrink-0">
             <svg 
               className="w-3.5 h-3.5 text-[#171513] fill-current" 
@@ -48,7 +80,7 @@ export function Skills() {
               <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z" />
             </svg>
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none">
-              TECHNICAL PROFICIENCY
+              SKILLS &amp; COMPETENCIES
             </span>
           </div>
         </div>
@@ -75,7 +107,7 @@ export function Skills() {
 
               {/* Narrative Summary */}
               <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#4A453F] leading-[1.7] max-w-[340px] mt-6 sm:mt-8">
-                A diverse set of technical and creative skills enabling me to build, design, and innovate.
+                A strategic blend of executive support, generative AI workflows, digital marketing, and collaborative client relations.
               </p>
             </div>
 
@@ -94,20 +126,20 @@ export function Skills() {
 
           </div>
 
-          {/* ========== RIGHT COLUMN: 4 SKILL CATEGORIES WITH DIVIDERS ========== */}
-          <div className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14 space-y-8 sm:space-y-10 lg:space-y-11">
+          {/* ========== RIGHT COLUMN: 5 SKILL CATEGORIES WITH DIVIDERS ========== */}
+          <div className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14 space-y-7 sm:space-y-8 lg:space-y-9">
             {skillCategories.map((group, idx) => (
               <div key={idx} className="group">
                 {/* Category Header + Horizontal Rule */}
                 <div className="flex items-center gap-4 sm:gap-6">
-                  <h3 className="font-serif italic text-[22px] sm:text-[25px] lg:text-[27px] font-normal text-[#171513] shrink-0 leading-tight">
+                  <h3 className="font-serif italic text-[21px] sm:text-[23px] lg:text-[25px] font-normal text-[#171513] shrink-0 leading-tight">
                     {group.category}
                   </h3>
                   <div className="h-[1px] bg-[#A9A39B]/55 flex-1" aria-hidden="true" />
                 </div>
 
                 {/* Skills Inline List */}
-                <p className="font-sans text-[13.5px] sm:text-[14px] lg:text-[14.5px] text-[#2D2824] leading-relaxed mt-2.5 sm:mt-3">
+                <p className="font-sans text-[13px] sm:text-[13.5px] lg:text-[14px] text-[#2D2824] leading-relaxed mt-2 sm:mt-2.5">
                   {group.skills.map((skill, sIdx) => (
                     <span key={sIdx}>
                       <span className="transition-colors duration-200 hover:text-black">
@@ -133,4 +165,3 @@ export function Skills() {
 }
 
 export default Skills;
-
