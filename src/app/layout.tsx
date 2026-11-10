@@ -5,6 +5,11 @@ import { Navbar } from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Kzelyn Artillo — Marketing & Brand Strategy",
   description: "Minimalist portfolio of Kzelyn Artillo. Marketing-driven, people-focused, and results-oriented brand strategy.",
+  icons: {
+    icon: "/kz-logo.png",
+    shortcut: "/kz-logo.png",
+    apple: "/kz-logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

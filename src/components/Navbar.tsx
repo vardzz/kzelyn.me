@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -99,14 +100,21 @@ export function Navbar() {
         {/* Left Section: 52px Logo + Divider + Nav Links */}
         <div className="flex items-center gap-8 lg:gap-11">
           
-          {/* Logo Badge (52px x 52px, #000000, Bodoni Moda 38px 'K') */}
+          {/* Logo Badge (52px x 52px, /kz-logo.png) */}
           <Link 
             href="#hero" 
             className="flex items-center gap-6 group"
             aria-label="Kzelyn Home"
           >
-            <div className="w-[52px] h-[52px] rounded-full bg-[#000000] text-[#FFFFFF] flex items-center justify-center font-serif text-[38px] font-normal leading-none select-none transition-transform duration-300 group-hover:scale-105 shadow-xs">
-              <span className="translate-y-[-1px]">K</span>
+            <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 shadow-xs relative overflow-hidden bg-white/50 border border-[#A9A39B]/30 p-1">
+              <Image
+                src="/kz-logo.png"
+                alt="Kzelyn Artillo Logo"
+                width={48}
+                height={48}
+                priority
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="hidden sm:block w-20 lg:w-28 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
           </Link>
