@@ -64,6 +64,25 @@ export function Navbar() {
     { label: 'CONTACT', href: '#connect', id: 'connect' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        if (targetId === 'achievements') {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else if (targetId === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        window.history.pushState(null, '', href);
+        setActiveSection(targetId);
+      }
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 transform ${

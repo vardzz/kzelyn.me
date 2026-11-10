@@ -6,10 +6,10 @@ export function Achievement() {
   return (
     <section 
       id="achievements" 
-      className="relative w-full min-h-[calc(100vh-5rem)] flex flex-col justify-center scroll-mt-20 lg:scroll-mt-24 py-12 sm:py-16 lg:py-20 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden"
+      className="relative w-full py-8 sm:py-10 lg:py-12 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-0"
       aria-label="Achievements"
     >
-      <div className="max-w-[1360px] mx-auto w-full relative my-auto">
+      <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
         <div className="flex items-center justify-between mb-8 sm:mb-10 lg:mb-12">
