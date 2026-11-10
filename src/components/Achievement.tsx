@@ -6,7 +6,7 @@ export function Achievement() {
   return (
     <section 
       id="achievements" 
-      className="relative w-full py-20 sm:py-24 lg:py-32 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden"
+      className="relative w-full pt-20 sm:pt-24 lg:pt-32 pb-36 sm:pb-44 lg:pb-56 xl:pb-64 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden"
       aria-label="Achievements"
     >
       <div className="max-w-[1360px] mx-auto w-full relative">
@@ -142,7 +142,7 @@ export function Achievement() {
               </span>
 
               {/* Subtitle */}
-              <p className="font-serif italic text-[17px] sm:text-[19px] lg:text-[20px] font-normal text-[#171513]">
+              <p className="font-serif italic text-[17px] sm:text-[19px] lg:text-[20px] font-normal text-[#171513] pb-1">
                 A Milestone in My Academic Journey
               </p>
             </div>
