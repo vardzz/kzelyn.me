@@ -214,26 +214,26 @@ export function WaveFlowerMeadow() {
       const shape = new THREE.Shape();
       const w = maxHalfWidth;
 
-      // Elegant arched tulip petal outline
+      // Classic rounded tulip petal outline: wide cupped belly, soft rounded tip
       shape.moveTo(0, 0);
-      shape.bezierCurveTo(-w * 0.6, length * 0.22, -w, length * 0.52, -w * 0.85, length * 0.82);
-      shape.bezierCurveTo(-w * 0.55, length * 0.96, -0.3, length * 0.99, 0, length);
-      shape.bezierCurveTo(0.3, length * 0.99, w * 0.55, length * 0.96, w * 0.85, length * 0.82);
-      shape.bezierCurveTo(w, length * 0.52, w * 0.6, length * 0.22, 0, 0);
+      shape.bezierCurveTo(-w * 0.7, length * 0.22, -w, length * 0.52, -w * 0.82, length * 0.78);
+      shape.bezierCurveTo(-w * 0.5, length * 0.94, -0.3, length * 0.99, 0, length);
+      shape.bezierCurveTo(0.3, length * 0.99, w * 0.5, length * 0.94, w * 0.82, length * 0.78);
+      shape.bezierCurveTo(w, length * 0.52, w * 0.7, length * 0.22, 0, 0);
 
       const geom = new THREE.ShapeGeometry(shape, 12);
 
-      // Deform vertices in 3D: longitudinal curve + transversal cup
+      // Deform vertices in 3D: longitudinal bow + transversal cup
       const pos = geom.attributes.position;
       for (let i = 0; i < pos.count; i++) {
         const y = pos.getY(i);
         const x = pos.getX(i);
         const normY = y / length; // 0 to 1
 
-        // Bow outward in the lower belly, curling slightly inward at the top
-        const longitudinalBow = Math.sin(normY * Math.PI * 0.85) * (cupDepth * 1.35);
+        // Bow outward in the belly, curling gently inward at the top
+        const longitudinalBow = Math.sin(normY * Math.PI * 0.85) * (cupDepth * 1.25);
         // Transverse hollow (spoon cup)
-        const transversalCup = (x * x) * (cupDepth * 0.09);
+        const transversalCup = (x * x) * (cupDepth * 0.12);
 
         pos.setZ(i, longitudinalBow - transversalCup);
       }
@@ -242,19 +242,19 @@ export function WaveFlowerMeadow() {
       return geom;
     };
 
-    // Outer Petals: slightly larger, forms the outer chalice wall
-    const outerPetalGeom = createTulipPetalGeometry(12.5, 3.6, 2.2);
+    // Outer Petals: chalice cup
+    const outerPetalGeom = createTulipPetalGeometry(9.8, 3.4, 2.0);
     // Inner Petals: slightly shorter, nested inside
-    const innerPetalGeom = createTulipPetalGeometry(11.8, 3.2, 2.0);
+    const innerPetalGeom = createTulipPetalGeometry(9.2, 3.0, 1.8);
 
     // Tulip Pistil & Stamen Geometries
-    const pistilGeom = new THREE.CylinderGeometry(0.7, 1.1, 3.6, 8);
-    const antherGeom = new THREE.CylinderGeometry(0.28, 0.28, 1.8, 6);
+    const pistilGeom = new THREE.CylinderGeometry(0.6, 0.9, 2.8, 8);
+    const antherGeom = new THREE.CylinderGeometry(0.22, 0.22, 1.4, 6);
 
     // Tulip Foliage: Graceful lanceolate sword-like leaf
     const leafShape = new THREE.Shape();
-    const lLen = 22;
-    const lW = 2.4;
+    const lLen = 16;
+    const lW = 2.0;
     leafShape.moveTo(0, 0);
     leafShape.bezierCurveTo(-lW * 0.6, lLen * 0.25, -lW, lLen * 0.55, 0, lLen);
     leafShape.bezierCurveTo(lW, lLen * 0.55, lW * 0.6, lLen * 0.25, 0, 0);
@@ -266,7 +266,7 @@ export function WaveFlowerMeadow() {
       const y = leafPos.getY(i);
       const x = leafPos.getX(i);
       const normY = y / lLen;
-      const curlZ = Math.sin(normY * Math.PI) * 2.8 - (x * x) * 0.2;
+      const curlZ = Math.sin(normY * Math.PI) * 2.2 - (x * x) * 0.2;
       leafPos.setZ(i, curlZ);
     }
     leafGeom.computeVertexNormals();
@@ -276,24 +276,25 @@ export function WaveFlowerMeadow() {
     // -------------------------------------------------------------
     const tulips: TulipInstance[] = [];
 
-    // 3 depth tiers across the rolling wave:
+    // 3 depth tiers across the rolling wave with well-calibrated, elegant scale bounds:
     // Back ridge: smaller tulips (depthZ: -50)
     // Mid slope: medium tulips (depthZ: 0)
-    // Foreground wave: large hero tulips (depthZ: 50)
+    // Foreground wave: prominent hero tulips (depthZ: 50)
     const depthTiers = [
-      { count: 30, depthZ: -50, yMin: 0.28, yMax: 0.52, scaleMin: 0.75, scaleMax: 1.05 },
-      { count: 40, depthZ: 0, yMin: 0.46, yMax: 0.72, scaleMin: 1.20, scaleMax: 1.65 },
-      { count: 35, depthZ: 50, yMin: 0.60, yMax: 0.88, scaleMin: 1.85, scaleMax: 2.75 },
+      { count: 30, depthZ: -50, yMin: 0.38, yMax: 0.54, scaleMin: 0.65, scaleMax: 0.82 },
+      { count: 40, depthZ: 0, yMin: 0.52, yMax: 0.70, scaleMin: 0.88, scaleMax: 1.12 },
+      { count: 35, depthZ: 50, yMin: 0.66, yMax: 0.88, scaleMin: 1.18, scaleMax: 1.42 },
     ];
 
     depthTiers.forEach((tier) => {
       for (let i = 0; i < tier.count; i++) {
-        const relX = (i + (Math.random() - 0.5) * 0.88) / tier.count;
-        const clampedX = Math.max(0.02, Math.min(0.98, relX));
+        // Natural distribution with safe screen padding away from cutoffs
+        const relX = (i + (Math.random() - 0.5) * 0.85) / tier.count;
+        const clampedX = Math.max(0.04, Math.min(0.94, relX));
 
         // Sine wave crest contour equation
         const crest = 0.32 + 0.16 * Math.sin(clampedX * Math.PI * 3.1);
-        const relY = Math.max(crest * 0.85, tier.yMin + Math.random() * (tier.yMax - tier.yMin));
+        const relY = Math.max(crest * 0.88, tier.yMin + Math.random() * (tier.yMax - tier.yMin));
 
         const palette = tulipPalettes[Math.floor(Math.random() * tulipPalettes.length)];
         const scale = tier.scaleMin + Math.random() * (tier.scaleMax - tier.scaleMin);
@@ -301,9 +302,9 @@ export function WaveFlowerMeadow() {
         // Tulip Root Group
         const tulipGroup = new THREE.Group();
 
-        // 3D Smooth Tulip Stem
-        const stemLength = (18 + Math.random() * 20) * (scale * 0.55);
-        const stemRadius = 0.58 * (scale * 0.5);
+        // 3D Smooth Tulip Stem in base units (so scale is not doubled)
+        const stemLength = 13 + Math.random() * 6;
+        const stemRadius = 0.48;
         const stemGeom = new THREE.CylinderGeometry(stemRadius * 0.85, stemRadius * 1.15, stemLength, 10);
         stemGeom.translate(0, stemLength / 2, 0);
         const stemMesh = new THREE.Mesh(stemGeom, stemMaterial);
@@ -313,10 +314,9 @@ export function WaveFlowerMeadow() {
         let leafMesh: THREE.Mesh | undefined;
         if (Math.random() > 0.25) {
           leafMesh = new THREE.Mesh(leafGeom, leafMaterial);
-          leafMesh.position.set(0, stemLength * 0.15, 0);
-          leafMesh.rotation.z = (Math.random() > 0.5 ? 1 : -1) * (0.35 + Math.random() * 0.35);
+          leafMesh.position.set(0, stemLength * 0.18, 0);
+          leafMesh.rotation.z = (Math.random() > 0.5 ? 1 : -1) * (0.32 + Math.random() * 0.3);
           leafMesh.rotation.y = (Math.random() - 0.5) * 0.6;
-          leafMesh.scale.setScalar(scale * 0.65);
           tulipGroup.add(leafMesh);
         }
 
@@ -334,8 +334,7 @@ export function WaveFlowerMeadow() {
           pivot.rotation.y = (p * Math.PI * 2) / 3;
 
           const mesh = new THREE.Mesh(outerPetalGeom, palette.petal);
-          // Positioned slightly off-center radially
-          mesh.position.set(0, 0, 1.2);
+          mesh.position.set(0, 0, 1.0);
           pivot.add(mesh);
 
           // Initial bud tilt: slightly folded inward
@@ -351,7 +350,7 @@ export function WaveFlowerMeadow() {
           pivot.rotation.y = (p * Math.PI * 2) / 3 + Math.PI / 3;
 
           const mesh = new THREE.Mesh(innerPetalGeom, palette.petal);
-          mesh.position.set(0, 0, 0.9);
+          mesh.position.set(0, 0, 0.75);
           pivot.add(mesh);
 
           pivot.rotation.x = THREE.MathUtils.degToRad(4);
@@ -362,20 +361,20 @@ export function WaveFlowerMeadow() {
 
         // Center Pistil inside the cup
         const pistilMesh = new THREE.Mesh(pistilGeom, pistilMaterial);
-        pistilMesh.position.set(0, 1.8, 0);
+        pistilMesh.position.set(0, 1.4, 0);
         headGroup.add(pistilMesh);
 
         // 6 Dark Stamens around the pistil
         for (let s = 0; s < 6; s++) {
           const sAngle = (s * Math.PI * 2) / 6;
           const antherMesh = new THREE.Mesh(antherGeom, antherMaterial);
-          antherMesh.position.set(Math.cos(sAngle) * 1.0, 2.0, Math.sin(sAngle) * 1.0);
+          antherMesh.position.set(Math.cos(sAngle) * 0.8, 1.6, Math.sin(sAngle) * 0.8);
           headGroup.add(antherMesh);
         }
 
         // Natural organic tilt facing camera/viewer
-        headGroup.rotation.x = THREE.MathUtils.degToRad(-15 + (Math.random() - 0.5) * 18);
-        headGroup.rotation.y = (Math.random() - 0.5) * 0.4;
+        headGroup.rotation.x = THREE.MathUtils.degToRad(-15 + (Math.random() - 0.5) * 16);
+        headGroup.rotation.y = (Math.random() - 0.5) * 0.35;
         headGroup.rotation.z = (Math.random() - 0.5) * 0.2;
 
         tulipGroup.add(headGroup);
@@ -407,7 +406,7 @@ export function WaveFlowerMeadow() {
           stemLength,
           swaySpeed: 0.02 + Math.random() * 0.02,
           swayPhase: Math.random() * Math.PI * 2,
-          swayAmp: 0.06 + Math.random() * 0.06,
+          swayAmp: 0.05 + Math.random() * 0.05,
           visibility: 0,
         });
       }
