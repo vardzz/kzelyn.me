@@ -613,7 +613,7 @@ export function WaveFlowerMeadow() {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 w-full h-full z-20 pointer-events-auto cursor-crosshair select-none overflow-hidden"
+      className="absolute inset-0 w-full h-full z-20 pointer-events-auto cursor-default select-none overflow-hidden"
     >
       <canvas
         ref={canvasRef}
