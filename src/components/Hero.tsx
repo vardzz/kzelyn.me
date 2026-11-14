@@ -50,7 +50,7 @@ export function Hero() {
 
         {/* Main Headline: Exactly 3 lines, Boska Medium Thin (350), medium editorial size */}
         <h1 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] xl:text-[45px] font-[350] leading-[1.14] text-white md:text-[#171513] tracking-[-0.02em] mb-4 lg:mb-5">
-          Hello, I&apos;m <strong className="font-[600] text-white md:text-[#171513]">Kzelyn.</strong><br />
+          Hello, I&apos;m <strong className="font-[600] text-white md:text-[#171513]">Kz.</strong><br />
           Crafting brands with<br />
           purpose &amp; care.
         </h1>
