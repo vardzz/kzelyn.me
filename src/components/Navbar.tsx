@@ -100,19 +100,19 @@ export function Navbar() {
         !ready || hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
       } ${
         scrolled 
-          ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
+          ? 'bg-[#F3EFE9]/90 backdrop-blur-md py-4' 
           : 'bg-transparent py-6'
       } px-[4.5vw]`}
     >
       <div className="w-full flex items-center justify-between">
         
-        {/* Left Section: 52px Logo + Divider + Nav Links */}
+        {/* Left Section: 52px Logo + Nav Links */}
         <div className="flex items-center gap-8 lg:gap-11">
           
           {/* Logo Badge (/kz-logo.png) */}
           <Link 
             href="#hero" 
-            className="flex items-center gap-6 group"
+            className="flex items-center group"
             aria-label="Kzelyn Home"
           >
             <div className="w-[52px] h-[52px] flex items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 relative">
@@ -125,7 +125,6 @@ export function Navbar() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="hidden sm:block w-20 lg:w-28 h-[1px] bg-[#A9A39B]" aria-hidden="true" />
           </Link>
 
           {/* Desktop Nav Links (Inter 13px, gap 40-44px) */}
