@@ -5,11 +5,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export function Navbar() {
+  const [ready, setReady] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
+
+  // Initial 3-second opening delay matching hero portrait spotlight
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setReady(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,8 +96,8 @@ export function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 transform ${
-        hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-700 transform ${
+        !ready || hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
       } ${
         scrolled 
           ? 'bg-[#F3EFE9]/95 backdrop-blur-md border-b border-[#A9A39B]/40 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
