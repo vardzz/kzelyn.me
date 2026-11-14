@@ -1,16 +1,96 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
+  const containerRef = useRef<HTMLElement | null>(null);
+  const nameSpansRef = useRef<HTMLDivElement | null>(null);
+  const portraitRef = useRef<HTMLDivElement | null>(null);
+  const introRef = useRef<HTMLDivElement | null>(null);
+  const indicatorRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      // 1. Initial Hero Entrance Animation
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (nameSpansRef.current) {
+        const letters = nameSpansRef.current.children;
+        tl.from(letters, {
+          y: 45,
+          opacity: 0,
+          stagger: 0.07,
+          duration: 1.1,
+        }, 0.1);
+      }
+
+      if (portraitRef.current) {
+        tl.from(portraitRef.current, {
+          y: 65,
+          opacity: 0,
+          duration: 1.3,
+        }, 0.2);
+      }
+
+      if (introRef.current) {
+        const items = introRef.current.children;
+        tl.from(items, {
+          y: 30,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 1.0,
+        }, 0.35);
+      }
+
+      if (indicatorRef.current) {
+        tl.from(indicatorRef.current, {
+          x: 25,
+          opacity: 0,
+          duration: 1.0,
+        }, 0.6);
+      }
+
+      // 2. Parallax Depth on Scroll away from Hero
+      if (containerRef.current) {
+        const scrollTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        });
+
+        if (nameSpansRef.current) {
+          scrollTl.to(nameSpansRef.current, { y: -70, opacity: 0.25, ease: 'none' }, 0);
+        }
+        if (portraitRef.current) {
+          scrollTl.to(portraitRef.current, { y: 55, ease: 'none' }, 0);
+        }
+        if (introRef.current) {
+          scrollTl.to(introRef.current, { y: -40, opacity: 0.15, ease: 'none' }, 0);
+        }
+      }
+    },
+    { scope: containerRef }
+  );
+
   return (
     <section 
+      ref={containerRef}
       id="hero" 
       className="relative w-full h-[100svh] min-h-[580px] max-h-[1100px] bg-[#F3EFE9] text-[#171513] overflow-hidden select-none"
       aria-label="Hero Section"
     >
       {/* 1. Oversized Typography: KZELYN (Single Horizontal Line across the upper portion) */}
       <div 
+        ref={nameSpansRef}
         className="absolute top-[72px] sm:top-[76px] lg:top-[80px] xl:top-[84px] left-0 right-0 w-full px-[4.5vw] flex justify-between items-baseline font-serif text-[17.5vw] xl:text-[220px] 2xl:text-[235px] font-[350] leading-none tracking-[-0.05em] text-[#171513] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
@@ -24,6 +104,7 @@ export function Hero() {
 
       {/* 2. Portrait Cutout: /kzelyn-image.png (Enlarged so it encompasses the whole 'L', resting at bottom: 0) */}
       <div 
+        ref={portraitRef}
         className="pointer-events-none z-10 absolute bottom-0 left-[58%] -translate-x-1/2 h-[97vh] sm:h-[98vh] max-h-[1050px] w-auto flex items-end justify-center select-none"
       >
         <Image
@@ -38,8 +119,10 @@ export function Hero() {
       </div>
 
       {/* 3. Left-Side Introduction (Harmonious UI/UX spacing and visual hierarchy) */}
-      <div className="absolute top-[clamp(215px,44vh,365px)] left-[4.5vw] right-[4.5vw] md:right-auto z-20 w-auto md:w-[540px] max-w-[560px] flex flex-col items-start text-left">
-        
+      <div 
+        ref={introRef}
+        className="absolute top-[clamp(215px,44vh,365px)] left-[4.5vw] right-[4.5vw] md:right-auto z-20 w-auto md:w-[540px] max-w-[560px] flex flex-col items-start text-left"
+      >
         {/* Small Introductory Label with Horizontal Line */}
         <div className="flex items-center gap-3.5 mb-3.5 lg:mb-4">
           <p className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-medium tracking-[0.05em] uppercase text-white md:text-[#171513]/90 whitespace-nowrap">
@@ -82,10 +165,11 @@ export function Hero() {
 
       </div>
 
-
-
       {/* 5. Right-Side Information Indicator (Middle-Right of the Hero) */}
-      <div className="hidden lg:flex absolute top-[52%] -translate-y-1/2 right-[4.5vw] z-20 flex-col items-start text-left">
+      <div 
+        ref={indicatorRef}
+        className="hidden lg:flex absolute top-[52%] -translate-y-1/2 right-[4.5vw] z-20 flex-col items-start text-left"
+      >
         <div className="border-l border-[#A9A39B] pl-5 max-w-[180px]">
           <p className="font-sans text-[13px] text-[#77716A] leading-[1.6] max-w-[165px]">
             Turning ideas into strategies, and strategies into something greater.

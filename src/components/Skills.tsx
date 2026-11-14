@@ -1,6 +1,108 @@
 'use client';
 
+import { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export function Skills() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const topBarRef = useRef<HTMLDivElement | null>(null);
+  const leftColRef = useRef<HTMLDivElement | null>(null);
+  const watermarkRef = useRef<HTMLSpanElement | null>(null);
+  const categoriesRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // 1. Top bar reveal
+      if (topBarRef.current) {
+        gsap.fromTo(
+          topBarRef.current,
+          { opacity: 0, y: -20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 2. Left Column Headline & Narrative
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 3. Giant Watermark 'S'
+      if (watermarkRef.current) {
+        gsap.fromTo(
+          watermarkRef.current,
+          { opacity: 0, scale: 0.88 },
+          {
+            opacity: 0.045,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 4. Right Column 5 Skill Categories (Staggered Cascade)
+      if (categoriesRef.current) {
+        const groups = categoriesRef.current.children;
+        gsap.fromTo(
+          groups,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.09,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 78%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
+
   const skillCategories = [
     {
       category: 'Administrative & Executive Support',
@@ -54,6 +156,7 @@ export function Skills() {
 
   return (
     <section 
+      ref={sectionRef}
       id="skills" 
       className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24"
       aria-label="Skills & Competencies"
@@ -61,7 +164,7 @@ export function Skills() {
       <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
-        <div className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
+        <div ref={topBarRef} className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
           {/* Left: SKILLS + Hairline */}
           <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
@@ -89,10 +192,11 @@ export function Skills() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-stretch relative">
           
           {/* ========== LEFT COLUMN: GIANT TITLE, WATERMARK & SUMMARY ========== */}
-          <div className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
+          <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
             
             {/* Giant Watermark Serif 'S' in Background */}
             <span 
+              ref={watermarkRef}
               className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[280px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
               aria-hidden="true"
             >
@@ -114,7 +218,10 @@ export function Skills() {
           </div>
 
           {/* ========== RIGHT COLUMN: 5 SKILL CATEGORIES WITH DIVIDERS ========== */}
-          <div className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14 space-y-7 sm:space-y-8 lg:space-y-9">
+          <div 
+            ref={categoriesRef}
+            className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14 space-y-7 sm:space-y-8 lg:space-y-9"
+          >
             {skillCategories.map((group, idx) => (
               <div key={idx} className="group">
                 {/* Category Header + Horizontal Rule */}

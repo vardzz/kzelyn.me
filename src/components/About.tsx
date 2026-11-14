@@ -1,10 +1,66 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function About() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const starburstRef = useRef<SVGSVGElement | null>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      const cards = sectionRef.current.querySelectorAll('.bento-item');
+
+      gsap.fromTo(
+        cards,
+        {
+          y: 45,
+          opacity: 0,
+          scale: 0.97,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.95,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 82%',
+            end: 'bottom top',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
+
+      // Starburst rotation linked to scroll
+      if (starburstRef.current) {
+        gsap.to(starburstRef.current, {
+          rotation: 180,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2,
+          },
+        });
+      }
+    },
+    { scope: sectionRef }
+  );
+
   return (
     <section 
+      ref={sectionRef}
       id="about" 
       className="py-28 sm:py-36 lg:py-44 px-[4.5vw] w-full bg-[#F3EFE9] text-[#171513] select-none"
       aria-label="About Kzelyn Artillo"
@@ -24,7 +80,7 @@ export function About() {
           <div className="lg:col-span-7 flex flex-col justify-between gap-5">
             
             {/* CARD 1: Wordmark Feature Card (360px on desktop) */}
-            <div className="lg:h-[360px] p-8 sm:p-10 rounded-[30px] sm:rounded-[34px] bg-[#171513] text-[#F3EFE9] flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-white/5">
+            <div className="bento-item lg:h-[360px] p-8 sm:p-10 rounded-[30px] sm:rounded-[34px] bg-[#171513] text-[#F3EFE9] flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-white/5">
               {/* Top metadata tags */}
               <div className="flex items-center justify-between text-[11px] tracking-[0.2em] uppercase text-[#A9A39B] font-sans">
                 <span>VERSION 1.0 — ARCHIVE</span>
@@ -48,7 +104,7 @@ export function About() {
             </div>
 
             {/* CARD 2: Real Metric & Strategic Insight Card (240px on desktop) */}
-            <div className="lg:h-[240px] p-7 sm:p-8 rounded-[30px] sm:rounded-[34px] bg-[#FFFFFF] border border-[#A9A39B]/30 text-[#171513] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+            <div className="bento-item lg:h-[240px] p-7 sm:p-8 rounded-[30px] sm:rounded-[34px] bg-[#FFFFFF] border border-[#A9A39B]/30 text-[#171513] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
               <div className="flex items-start justify-between">
                 <div>
                   <div className="flex items-baseline gap-3">
@@ -79,7 +135,7 @@ export function About() {
             </div>
 
             {/* CARD 3: Split Subgrid (190px on desktop) */}
-            <div className="lg:h-[190px] grid grid-cols-1 sm:grid-cols-12 gap-5">
+            <div className="bento-item lg:h-[190px] grid grid-cols-1 sm:grid-cols-12 gap-5">
               
               {/* CARD 3A: Total Campaigns Led / Supported (7 Cols) */}
               <div className="sm:col-span-7 p-6 sm:p-7 rounded-[28px] bg-[#EAE5DD] border border-[#A9A39B]/30 flex flex-col justify-between transition-all duration-300 hover:shadow-xs">
@@ -98,9 +154,10 @@ export function About() {
 
               {/* CARD 3B: Iconic Floral Starburst Asterisk (5 Cols) */}
               <div className="sm:col-span-5 p-6 rounded-[28px] bg-[#171513] text-[#F3EFE9] flex items-center justify-center group overflow-hidden transition-all duration-300 hover:shadow-md border border-white/5 min-h-[140px] sm:min-h-0">
-                {/* 8-Petal Geometric Floral Starburst SVG (matching the reference motif) */}
+                {/* 8-Petal Geometric Floral Starburst SVG */}
                 <svg 
-                  className="w-14 h-14 sm:w-16 sm:h-16 text-[#AE6965] group-hover:text-[#F3EFE9] group-hover:rotate-45 transition-all duration-700 ease-out" 
+                  ref={starburstRef}
+                  className="w-14 h-14 sm:w-16 sm:h-16 text-[#AE6965] group-hover:text-[#F3EFE9] transition-colors duration-500" 
                   viewBox="0 0 100 100" 
                   fill="currentColor"
                   aria-hidden="true"
@@ -124,7 +181,7 @@ export function About() {
             </div>
 
             {/* CARD 4: Wide Pill Card (80px on desktop) */}
-            <div className="min-h-[72px] lg:h-[80px] rounded-[24px] sm:rounded-full bg-[#FFFFFF] border border-[#A9A39B]/30 px-5 sm:px-8 py-3.5 flex items-center justify-between gap-3 transition-all duration-300 hover:border-[#171513]/40 shadow-xs">
+            <div className="bento-item min-h-[72px] lg:h-[80px] rounded-[24px] sm:rounded-full bg-[#FFFFFF] border border-[#A9A39B]/30 px-5 sm:px-8 py-3.5 flex items-center justify-between gap-3 transition-all duration-300 hover:border-[#171513]/40 shadow-xs">
               <div className="flex items-center gap-3.5 min-w-0">
                 <div className="w-8 h-8 rounded-full bg-[#171513] text-[#F3EFE9] flex items-center justify-center text-[12px] shrink-0" aria-hidden="true">
                   ✦
@@ -153,7 +210,7 @@ export function About() {
           <div className="lg:col-span-5 flex flex-col justify-between gap-5">
             
             {/* CARD A: Editorial Portrait Card (360px on desktop - EXACTLY matches Card 1) */}
-            <div className="lg:h-[360px] rounded-[30px] sm:rounded-[34px] overflow-hidden relative aspect-[4/4.5] sm:aspect-auto bg-[#EAE5DD] border border-[#A9A39B]/30 group transition-all duration-300 hover:shadow-xl">
+            <div className="bento-item lg:h-[360px] rounded-[30px] sm:rounded-[34px] overflow-hidden relative aspect-[4/4.5] sm:aspect-auto bg-[#EAE5DD] border border-[#A9A39B]/30 group transition-all duration-300 hover:shadow-xl">
               <Image
                 src="/kz-pic.png"
                 alt="Kzelyn Artillo - Marketer"
@@ -188,8 +245,7 @@ export function About() {
             </div>
 
             {/* CARD B: Terracotta Guiding Principle Card (330px on desktop) */}
-            {/* Matching the red cap feature card from the reference image */}
-            <div className="lg:h-[330px] p-8 sm:p-9 rounded-[30px] sm:rounded-[34px] bg-[#AE6965] text-[#FFFFFF] flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-xl">
+            <div className="bento-item lg:h-[330px] p-8 sm:p-9 rounded-[30px] sm:rounded-[34px] bg-[#AE6965] text-[#FFFFFF] flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-xl">
               {/* Subtle ambient luxury light bloom */}
               <div className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-white/10 blur-2xl pointer-events-none" />
 
@@ -213,8 +269,8 @@ export function About() {
               </div>
             </div>
 
-            {/* CARD C: Audience Impact & Survey Research Card (200px on desktop - EXACTLY aligns bottom with Card 4!) */}
-            <div className="lg:h-[200px] p-7 sm:p-8 rounded-[30px] sm:rounded-[34px] bg-[#171513] text-[#F3EFE9] flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-white/5">
+            {/* CARD C: Audience Impact & Survey Research Card (200px on desktop) */}
+            <div className="bento-item lg:h-[200px] p-7 sm:p-8 rounded-[30px] sm:rounded-[34px] bg-[#171513] text-[#F3EFE9] flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-white/5">
               <div className="flex items-start justify-between">
                 <div>
                   <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#A9A39B] font-medium block">
@@ -247,7 +303,7 @@ export function About() {
                   Informed competitive benchmarking &amp; customer persona mapping for data-driven campaign rollouts.
                 </p>
 
-                {/* Minimalist Segmented Indicator Bar (Direct reference match) */}
+                {/* Minimalist Segmented Indicator Bar */}
                 <div className="flex items-center gap-1.5 w-full">
                   <div className="h-[2px] flex-1 bg-[#F3EFE9] rounded-full" />
                   <div className="h-[2px] flex-1 bg-white/20 rounded-full" />

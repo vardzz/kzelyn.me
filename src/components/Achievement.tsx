@@ -1,10 +1,132 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Achievement() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const topBarRef = useRef<HTMLDivElement | null>(null);
+  const leftColRef = useRef<HTMLDivElement | null>(null);
+  const centerColRef = useRef<HTMLAnchorElement | null>(null);
+  const ringsRef = useRef<HTMLDivElement | null>(null);
+  const rightColRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // 1. Top bar
+      if (topBarRef.current) {
+        gsap.fromTo(
+          topBarRef.current,
+          { opacity: 0, y: -20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 2. Left Column
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 3. Concentric Rings Aura
+      if (ringsRef.current) {
+        gsap.fromTo(
+          ringsRef.current,
+          { opacity: 0, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 4. Center Certificate Document Frame
+      if (centerColRef.current) {
+        gsap.fromTo(
+          centerColRef.current,
+          { opacity: 0, y: 45, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.05,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 78%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 5. Right Column Credentials
+      if (rightColRef.current) {
+        gsap.fromTo(
+          rightColRef.current,
+          { opacity: 0, x: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 78%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
+
   return (
     <section 
+      ref={sectionRef}
       id="achievements" 
       className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-0"
       aria-label="Achievements"
@@ -12,7 +134,7 @@ export function Achievement() {
       <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
-        <div className="flex items-center justify-between mb-8 sm:mb-10 lg:mb-12">
+        <div ref={topBarRef} className="flex items-center justify-between mb-8 sm:mb-10 lg:mb-12">
           {/* Left: ACHIEVEMENTS + Hairline */}
           <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
@@ -40,7 +162,7 @@ export function Achievement() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
           
           {/* ========== LEFT COLUMN ========== */}
-          <div className="lg:col-span-4 flex flex-col justify-between self-stretch z-10">
+          <div ref={leftColRef} className="lg:col-span-4 flex flex-col justify-between self-stretch z-10">
             <div>
               {/* Eyebrow */}
               <p className="font-serif italic text-[18px] sm:text-[22px] lg:text-[24px] font-normal text-[#171513] leading-none mb-2 sm:mb-2.5">
@@ -67,6 +189,7 @@ export function Achievement() {
             
             {/* Concentric Circular Rings in Background */}
             <div 
+              ref={ringsRef}
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10 flex items-center justify-center" 
               aria-hidden="true"
             >
@@ -78,6 +201,7 @@ export function Achievement() {
 
             {/* Document Frame (Clickable Link to Official Announcement) */}
             <a
+              ref={centerColRef}
               href="https://www.facebook.com/share/1CnJRVNJTv/"
               target="_blank"
               rel="noopener noreferrer"
@@ -105,7 +229,7 @@ export function Achievement() {
           </div>
 
           {/* ========== RIGHT COLUMN ========== */}
-          <div className="lg:col-span-4 flex flex-col justify-between self-stretch z-10 lg:pl-4 xl:pl-6">
+          <div ref={rightColRef} className="lg:col-span-4 flex flex-col justify-between self-stretch z-10 lg:pl-4 xl:pl-6">
             
             {/* Top Block with Left Vertical Hairline */}
             <div className="border-l border-[#A9A39B]/55 pl-5 sm:pl-6">

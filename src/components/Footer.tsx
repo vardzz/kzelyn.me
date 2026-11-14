@@ -1,9 +1,44 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { WaveFlowerMeadow } from './WaveFlowerMeadow';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export function Footer() {
+  const footerRef = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      if (!footerRef.current || !contentRef.current) return;
+
+      const children = contentRef.current.children;
+      gsap.fromTo(
+        children,
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 85%',
+            end: 'bottom top',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
+    },
+    { scope: footerRef }
+  );
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -34,6 +69,7 @@ export function Footer() {
 
   return (
     <footer 
+      ref={footerRef}
       id="footer"
       className="w-full bg-[#121110] text-[#F3EFE9] pt-20 sm:pt-24 lg:pt-32 pb-0 relative overflow-hidden select-none border-t border-white/[0.08]"
       aria-label="Site Footer"
@@ -42,7 +78,7 @@ export function Footer() {
       {/* 1. TOP HEADER & MULTI-COLUMN NAVIGATION                 */}
       {/* ======================================================== */}
       <div className="max-w-[1240px] mx-auto px-[4.5vw] w-full z-20 relative pb-4 sm:pb-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
+        <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           
           {/* Brand Identity & Mission (Left 5 cols) */}
           <div className="md:col-span-5 flex flex-col justify-between items-start">

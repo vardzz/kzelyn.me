@@ -1,8 +1,129 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Connect() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const topBarRef = useRef<HTMLDivElement | null>(null);
+  const leftColRef = useRef<HTMLDivElement | null>(null);
+  const watermarkRef = useRef<HTMLSpanElement | null>(null);
+  const channelsRef = useRef<HTMLDivElement | null>(null);
+  const formRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // 1. Top bar
+      if (topBarRef.current) {
+        gsap.fromTo(
+          topBarRef.current,
+          { opacity: 0, y: -20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 2. Left Column Title & Copy
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 3. Giant Watermark 'C'
+      if (watermarkRef.current) {
+        gsap.fromTo(
+          watermarkRef.current,
+          { opacity: 0, scale: 0.88 },
+          {
+            opacity: 0.045,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 4. Direct Channels List
+      if (channelsRef.current) {
+        const channels = channelsRef.current.children;
+        gsap.fromTo(
+          channels,
+          { opacity: 0, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 75%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
+      // 5. Right Column Form Spread
+      if (formRef.current) {
+        gsap.fromTo(
+          formRef.current,
+          { opacity: 0, y: 45 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 78%',
+              end: 'bottom top',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
@@ -33,6 +154,7 @@ export function Connect() {
 
   return (
     <section 
+      ref={sectionRef}
       id="connect" 
       className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#F3EFE9] text-[#171513] overflow-hidden scroll-mt-20 lg:scroll-mt-24 select-none"
       aria-label="Connect and Contact"
@@ -40,7 +162,7 @@ export function Connect() {
       <div className="max-w-[1360px] mx-auto w-full relative">
         
         {/* ================= TOP BAR ================= */}
-        <div className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
+        <div ref={topBarRef} className="flex items-center justify-between mb-8 sm:mb-12 lg:mb-16">
           {/* Left: CONTACT + Hairline */}
           <div className="flex items-center gap-3 sm:gap-6 flex-1 pr-4 sm:pr-6">
             <span className="font-sans font-medium text-[11px] sm:text-[12px] tracking-[0.24em] text-[#171513] uppercase select-none shrink-0">
@@ -68,10 +190,11 @@ export function Connect() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-stretch relative">
           
           {/* ========== LEFT COLUMN: GIANT TITLE, WATERMARK & CHANNELS ========== */}
-          <div className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
+          <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-between relative z-10 pr-0 lg:pr-6">
             
             {/* Giant Watermark Serif 'C' in Background */}
             <span 
+              ref={watermarkRef}
               className="absolute -left-6 sm:left-0 top-[46%] -translate-y-1/2 font-serif text-[280px] sm:text-[460px] lg:text-[520px] xl:text-[580px] font-normal leading-none text-[#171513]/[0.045] select-none pointer-events-none -z-10" 
               aria-hidden="true"
             >
@@ -91,7 +214,7 @@ export function Connect() {
             </div>
 
             {/* Direct Channels Section */}
-            <div className="pt-8 sm:pt-14 space-y-4">
+            <div ref={channelsRef} className="pt-8 sm:pt-14 space-y-4">
               {/* Email */}
               <div className="flex items-center justify-between py-2.5 border-b border-[#A9A39B]/35 group gap-2">
                 <div className="min-w-0">
@@ -150,8 +273,10 @@ export function Connect() {
           </div>
 
           {/* ========== RIGHT COLUMN: EDITORIAL FORM SPREAD ========== */}
-          <div className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14">
-            
+          <div 
+            ref={formRef}
+            className="lg:col-span-7 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#A9A39B]/55 pt-8 lg:pt-2 pb-2 pl-0 lg:pl-10 xl:pl-14"
+          >
             {formSubmitted ? (
               /* Success State */
               <div className="py-16 text-center space-y-4 my-auto">
